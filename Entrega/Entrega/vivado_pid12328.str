@@ -1522,3 +1522,12 @@ selectCodeEditor("pwm.vhd", 137, 183); // bI:J (JPanel:JComponent, cg:JFrame)
 // TclEventType: DG_ANALYSIS_MSG_RESET
 selectCodeEditor("pwm.vhd", 27, 254); // bI:J (JPanel:JComponent, cg:JFrame)
 // TclEventType: DG_GRAPH_GENERATED
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_GRAPH_GENERATED
+// Elapsed time: 623 seconds
+selectCodeEditor("pwm.vhd", 281, 227); // bI:J (JPanel:JComponent, cg:JFrame)
+selectCodeEditor("pwm.vhd", 244, 231); // bI:J (JPanel:JComponent, cg:JFrame)
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
