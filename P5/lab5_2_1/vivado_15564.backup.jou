@@ -1,0 +1,15 @@
+#-----------------------------------------------------------
+# Vivado v2017.2 (64-bit)
+# SW Build 1909853 on Thu Jun 15 18:39:09 MDT 2017
+# IP Build 1909766 on Thu Jun 15 19:58:00 MDT 2017
+# Start of session at: Wed Nov 22 17:02:14 2017
+# Process ID: 15564
+# Current directory: D:/DSED_G1/P5/lab5_2_1
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent16160 D:\DSED_G1\P5\lab5_2_1\lab5_2_1.xpr
+# Log file: D:/DSED_G1/P5/lab5_2_1/vivado.log
+# Journal file: D:/DSED_G1/P5/lab5_2_1\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project D:/DSED_G1/P5/lab5_2_1/lab5_2_1.xpr
+update_compile_order -fileset sources_1
+launch_simulation

@@ -1,0 +1,30 @@
+#-----------------------------------------------------------
+# Vivado v2017.2 (64-bit)
+# SW Build 1909853 on Thu Jun 15 18:39:09 MDT 2017
+# IP Build 1909766 on Thu Jun 15 19:58:00 MDT 2017
+# Start of session at: Wed Nov  8 11:56:17 2017
+# Process ID: 3472
+# Current directory: C:/Users/fpga/DSED_G1/P4/lab4_2_1
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent3248 C:\Users\fpga\DSED_G1\P4\lab4_2_1\lab4_2_1.xpr
+# Log file: C:/Users/fpga/DSED_G1/P4/lab4_2_1/vivado.log
+# Journal file: C:/Users/fpga/DSED_G1/P4/lab4_2_1\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project C:/Users/fpga/DSED_G1/P4/lab4_2_1/lab4_2_1.xpr
+Scanning sources...
+Finished scanning sources
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2017.2/data/ip'.
+open_project: Time (s): cpu = 00:00:12 ; elapsed = 00:00:05 . Memory (MB): peak = 818.371 ; gain = 66.629
+open_project C:/Users/fpga/DSED_G1/P4/lab4_1_1/lab4_1_1.xpr
+Scanning sources...
+Finished scanning sources
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2017.2/data/ip'.
+update_compile_order -fileset sources_1
+reset_run impl_1 -prev_step 
+launch_runs impl_1 -to_step write_bitstream
+[Wed Nov  8 12:01:02 2017] Launched impl_1...
+Run output will be captured here: C:/Users/fpga/DSED_G1/P4/lab4_1_1/lab4_1_1.runs/impl_1/runme.log

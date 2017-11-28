@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Vivado v2017.2 (64-bit)
+# SW Build 1909853 on Thu Jun 15 18:39:09 MDT 2017
+# IP Build 1909766 on Thu Jun 15 19:58:00 MDT 2017
+# Start of session at: Tue Oct  3 12:39:28 2017
+# Process ID: 5956
+# Current directory: C:/Users/fpga/DSED_G1/P2/lab2_1_3/lab2_1_3.runs/synth_1
+# Command line: vivado.exe -log lab2_1_3.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source lab2_1_3.tcl
+# Log file: C:/Users/fpga/DSED_G1/P2/lab2_1_3/lab2_1_3.runs/synth_1/lab2_1_3.vds
+# Journal file: C:/Users/fpga/DSED_G1/P2/lab2_1_3/lab2_1_3.runs/synth_1\vivado.jou
+#-----------------------------------------------------------
+source lab2_1_3.tcl -notrace

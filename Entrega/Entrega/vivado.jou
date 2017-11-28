@@ -1,0 +1,13 @@
+#-----------------------------------------------------------
+# Vivado v2017.2 (64-bit)
+# SW Build 1909853 on Thu Jun 15 18:39:09 MDT 2017
+# IP Build 1909766 on Thu Jun 15 19:58:00 MDT 2017
+# Start of session at: Tue Nov 28 12:35:21 2017
+# Process ID: 12108
+# Current directory: D:/DSED_G1/Entrega/Entrega
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent12532 D:\DSED_G1\Entrega\Entrega\Entrega.xpr
+# Log file: D:/DSED_G1/Entrega/Entrega/vivado.log
+# Journal file: D:/DSED_G1/Entrega/Entrega\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project D:/DSED_G1/Entrega/Entrega/Entrega.xpr

@@ -1,0 +1,4 @@
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/fpga/DSED_G1/P2/lab6_1_6/lab6_1_6.srcs/sources_1/imports/new/lab1_6_1_partA.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity lab1_6_1_partA
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/fpga/DSED_G1/P2/lab6_1_6/lab6_1_6.srcs/sources_1/imports/P2/Archivos sesión 2-20170920/lab1_6_1_partA_tb.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity lab1_6_1_partA_tb

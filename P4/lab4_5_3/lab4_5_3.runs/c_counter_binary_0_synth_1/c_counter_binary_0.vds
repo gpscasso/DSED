@@ -1,0 +1,43 @@
+#-----------------------------------------------------------
+# Vivado v2017.2 (64-bit)
+# SW Build 1909853 on Thu Jun 15 18:39:09 MDT 2017
+# IP Build 1909766 on Thu Jun 15 19:58:00 MDT 2017
+# Start of session at: Wed Nov 15 13:40:36 2017
+# Process ID: 2280
+# Current directory: C:/Users/fpga/LCSE_Grupo12/p5/lab4_5_3/lab4_5_3.runs/c_counter_binary_0_synth_1
+# Command line: vivado.exe -log c_counter_binary_0.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source c_counter_binary_0.tcl
+# Log file: C:/Users/fpga/LCSE_Grupo12/p5/lab4_5_3/lab4_5_3.runs/c_counter_binary_0_synth_1/c_counter_binary_0.vds
+# Journal file: C:/Users/fpga/LCSE_Grupo12/p5/lab4_5_3/lab4_5_3.runs/c_counter_binary_0_synth_1\vivado.jou
+#-----------------------------------------------------------
+source c_counter_binary_0.tcl -notrace
+Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 333.664 ; gain = 79.949
+INFO: [Synth 8-638] synthesizing module 'c_counter_binary_0' [c:/Users/fpga/LCSE_Grupo12/p5/lab4_5_3/lab4_5_3.srcs/sources_1/ip/c_counter_binary_0/synth/c_counter_binary_0.vhd:69]
+INFO: [Synth 8-256] done synthesizing module 'c_counter_binary_0' (7#1) [c:/Users/fpga/LCSE_Grupo12/p5/lab4_5_3/lab4_5_3.srcs/sources_1/ip/c_counter_binary_0/synth/c_counter_binary_0.vhd:69]
+Finished RTL Elaboration : Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 384.137 ; gain = 130.422
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 384.137 ; gain = 130.422
+INFO: [Device 21-403] Loading part xc7a100tcsg324-1
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.013 . Memory (MB): peak = 598.051 ; gain = 0.000
+Finished Constraint Validation : Time (s): cpu = 00:00:17 ; elapsed = 00:00:18 . Memory (MB): peak = 598.051 ; gain = 344.336
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:17 ; elapsed = 00:00:18 . Memory (MB): peak = 598.051 ; gain = 344.336
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:17 ; elapsed = 00:00:18 . Memory (MB): peak = 598.051 ; gain = 344.336
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:18 ; elapsed = 00:00:19 . Memory (MB): peak = 598.051 ; gain = 344.336
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:18 ; elapsed = 00:00:19 . Memory (MB): peak = 598.051 ; gain = 344.336
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:35 ; elapsed = 00:00:36 . Memory (MB): peak = 675.180 ; gain = 421.465
+Finished Timing Optimization : Time (s): cpu = 00:00:35 ; elapsed = 00:00:36 . Memory (MB): peak = 678.184 ; gain = 424.469
+Finished Technology Mapping : Time (s): cpu = 00:00:35 ; elapsed = 00:00:36 . Memory (MB): peak = 687.324 ; gain = 433.609
+Finished IO Insertion : Time (s): cpu = 00:00:36 ; elapsed = 00:00:37 . Memory (MB): peak = 687.324 ; gain = 433.609
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:36 ; elapsed = 00:00:37 . Memory (MB): peak = 687.324 ; gain = 433.609
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:36 ; elapsed = 00:00:37 . Memory (MB): peak = 687.324 ; gain = 433.609
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:36 ; elapsed = 00:00:37 . Memory (MB): peak = 687.324 ; gain = 433.609
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:36 ; elapsed = 00:00:37 . Memory (MB): peak = 687.324 ; gain = 433.609
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:36 ; elapsed = 00:00:37 . Memory (MB): peak = 687.324 ; gain = 433.609
+
+Report Cell Usage: 
++------+--------+------+
+|      |Cell    |Count |
++------+--------+------+
+|1     |DSP48E1 |     1|
+|2     |LUT1    |     1|
++------+--------+------+
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:36 ; elapsed = 00:00:37 . Memory (MB): peak = 687.324 ; gain = 433.609
+synth_design: Time (s): cpu = 00:00:38 ; elapsed = 00:00:39 . Memory (MB): peak = 687.324 ; gain = 434.984
