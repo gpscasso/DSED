@@ -2,3 +2,6 @@ Running: xsim.dir/FSMD_microphone_pse_tb_behav/xsimk.exe -simmode gui -wdb FSMD_
 Design successfully loaded
 Design Loading Memory Usage: 6528 KB (Peak: 6528 KB)
 Design Loading CPU Usage: 31 ms
+Simulation completed
+Simulation Memory Usage: 8264 KB (Peak: 8264 KB)
+Simulation CPU Usage: 171 ms
