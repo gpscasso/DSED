@@ -42,7 +42,7 @@ architecture Behavioral of FSMD_microphone_tb is
                reset : in STD_LOGIC;
                enable_4_cycles : in STD_LOGIC;
                micro_data : in STD_LOGIC;
-               sample_out : out STD_LOGIC_VECTOR (8 downto 0);
+               sample_out : out STD_LOGIC_VECTOR (7 downto 0);
                sample_out_ready : out STD_LOGIC);
     End component;
     
@@ -58,7 +58,7 @@ architecture Behavioral of FSMD_microphone_tb is
         signal rst : std_logic := '1';
         signal clk3, en2, en4 : std_logic := '0';
         signal mdata : std_logic := '1';
-        signal soutT : std_logic_vector(8 downto 0);
+        signal soutT : std_logic_vector(7 downto 0);
         signal sready : std_logic := '0';
         
         constant half_period : time := 0.0833333333333333 us;
