@@ -75,7 +75,7 @@ NEXT_STATE_DECODE :process(r_reg,buf_reg)
         --if(rising_edge(en_2_cycles)) then
             r_next<= r_reg +1;
             if(r_next=299)then
-                r_next<="0";
+                r_next<=(others=>'0');
             end if;
             buf_next<='0';
             if(r_reg<unsigned(sample_in) or sample_in="0000000") then

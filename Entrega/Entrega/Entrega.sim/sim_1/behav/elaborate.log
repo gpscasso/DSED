@@ -3,5 +3,15 @@ Copyright 1986-1999, 2001-2016 Xilinx, Inc. All Rights Reserved.
 Running: C:/Xilinx/Vivado/2017.2/bin/unwrapped/win64.o/xelab.exe -wto 934ce40a663746aa82833165225fafba --debug typical --relax --mt 2 -L xil_defaultlib -L secureip --snapshot pwm_tb_behav xil_defaultlib.pwm_tb -log elaborate.log 
 Using 2 slave threads.
 Starting static elaboration
-ERROR: [VRFC 10-664] expression has 1 elements ; expected 9 [F:/DSED_G1/Entrega/Entrega/pwm.vhd:78]
-ERROR: [XSIM 43-3321] Static elaboration of top level VHDL design unit pwm_tb in library work failed.
+WARNING: [VRFC 10-516] comparison between unequal length arrays always returns FALSE [C:/Users/Guille/Documents/Universidad/Sexto/1er Cuatri/DSED/Entrega/DSED/Entrega/Entrega/pwm.vhd:81]
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package std.standard
+Compiling package std.textio
+Compiling package ieee.std_logic_1164
+Compiling package ieee.numeric_std
+Compiling architecture behavioral of entity xil_defaultlib.pwm [pwm_default]
+Compiling architecture behavioral of entity xil_defaultlib.pwm_tb
+Built simulation snapshot pwm_tb_behav
