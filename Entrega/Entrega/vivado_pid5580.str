@@ -143,3 +143,4 @@ selectButton(RDIResource.ProgressDialog_BACKGROUND, "Background"); // a:JButton 
 selectCodeEditor("pwm.vhd", 164, 160); // bI:J (JPanel:JComponent, cg:JFrame)
 selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, pwm(Behavioral) (pwm.vhd)]", 3, false); // B:i (D:JPanel, cg:JFrame)
 selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, pwm(Behavioral) (pwm.vhd)]", 3, false, false, false, false, false, true); // B:i (D:JPanel, cg:JFrame) - Double Click
+selectCodeEditor("pwm.vhd", 243, 96); // bI:J (JPanel:JComponent, cg:JFrame)

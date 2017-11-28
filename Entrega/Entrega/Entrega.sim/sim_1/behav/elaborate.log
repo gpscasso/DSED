@@ -1,9 +1,8 @@
 Vivado Simulator 2017.2
 Copyright 1986-1999, 2001-2016 Xilinx, Inc. All Rights Reserved.
-Running: C:/Xilinx/Vivado/2017.2/bin/unwrapped/win64.o/xelab.exe -wto 934ce40a663746aa82833165225fafba --debug typical --relax --mt 2 -L xil_defaultlib -L secureip --snapshot pwm_tb_behav xil_defaultlib.pwm_tb -log elaborate.log 
+Running: C:/Xilinx/Vivado/2017.2/bin/unwrapped/win64.o/xelab.exe -wto 934ce40a663746aa82833165225fafba --debug typical --relax --mt 2 -L xil_defaultlib -L secureip --snapshot FSMD_microphone_pse_tb_behav xil_defaultlib.FSMD_microphone_pse_tb -log elaborate.log 
 Using 2 slave threads.
 Starting static elaboration
-WARNING: [VRFC 10-516] comparison between unequal length arrays always returns FALSE [C:/Users/Guille/Documents/Universidad/Sexto/1er Cuatri/DSED/Entrega/DSED/Entrega/Entrega/pwm.vhd:81]
 Completed static elaboration
 Starting simulation data flow analysis
 Completed simulation data flow analysis
@@ -12,6 +11,7 @@ Compiling package std.standard
 Compiling package std.textio
 Compiling package ieee.std_logic_1164
 Compiling package ieee.numeric_std
-Compiling architecture behavioral of entity xil_defaultlib.pwm [pwm_default]
-Compiling architecture behavioral of entity xil_defaultlib.pwm_tb
-Built simulation snapshot pwm_tb_behav
+Compiling architecture behavioral of entity xil_defaultlib.en_4_cycles [en_4_cycles_default]
+Compiling architecture behavioral of entity xil_defaultlib.FSMD_microphone [fsmd_microphone_default]
+Compiling architecture behavioral of entity xil_defaultlib.fsmd_microphone_pse_tb
+Built simulation snapshot FSMD_microphone_pse_tb_behav
