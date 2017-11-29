@@ -55,6 +55,7 @@ SYNC_PROC : process(clk_12megas,reset)
         if (reset='1') then
             r_reg<=(others=>'0');
             buf_reg<='0';
+            ssample_request<='0';
         elsif(rising_edge(clk_12megas) and en_2_cycles='1') then
             r_reg<=r_next;
             buf_reg<=buf_next;           
@@ -63,30 +64,31 @@ SYNC_PROC : process(clk_12megas,reset)
  
 OUTPUT_DECODE: process (r_next)
     begin
-        if(r_next=299)then
+        if(r_next=0)then
             ssample_request <= '1';            
         else
             ssample_request <= '0';
         end if;
+        if(r_reg<unsigned(sample_in) or sample_in="0000000") then
+             buf_next <= '1';
+        else
+             buf_next <= '0';
+        end if;
         
-        pwm_pulse <= buf_reg;
      end process;   
            
 NEXT_STATE_DECODE :process(r_reg,buf_reg)
     begin
-    --if(rising_edge(en_2_cycles)) then        
-        if(r_next=299)then
+    --if(rising_edge(en_2_cycles))  then        
+        if(r_reg=299)then
            r_next <= (others=>'0');
         else
            r_next <= r_reg +1;
-        end if;
-        
-        if(r_reg<unsigned(sample_in) or sample_in="0000000") then
-            buf_next <= '1';
-        else
-            buf_next <= '0';
-        end if;
+        end if;    
        -- end if;
     end process;
+    
+    sample_request<=ssample_request;
+    pwm_pulse <= buf_reg;
 
 end Behavioral;
