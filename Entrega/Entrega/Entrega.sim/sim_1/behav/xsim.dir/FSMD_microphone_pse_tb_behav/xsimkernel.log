@@ -1,4 +1,7 @@
-Running: xsim.dir/FSMD_microphone_pse_tb_behav/xsimk.exe -simmode gui -wdb FSMD_microphone_pse_tb_behav.wdb -simrunnum 0 -socket 50403
+Running: xsim.dir/FSMD_microphone_pse_tb_behav/xsimk.exe -simmode gui -wdb FSMD_microphone_pse_tb_behav.wdb -simrunnum 0 -socket 51039
 Design successfully loaded
-Design Loading Memory Usage: 6316 KB (Peak: 6316 KB)
+Design Loading Memory Usage: 5900 KB (Peak: 5900 KB)
 Design Loading CPU Usage: 30 ms
+Simulation completed
+Simulation Memory Usage: 6512 KB (Peak: 6512 KB)
+Simulation CPU Usage: 46 ms

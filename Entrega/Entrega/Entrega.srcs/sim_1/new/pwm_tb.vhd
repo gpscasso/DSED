@@ -41,10 +41,11 @@
 
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
+use work.package_dsed.all;
 
 -- Uncomment the following library declaration if using
 -- arithmetic functions with Signed or Unsigned values
---use IEEE.NUMERIC_STD.ALL;
+use IEEE.NUMERIC_STD.ALL;
 
 -- Uncomment the following library declaration if instantiating
 -- any Xilinx leaf cells in this code.
@@ -59,7 +60,7 @@ architecture Behavioral of pwm_tb is
         Port ( clk_12megas : in STD_LOGIC;
                reset : in STD_LOGIC;
                en_2_cycles : in STD_LOGIC;
-               sample_in : in STD_LOGIC_VECTOR (7 downto 0);
+               sample_in : in STD_LOGIC_VECTOR (sample_size-1 downto 0);
                sample_request : out STD_LOGIC;
                pwm_pulse : out STD_LOGIC);
     End component;
@@ -67,17 +68,18 @@ architecture Behavioral of pwm_tb is
     signal clk12 : std_logic := '0';
     signal rst : std_logic := '1';
     signal clk6: std_logic := '0';
-    signal ssample_in :  STD_LOGIC_VECTOR (7 downto 0):="00000000";
+    signal ssample_in :  STD_LOGIC_VECTOR (sample_size-1 downto 0):="00000000";
     signal ssample_request : STD_LOGIC;
     signal spwm_pulse :  STD_LOGIC;
     
-    constant half_period1 : time := 8.33333333333333 ns;
-    constant half_period2 : time := 16.66666666666666 ns;
+    constant half_period1 : time := 41.666666666666 ns;
+    constant half_period2 : time := 83.333333333333 ns;
     
     begin
         prueba: pwm port map(clk12,rst,clk6,ssample_in,ssample_request,spwm_pulse);--ERROR AQUI
         clk12 <= not clk12 after half_period1;
         clk6 <= not clk6 after half_period2;
+        ssample_in<=std_logic_vector(unsigned(ssample_in)+1) after 200000ns;
     process
     begin
         wait for 0.05 us; rst <= '0';

@@ -20,6 +20,7 @@
 
 
 library IEEE;
+use work.package_dsed.all;
 use IEEE.STD_LOGIC_1164.ALL;
 
 -- Uncomment the following library declaration if using
@@ -41,7 +42,7 @@ Component FSMD_microphone
                reset : in STD_LOGIC;
                enable_4_cycles : in STD_LOGIC;
                micro_data : in STD_LOGIC;
-               sample_out : out STD_LOGIC_VECTOR (7 downto 0);
+               sample_out : out STD_LOGIC_VECTOR (sample_size-1 downto 0);
                sample_out_ready : out STD_LOGIC);
     End component;
     
@@ -57,11 +58,11 @@ Component FSMD_microphone
         signal rst : std_logic := '1';
         signal clk3, en2, en4 : std_logic := '0';
         signal mdata : std_logic := '1';
-        signal soutT : std_logic_vector(7 downto 0);
+        signal soutT : std_logic_vector(sample_size-1 downto 0);
         signal sready : std_logic := '0';
         signal a,b,c : std_logic := '0';
         
-        constant half_period : time := 0.0833333333333333 us;
+        constant half_period : time := 0.04166666666666 us;
             
             begin
                 EN4TP: en_4_cycles port map(clk,rst,clk3,en2,en4);

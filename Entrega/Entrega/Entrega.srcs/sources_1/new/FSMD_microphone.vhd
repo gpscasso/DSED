@@ -22,6 +22,7 @@
 library IEEE;
 
 use IEEE.STD_LOGIC_1164.ALL;
+use work.package_dsed.all;
 
 -- Uncomment the following library declaration if using
 -- arithmetic functions with Signed or Unsigned values
@@ -38,19 +39,19 @@ entity FSMD_microphone is
            reset : in STD_LOGIC;
            enable_4_cycles : in STD_LOGIC;
            micro_data : in STD_LOGIC;
-           sample_out : out STD_LOGIC_VECTOR (7 downto 0);
+           sample_out : out STD_LOGIC_VECTOR (sample_size-1 downto 0);
            sample_out_ready : out STD_LOGIC);
 end FSMD_microphone;
 
 architecture Behavioral of FSMD_microphone is
     type state_type is (S0,S1,S2);
     signal state, next_state : state_type;
-    signal dato1, dato2, next_dato1, next_dato2: STD_LOGIC_VECTOR(7 downto 0) := (others=>'0');
+    signal dato1, dato2, next_dato1, next_dato2: STD_LOGIC_VECTOR(sample_size-1 downto 0) := (others=>'0');
     signal primer_ciclo, next_primer_ciclo : STD_LOGIC := '0';
     
     signal next_cuenta, cuenta_reg : STD_LOGIC_VECTOR(8 downto 0) := (others=>'0');
     
-    signal sout : STD_LOGIC_VECTOR(7 downto 0);
+    signal sout : STD_LOGIC_VECTOR(sample_size-1 downto 0);
     signal sready : STD_LOGIC;
 
 begin
