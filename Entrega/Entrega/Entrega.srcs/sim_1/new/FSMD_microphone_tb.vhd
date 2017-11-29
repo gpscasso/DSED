@@ -65,7 +65,7 @@ architecture Behavioral of FSMD_microphone_tb is
             
             begin
                 EN4TT: en_4_cycles port map(clk,rst,clk3,en2,en4);
-                FSMDT: FSMD_microphone port map(clk3,rst,en4,mdata,soutT,sready);
+                FSMDT: FSMD_microphone port map(clk,rst,en4,mdata,soutT,sready);
                 clk <= not clk after half_period;
                 
             process

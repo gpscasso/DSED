@@ -65,7 +65,7 @@ Component FSMD_microphone
             
             begin
                 EN4TP: en_4_cycles port map(clk,rst,clk3,en2,en4);
-                FSMDP: FSMD_microphone port map(clk3,rst,en4,mdata,soutT,sready);
+                FSMDP: FSMD_microphone port map(clk,rst,en4,mdata,soutT,sready);
                 clk <= not clk after half_period;
                 
             process

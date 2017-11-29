@@ -48,7 +48,7 @@ architecture Behavioral of FSMD_microphone is
     signal dato1, dato2, next_dato1, next_dato2: STD_LOGIC_VECTOR(7 downto 0) := (others=>'0');
     signal primer_ciclo, next_primer_ciclo : STD_LOGIC := '0';
     
-    signal next_cuenta, cuenta_reg : STD_LOGIC_VECTOR(7 downto 0) := (others=>'0');
+    signal next_cuenta, cuenta_reg : STD_LOGIC_VECTOR(8 downto 0) := (others=>'0');
     
     signal sout : STD_LOGIC_VECTOR(7 downto 0);
     signal sready : STD_LOGIC;
@@ -63,16 +63,17 @@ begin
         primer_ciclo <= '0';
         dato1 <= (others=>'0');
         dato2 <= (others=>'0');
-    elsif rising_edge(clk_12megas) then
+    elsif rising_edge(clk_12megas) and enable_4_cycles = '1' then
         state <= next_state;
         cuenta_reg <= next_cuenta;
         primer_ciclo <= next_primer_ciclo;
         dato1 <= next_dato1;
         dato2 <= next_dato2;
     end if;
+    
 end process;
 
-OUTPUT_DECODE : process (state,micro_data,cuenta_reg,primer_ciclo)
+OUTPUT_DECODE : process (state,micro_data,cuenta_reg,primer_ciclo,enable_4_cycles)
 begin
     sready <= '0';
     next_dato1 <= dato1;

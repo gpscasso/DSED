@@ -74,7 +74,7 @@ OUTPUT_DECODE: process (r_next)
            
 NEXT_STATE_DECODE :process(r_reg,buf_reg)
     begin
-    --if(rising_edge(en_2_cycles))  then        
+    --if(rising_edge(en_2_cycles)) then        
         if(r_next=299)then
            r_next <= (others=>'0');
         else
