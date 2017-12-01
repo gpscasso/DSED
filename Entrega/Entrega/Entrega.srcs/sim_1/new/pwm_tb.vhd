@@ -76,13 +76,14 @@ architecture Behavioral of pwm_tb is
     constant half_period2 : time := 83.333333333333 ns;
     
     begin
-        prueba: pwm port map(clk12,rst,clk6,ssample_in,ssample_request,spwm_pulse);--ERROR AQUI
+        prueba: pwm port map(clk12,rst,clk6,ssample_in,ssample_request,spwm_pulse);
         clk12 <= not clk12 after half_period1;
         clk6 <= not clk6 after half_period2;
-        ssample_in<=std_logic_vector(unsigned(ssample_in)+1) after 200000ns;
+        ssample_in<=std_logic_vector(unsigned(ssample_in)+1) after 100 us;
     process
     begin
         wait for 0.05 us; rst <= '0';
+        wait for 10000 us;
         wait;
     end process;
         
