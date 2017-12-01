@@ -79,12 +79,18 @@ architecture Behavioral of audio_interface is
                   sample_request : out STD_LOGIC;
                   pwm_pulse : out STD_LOGIC);
     End component;
-    signal sclk_12megas,clk3,en2,en4: std_logic;
+    signal en2,en4: std_logic;
+    signal rec, play : std_logic;
     
 begin
-        EN4C: en_4_cycles port map(clk_12megas,reset,clk3,en2,en4);--peta cannot update cl12megas in object
-        FSMDMIC: FSMD_microphone port map(clk_12megas,reset,en4,micro_data,sample_out,sample_out_ready);
-        GeneradorDePulsos: pwm port map(clk_12megas,reset,en2,sample_in,sample_request,jack_pwm);
+        
+        EN4C: en_4_cycles port map(clk_12megas,reset,micro_clk,en2,en4);
+        
+        rec <= record_enable and en4;
+        FSMDMIC: FSMD_microphone port map(clk_12megas,reset,rec,micro_data,sample_out,sample_out_ready);
+       
+        play <= play_enable and en2;
+        GeneradorDePulsos: pwm port map(clk_12megas,reset,play,sample_in,sample_request,jack_pwm);
         micro_LR<='1';
         jack_sd<='1';
         

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="audio_interface_tb_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="audio_interface_tb" />
+            <top_module name="package_dsed" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="1858920270000fs"></ZoomStartTime>
+      <ZoomEndTime time="2590920270001fs"></ZoomEndTime>
+      <Cursor1Time time="2378920270000fs"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="188"></NameColumnWidth>
+      <ValueColumnWidth column_width="77"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="9" />
+   <wvobject fp_name="/audio_interface_tb/sclk_12megas" type="logic">
+      <obj_property name="ElementShortName">sclk_12megas</obj_property>
+      <obj_property name="ObjectShortName">sclk_12megas</obj_property>
+   </wvobject>
+   <wvobject fp_name="/audio_interface_tb/sreset" type="logic">
+      <obj_property name="ElementShortName">sreset</obj_property>
+      <obj_property name="ObjectShortName">sreset</obj_property>
+   </wvobject>
+   <wvobject fp_name="/audio_interface_tb/srecord_enable" type="logic">
+      <obj_property name="ElementShortName">srecord_enable</obj_property>
+      <obj_property name="ObjectShortName">srecord_enable</obj_property>
+   </wvobject>
+   <wvobject fp_name="/audio_interface_tb/ssample_out_ready" type="logic">
+      <obj_property name="ElementShortName">ssample_out_ready</obj_property>
+      <obj_property name="ObjectShortName">ssample_out_ready</obj_property>
+   </wvobject>
+   <wvobject fp_name="/audio_interface_tb/sample" type="array">
+      <obj_property name="ElementShortName">sample[7:0]</obj_property>
+      <obj_property name="ObjectShortName">sample[7:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/audio_interface_tb/smicro_data" type="logic">
+      <obj_property name="ElementShortName">smicro_data</obj_property>
+      <obj_property name="ObjectShortName">smicro_data</obj_property>
+   </wvobject>
+   <wvobject fp_name="/audio_interface_tb/splay_enable" type="logic">
+      <obj_property name="ElementShortName">splay_enable</obj_property>
+      <obj_property name="ObjectShortName">splay_enable</obj_property>
+   </wvobject>
+   <wvobject fp_name="/audio_interface_tb/ssample_request" type="logic">
+      <obj_property name="ElementShortName">ssample_request</obj_property>
+      <obj_property name="ObjectShortName">ssample_request</obj_property>
+   </wvobject>
+   <wvobject fp_name="/audio_interface_tb/sjack_pwm" type="logic">
+      <obj_property name="ElementShortName">sjack_pwm</obj_property>
+      <obj_property name="ObjectShortName">sjack_pwm</obj_property>
+   </wvobject>
+</wave_config>

@@ -59,49 +59,58 @@ architecture Behavioral of audio_interface_tb is
            jack_sd : out STD_LOGIC;
            jack_pwm : out STD_LOGIC);
       end component;
-      signal sclk_12megas : STD_LOGIC;
-      signal sreset :  STD_LOGIC;
-                 --Recording ports
-                 --To/From the controller
-      signal srecord_enable:  STD_LOGIC;
-      signal ssample_out:  STD_LOGIC_VECTOR (sample_size-1 downto 0);
+      
+      signal sclk_12megas : STD_LOGIC := '0';
+      signal sreset :  STD_LOGIC := '1';
+      signal srecord_enable:  STD_LOGIC := '0';
       signal ssample_out_ready:  STD_LOGIC;
-                 --To/From the microphone
       signal smicro_clk :  STD_LOGIC;
-      signal ssmicro_data :  STD_LOGIC;
-      signal smicro_LR :  STD_LOGIC;
-                 --Playing ports
-                 --To/From the controller
-      signal splay_enable:  STD_LOGIC;
-      signal ssample_in:  std_logic_vector(sample_size-1 downto 0);
+      signal smicro_data :  STD_LOGIC;
+      signal smicro_LR :  STD_LOGIC; -- Está a 1
+      signal splay_enable:  STD_LOGIC  := '0';
       signal ssample_request:  std_logic;
-                 --To/From the mini-jack
-      signal sjack_sd :  STD_LOGIC;
+      signal sjack_sd :  STD_LOGIC; -- Está a 1
       signal sjack_pwm :  STD_LOGIC;      
+      
+      signal sample : std_logic_vector(sample_size-1 downto 0);
+      signal a,b,c,d,e,f : std_logic := '0';
+      
       constant half_period12 : time := 41.666666666666 ns;
 
 begin
-
-
         sclk_12megas <= not sclk_12megas after half_period12;
+        a <= not a after 1300 ns;
+        b <= not b after 2100 ns;
+        c <= not c after 3700 ns;
+        smicro_data <= a xor b xor c;
+        
+        d <= not d after 75 us;
+        e <= not e after 25 us;
+        f <= not f after 50 us;
+        srecord_enable <= d xor e xor f;   
+        splay_enable <= d xor e;
         
         AudioInterface: audio_interface port map(
                   clk_12megas =>sclk_12megas, 
                   reset =>sreset,
-                  record_enable =>record_enable,
-                  sample_out =>sample_out,
-                  sample_out_ready =>sample_out_ready,                  
-                  micro_clk =>micro_clk,
-                  micro_data =>micro_data,
-                  micro_LR =>micro_LR,
-                  play_enable =>play_enable,
-                  sample_in =>sample_in,
-                  sample_request =>sample_request,
-                  jack_sd =>jack_sd,
-                  jack_sd =>, 
-        );
+                  record_enable =>srecord_enable,
+                  sample_out =>sample,
+                  sample_out_ready =>ssample_out_ready,                  
+                  micro_clk =>smicro_clk,
+                  micro_data =>smicro_data,
+                  micro_LR =>smicro_LR,
+                  play_enable =>splay_enable,
+                  sample_in =>sample,
+                  sample_request =>ssample_request,
+                  jack_sd =>sjack_sd,
+                  jack_pwm =>sjack_pwm);
           
-
-
+          process
+          begin
+          
+              wait for 0.05 us; sreset <= '0';
+  
+          
+          end process;
 
 end Behavioral;
