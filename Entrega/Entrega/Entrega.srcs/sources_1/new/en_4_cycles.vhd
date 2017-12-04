@@ -46,7 +46,7 @@ architecture Behavioral of en_4_cycles is
     
 begin
 
-    process(clk_12megas)
+    process(clk_12megas,reset)
     begin
         if reset = '1' then
             clk3 <= '0';

@@ -1,16 +1,46 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="synth_1" LaunchPart="xc7a100tcsg324-1" LaunchTime="1511446197">
-  <File Type="RDS-PROPCONSTRS" Name="en_4_cycles_drc_synth.rpt"/>
-  <File Type="PA-TCL" Name="en_4_cycles.tcl"/>
-  <File Type="RDS-RDS" Name="en_4_cycles.vds"/>
-  <File Type="RDS-UTIL" Name="en_4_cycles_utilization_synth.rpt"/>
-  <File Type="RDS-UTIL-PB" Name="en_4_cycles_utilization_synth.pb"/>
-  <File Type="RDS-DCP" Name="en_4_cycles.dcp"/>
-  <File Type="VDS-TIMINGSUMMARY" Name="en_4_cycles_timing_summary_synth.rpt"/>
-  <File Type="VDS-TIMING-PB" Name="en_4_cycles_timing_summary_synth.pb"/>
+<GenRun Id="synth_1" LaunchPart="xc7a100tcsg324-1" LaunchTime="1512382555">
+  <File Type="RDS-PROPCONSTRS" Name="controlador_drc_synth.rpt"/>
+  <File Type="PA-TCL" Name="controlador.tcl"/>
+  <File Type="RDS-RDS" Name="controlador.vds"/>
+  <File Type="RDS-UTIL" Name="controlador_utilization_synth.rpt"/>
+  <File Type="RDS-UTIL-PB" Name="controlador_utilization_synth.pb"/>
+  <File Type="RDS-DCP" Name="controlador.dcp"/>
+  <File Type="VDS-TIMINGSUMMARY" Name="controlador_timing_summary_synth.rpt"/>
+  <File Type="VDS-TIMING-PB" Name="controlador_timing_summary_synth.pb"/>
   <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1">
     <Filter Type="Srcs"/>
+    <File Path="$PSRCDIR/sources_1/new/package_dsed.vhd">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/FSMD_microphone.vhd">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/audio_interface.vhd">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
     <File Path="$PSRCDIR/sources_1/new/en_4_cycles.vhd">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/pwm.vhd">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/controlador.vhd">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
@@ -18,8 +48,7 @@
     </File>
     <Config>
       <Option Name="DesignMode" Val="RTL"/>
-      <Option Name="TopModule" Val="en_4_cycles"/>
-      <Option Name="TopAutoSet" Val="TRUE"/>
+      <Option Name="TopModule" Val="controlador"/>
     </Config>
   </FileSet>
   <FileSet Name="constrs_in" Type="Constrs" RelSrcDir="$PSRCDIR/constrs_1">
@@ -38,4 +67,5 @@
     <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2017"/>
     <Step Id="synth_design"/>
   </Strategy>
+  <BlockFileSet Type="BlockSrcs" Name="clk_wiz_0"/>
 </GenRun>

@@ -24,7 +24,7 @@ else
 fi
 export LD_LIBRARY_PATH
 
-HD_PWD='D:/DSED_G1/Entrega/Entrega/Entrega.runs/synth_1'
+HD_PWD='C:/Users/alvar/Documents/clase/DSED/practica/DSED/Entrega/Entrega/Entrega.runs/synth_1'
 cd "$HD_PWD"
 
 HD_LOG=runme.log
@@ -40,4 +40,4 @@ EAStep()
      fi
 }
 
-EAStep vivado -log en_4_cycles.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source en_4_cycles.tcl
+EAStep vivado -log controlador.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source controlador.tcl

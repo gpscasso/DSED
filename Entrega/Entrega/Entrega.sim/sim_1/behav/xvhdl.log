@@ -1,13 +1,13 @@
-INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/Guille/Documents/Universidad/Sexto/1er Cuatri/DSED/Entrega/DSED/Entrega/Entrega/Entrega.srcs/sources_1/new/package_dsed.vhd" into library xil_defaultlib
-INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/Guille/Documents/Universidad/Sexto/1er Cuatri/DSED/Entrega/DSED/Entrega/Entrega/Entrega.srcs/sources_1/new/FSMD_microphone.vhd" into library xil_defaultlib
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/alvar/Documents/clase/DSED/practica/DSED/Entrega/Entrega/Entrega.srcs/sources_1/new/package_dsed.vhd" into library xil_defaultlib
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/alvar/Documents/clase/DSED/practica/DSED/Entrega/Entrega/Entrega.srcs/sources_1/new/FSMD_microphone.vhd" into library xil_defaultlib
 INFO: [VRFC 10-307] analyzing entity FSMD_microphone
-INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/Guille/Documents/Universidad/Sexto/1er Cuatri/DSED/Entrega/DSED/Entrega/Entrega/Entrega.srcs/sources_1/new/audio_interface.vhd" into library xil_defaultlib
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/alvar/Documents/clase/DSED/practica/DSED/Entrega/Entrega/Entrega.srcs/sources_1/new/audio_interface.vhd" into library xil_defaultlib
 INFO: [VRFC 10-307] analyzing entity audio_interface
-INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/Guille/Documents/Universidad/Sexto/1er Cuatri/DSED/Entrega/DSED/Entrega/Entrega/Entrega.srcs/sources_1/new/controlador.vhd" into library xil_defaultlib
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/alvar/Documents/clase/DSED/practica/DSED/Entrega/Entrega/Entrega.srcs/sources_1/new/controlador.vhd" into library xil_defaultlib
 INFO: [VRFC 10-307] analyzing entity controlador
-INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/Guille/Documents/Universidad/Sexto/1er Cuatri/DSED/Entrega/DSED/Entrega/Entrega/Entrega.srcs/sources_1/new/en_4_cycles.vhd" into library xil_defaultlib
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/alvar/Documents/clase/DSED/practica/DSED/Entrega/Entrega/Entrega.srcs/sources_1/new/en_4_cycles.vhd" into library xil_defaultlib
 INFO: [VRFC 10-307] analyzing entity en_4_cycles
-INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/Guille/Documents/Universidad/Sexto/1er Cuatri/DSED/Entrega/DSED/Entrega/Entrega/pwm.vhd" into library xil_defaultlib
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/alvar/Documents/clase/DSED/practica/DSED/Entrega/Entrega/pwm.vhd" into library xil_defaultlib
 INFO: [VRFC 10-307] analyzing entity pwm
-INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/Guille/Documents/Universidad/Sexto/1er Cuatri/DSED/Entrega/DSED/Entrega/Entrega/Entrega.srcs/sim_1/new/controlador_tb.vhd" into library xil_defaultlib
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/alvar/Documents/clase/DSED/practica/DSED/Entrega/Entrega/Entrega.srcs/sim_1/new/controlador_tb.vhd" into library xil_defaultlib
 INFO: [VRFC 10-307] analyzing entity controlador_tb

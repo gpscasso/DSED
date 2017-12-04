@@ -24,7 +24,7 @@ else
 fi
 export LD_LIBRARY_PATH
 
-HD_PWD='D:/DSED_G1/Entrega/Entrega/Entrega.runs/impl_1'
+HD_PWD='C:/Users/alvar/Documents/clase/DSED/practica/DSED/Entrega/Entrega/Entrega.runs/impl_1'
 cd "$HD_PWD"
 
 HD_LOG=runme.log
@@ -41,7 +41,7 @@ EAStep()
 }
 
 # pre-commands:
-/bin/touch .init_design.begin.rst
-EAStep vivado -log en_4_cycles.vdi -applog -m64 -product Vivado -messageDb vivado.pb -mode batch -source en_4_cycles.tcl -notrace
+/bin/touch .write_bitstream.begin.rst
+EAStep vivado -log controlador.vdi -applog -m64 -product Vivado -messageDb vivado.pb -mode batch -source controlador.tcl -notrace
 
 
