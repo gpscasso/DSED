@@ -1,1 +1,0 @@
--wto "934ce40a663746aa82833165225fafba" --debug "typical" --relax --mt "2" -L "xil_defaultlib" -L "secureip" -L "xpm" --snapshot "data_route_fir_filter_tb_behav" "xil_defaultlib.data_route_fir_filter_tb" -log "elaborate.log" 

@@ -1,0 +1,7 @@
+# compile vhdl design source files
+vhdl xil_defaultlib  "../../../Entrega.srcs/sources_1/new/package_dsed.vhd"
+vhdl xil_defaultlib  "../../../Entrega.srcs/sources_1/new/Moore_fir_filter.vhd"
+vhdl xil_defaultlib  "../../../Entrega.srcs/sim_1/new/moore_fir_filter_tb.vhd"
+
+# Do not sort compile order
+nosort

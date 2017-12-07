@@ -51,7 +51,7 @@ architecture Behavioral of data_route_fir_filter_tb is
                reset: in STD_LOGIC;
                m : in STD_LOGIC_VECTOR (2 downto 0);
                load : in STD_LOGIC;
-               y : out STD_LOGIC_VECTOR (7 downto 0));
+               y : out signed (7 downto 0));
     End component;
 
     signal sx0 :  signed (sample_size-1 downto 0):=(others => '0');
@@ -67,7 +67,7 @@ architecture Behavioral of data_route_fir_filter_tb is
     signal sreset:  STD_LOGIC:='0';
     signal sm :  STD_LOGIC_VECTOR (2 downto 0):="000";
     signal sload :  STD_LOGIC:='0';
-    signal sy :  STD_LOGIC_VECTOR (7 downto 0):=(others => '0');
+    signal sy :  signed (7 downto 0):=(others => '0');
     constant half_period1 : time := 41.666666666666 ns;
 
     
