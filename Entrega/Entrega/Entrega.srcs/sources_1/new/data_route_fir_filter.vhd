@@ -76,11 +76,11 @@ begin
               when others => X <= (others => '0');
            end case;
            case m is
-              when "000" => C <= x0;
-              when "001" => C <= x1;
-              when "010" => C <= x2;
-              when "011" => C <= x3;
-              when "100" => C <= x4;
+              when "000" => C <= c0;
+              when "001" => C <= c1;
+              when "010" => C <= c2;
+              when "011" => C <= c3;
+              when "100" => C <= c4;
               when "101" => C <= (others => '0');
               when "110" => C <= (others => '0');
               when others => C <= (others => '0');
@@ -100,7 +100,7 @@ begin
             end if;
     end process;
     
-    y<=std_logic_vector(r_s_reg(sample_size-1+sample_size downto sample_size ));
+    y<=r_s_reg(sample_size-1+sample_size downto sample_size);
 
 
 end Behavioral;
