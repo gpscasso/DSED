@@ -57,7 +57,7 @@ architecture Behavioral of fir_filter is
            reset: in STD_LOGIC;
            m : in STD_LOGIC_VECTOR (2 downto 0);
            load : in STD_LOGIC;
-           y : out signed (7 downto 0));
+           y : out signed (sample_size-1 downto 0));
     End component;
     
     Component Moore_fir_filter

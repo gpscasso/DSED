@@ -84,7 +84,8 @@ begin
                  processed_sample<='1';
                  m<="110";
              when others =>
-                 m<="000"; 
+                 processed_sample<='0';
+                 m<="000";
        end case;
         
            
