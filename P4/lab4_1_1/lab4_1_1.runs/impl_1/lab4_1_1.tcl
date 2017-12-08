@@ -50,15 +50,15 @@ set rc [catch {
   create_project -in_memory -part xc7a100tcsg324-1
   set_property design_mode GateLvl [current_fileset]
   set_param project.singleFileAddWarning.threshold 0
-  set_property webtalk.parent_dir C:/Users/fpga/DSED_G1/P4/lab4_1_1/lab4_1_1.cache/wt [current_project]
-  set_property parent.project_path C:/Users/fpga/DSED_G1/P4/lab4_1_1/lab4_1_1.xpr [current_project]
-  set_property ip_output_repo C:/Users/fpga/DSED_G1/P4/lab4_1_1/lab4_1_1.cache/ip [current_project]
+  set_property webtalk.parent_dir {C:/Users/Guille/Documents/Universidad/Sexto/1er Cuatri/DSED/Entrega/DSED/P4/lab4_1_1/lab4_1_1.cache/wt} [current_project]
+  set_property parent.project_path {C:/Users/Guille/Documents/Universidad/Sexto/1er Cuatri/DSED/Entrega/DSED/P4/lab4_1_1/lab4_1_1.xpr} [current_project]
+  set_property ip_output_repo {{C:/Users/Guille/Documents/Universidad/Sexto/1er Cuatri/DSED/Entrega/DSED/P4/lab4_1_1/lab4_1_1.cache/ip}} [current_project]
   set_property ip_cache_permissions {read write} [current_project]
   set_property XPM_LIBRARIES XPM_CDC [current_project]
-  add_files -quiet C:/Users/fpga/DSED_G1/P4/lab4_1_1/lab4_1_1.runs/synth_1/lab4_1_1.dcp
-  read_ip -quiet C:/Users/fpga/DSED_G1/P4/lab4_1_1/lab4_1_1.srcs/sources_1/ip/clk_wiz_0_1/clk_wiz_0.xci
-  set_property is_locked true [get_files C:/Users/fpga/DSED_G1/P4/lab4_1_1/lab4_1_1.srcs/sources_1/ip/clk_wiz_0_1/clk_wiz_0.xci]
-  read_xdc C:/Users/fpga/DSED_G1/P4/lab4_1_1/lab4_1_1.srcs/constrs_1/imports/DSED_G1/Nexys4DDR_Master.xdc
+  add_files -quiet {{C:/Users/Guille/Documents/Universidad/Sexto/1er Cuatri/DSED/Entrega/DSED/P4/lab4_1_1/lab4_1_1.runs/synth_1/lab4_1_1.dcp}}
+  read_ip -quiet {{C:/Users/Guille/Documents/Universidad/Sexto/1er Cuatri/DSED/Entrega/DSED/P4/lab4_1_1/lab4_1_1.srcs/sources_1/ip/clk_wiz_0_1/clk_wiz_0.xci}}
+  set_property is_locked true [get_files {{C:/Users/Guille/Documents/Universidad/Sexto/1er Cuatri/DSED/Entrega/DSED/P4/lab4_1_1/lab4_1_1.srcs/sources_1/ip/clk_wiz_0_1/clk_wiz_0.xci}}]
+  read_xdc {{C:/Users/Guille/Documents/Universidad/Sexto/1er Cuatri/DSED/Entrega/DSED/P4/lab4_1_1/lab4_1_1.srcs/constrs_1/imports/DSED_G1/Nexys4DDR_Master.xdc}}
   link_design -top lab4_1_1 -part xc7a100tcsg324-1
   close_msg_db -file init_design.pb
 } RESULT]
@@ -127,6 +127,25 @@ if {$rc} {
   return -code error $RESULT
 } else {
   end_step route_design
+  unset ACTIVE_STEP 
+}
+
+start_step write_bitstream
+set ACTIVE_STEP write_bitstream
+set rc [catch {
+  create_msg_db write_bitstream.pb
+  set_property XPM_LIBRARIES XPM_CDC [current_project]
+  catch { write_mem_info -force lab4_1_1.mmi }
+  write_bitstream -force lab4_1_1.bit 
+  catch {write_debug_probes -no_partial_ltxfile -quiet -force debug_nets}
+  catch {file copy -force debug_nets.ltx lab4_1_1.ltx}
+  close_msg_db -file write_bitstream.pb
+} RESULT]
+if {$rc} {
+  step_failed write_bitstream
+  return -code error $RESULT
+} else {
+  end_step write_bitstream
   unset ACTIVE_STEP 
 }
 

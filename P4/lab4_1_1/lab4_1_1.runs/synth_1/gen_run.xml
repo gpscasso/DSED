@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="synth_1" LaunchPart="xc7a100tcsg324-1" LaunchTime="1508929353">
-  <File Type="PA-TCL" Name="lab4_1_1.tcl"/>
+<GenRun Id="synth_1" LaunchPart="xc7a100tcsg324-1" LaunchTime="1512696292">
   <File Type="RDS-PROPCONSTRS" Name="lab4_1_1_drc_synth.rpt"/>
+  <File Type="PA-TCL" Name="lab4_1_1.tcl"/>
   <File Type="RDS-RDS" Name="lab4_1_1.vds"/>
   <File Type="RDS-UTIL" Name="lab4_1_1_utilization_synth.rpt"/>
   <File Type="RDS-UTIL-PB" Name="lab4_1_1_utilization_synth.pb"/>

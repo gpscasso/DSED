@@ -35,7 +35,7 @@ entity lab1_6_1 is
     Port ( v_i : in STD_LOGIC_VECTOR (3 downto 0);
            seg_o : out STD_LOGIC_VECTOR (0 to 6);
            an_o: out STD_LOGIC_VECTOR (7 downto 0); 
-           z_o : out STD_LOGIC;)
+           z_o : out STD_LOGIC);
 end lab1_6_1;
 
 architecture Behavioral of lab1_6_1 is

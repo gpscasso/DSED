@@ -1,8 +1,8 @@
 Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2017.2 (win64) Build 1909853 Thu Jun 15 18:39:09 MDT 2017
-| Date         : Wed Nov  8 12:07:23 2017
-| Host         : pc-b043a-16 running 64-bit Service Pack 1  (build 7601)
+| Date         : Fri Dec  8 02:26:46 2017
+| Host         : LAPTOP-07004HLV running 64-bit major release  (build 9200)
 | Command      : report_control_sets -verbose -file lab4_1_1_control_sets_placed.rpt
 | Design       : lab4_1_1
 | Device       : xc7a100t
@@ -23,7 +23,7 @@ Table of Contents
 |                          Status                          | Count |
 +----------------------------------------------------------+-------+
 | Number of unique control sets                            |     2 |
-| Unused register locations in slices containing registers |     7 |
+| Unused register locations in slices containing registers |     9 |
 +----------------------------------------------------------+-------+
 
 
@@ -37,7 +37,7 @@ Table of Contents
 | No           | No                    | Yes                    |               1 |            1 |
 | No           | Yes                   | No                     |               0 |            0 |
 | Yes          | No                    | No                     |               0 |            0 |
-| Yes          | No                    | Yes                    |              32 |            8 |
+| Yes          | No                    | Yes                    |              22 |            6 |
 | Yes          | Yes                   | No                     |               0 |            0 |
 +--------------+-----------------------+------------------------+-----------------+--------------+
 
@@ -49,7 +49,7 @@ Table of Contents
 |     Clock Signal    | Enable Signal | Set/Reset Signal | Slice Load Count | Bel Load Count |
 +---------------------+---------------+------------------+------------------+----------------+
 |  Cach/inst/clk_out1 |               | rst_IBUF         |                1 |              1 |
-|  Cach/inst/clk_out1 | en_IBUF       | rst_IBUF         |                8 |             32 |
+|  Cach/inst/clk_out1 | en_IBUF       | rst_IBUF         |                6 |             22 |
 +---------------------+---------------+------------------+------------------+----------------+
 
 

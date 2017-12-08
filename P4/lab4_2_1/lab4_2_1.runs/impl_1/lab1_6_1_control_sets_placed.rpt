@@ -1,8 +1,8 @@
 Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2017.2 (win64) Build 1909853 Thu Jun 15 18:39:09 MDT 2017
-| Date         : Wed Oct 25 14:10:21 2017
-| Host         : pc-b043a-16 running 64-bit Service Pack 1  (build 7601)
+| Date         : Fri Dec  8 02:17:51 2017
+| Host         : LAPTOP-07004HLV running 64-bit major release  (build 9200)
 | Command      : report_control_sets -verbose -file lab1_6_1_control_sets_placed.rpt
 | Design       : lab1_6_1
 | Device       : xc7a100t
@@ -23,7 +23,7 @@ Table of Contents
 |                          Status                          | Count |
 +----------------------------------------------------------+-------+
 | Number of unique control sets                            |     5 |
-| Unused register locations in slices containing registers |    23 |
+| Unused register locations in slices containing registers |    26 |
 +----------------------------------------------------------+-------+
 
 
@@ -35,7 +35,7 @@ Table of Contents
 +--------------+-----------------------+------------------------+-----------------+--------------+
 | No           | No                    | No                     |               2 |            1 |
 | No           | No                    | Yes                    |               0 |            0 |
-| No           | Yes                   | No                     |              39 |           12 |
+| No           | Yes                   | No                     |              20 |            7 |
 | Yes          | No                    | No                     |               0 |            0 |
 | Yes          | No                    | Yes                    |               0 |            0 |
 | Yes          | Yes                   | No                     |               0 |            0 |
@@ -51,8 +51,8 @@ Table of Contents
 |                      |               | bcd7seg/seg_reg[1]_i_2_n_0 |                1 |              1 |
 |                      |               | bcd7seg/seg_reg[2]_i_2_n_0 |                1 |              2 |
 |  reloj/inst/clk_out1 |               |                            |                1 |              2 |
-|                      |               | bcd7seg/seg_reg[0]_i_2_n_0 |                2 |              4 |
-|  reloj/inst/clk_out1 |               | bcd7seg/counter[0]_i_1_n_0 |                8 |             32 |
+|                      |               | bcd7seg/seg_reg[0]_i_2_n_0 |                1 |              4 |
+|  reloj/inst/clk_out1 |               | bcd7seg/counter[0]_i_1_n_0 |                4 |             13 |
 +----------------------+---------------+----------------------------+------------------+----------------+
 
 
@@ -62,7 +62,7 @@ Table of Contents
 | 1      |                     1 |
 | 2      |                     2 |
 | 4      |                     1 |
-| 16+    |                     1 |
+| 13     |                     1 |
 +--------+-----------------------+
 
 

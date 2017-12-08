@@ -24,7 +24,7 @@ use IEEE.STD_LOGIC_1164.ALL;
 
 -- Uncomment the following library declaration if using
 -- arithmetic functions with Signed or Unsigned values
---use IEEE.NUMERIC_STD.ALL;
+use IEEE.NUMERIC_STD.ALL;
 
 -- Uncomment the following library declaration if instantiating
 -- any Xilinx leaf cells in this code.
@@ -42,7 +42,7 @@ end lab4_1_1;
 architecture Behavioral of lab4_1_1 is
 
     Signal clk5 : STD_LOGIC;
-    Signal counter : integer := 0;
+    Signal counter : unsigned(21 downto 0) := (others=>'0');
     Signal salida : STD_LOGIC := '0';
     
     component clk_wiz_0
@@ -59,13 +59,13 @@ begin
     process(clk5)
     begin
         if rst = '1' then
-            counter <= 0;
+            counter <= (others=>'0');
             salida <= '0';
         elsif rising_edge(clk5) and en = '1' then
             counter <= counter+1;
-            if counter >= 2500000 then
+            if counter >= 2499999 then
                 salida <= not salida;
-                counter <= 0;
+                counter <= (others=>'0');
             end if;
         end if;
      end process;

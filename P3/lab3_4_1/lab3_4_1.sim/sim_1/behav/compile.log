@@ -1,6 +1,6 @@
-INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/fpga/DSED_G1/P3/project_1/project_1.srcs/sources_1/imports/new/lab3_2_3.vhd" into library xil_defaultlib
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/Guille/Documents/Universidad/Sexto/1er Cuatri/DSED/Entrega/DSED/P3/lab3_4_1/lab3_4_1.srcs/sources_1/imports/new/lab3_2_3.vhd" into library xil_defaultlib
 INFO: [VRFC 10-307] analyzing entity lab3_2_3
-INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/fpga/DSED_G1/P3/project_1/project_1.srcs/sources_1/new/lab3_4_1.vhd" into library xil_defaultlib
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/Guille/Documents/Universidad/Sexto/1er Cuatri/DSED/Entrega/DSED/P3/lab3_4_1/lab3_4_1.srcs/sources_1/new/lab3_4_1.vhd" into library xil_defaultlib
 INFO: [VRFC 10-307] analyzing entity lab3_4_1
-INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/fpga/DSED_G1/P3/project_1/project_1.srcs/sim_1/imports/new/lab3_2_1_tb.vhd" into library xil_defaultlib
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/Guille/Documents/Universidad/Sexto/1er Cuatri/DSED/Entrega/DSED/P3/lab3_4_1/lab3_4_1.srcs/sim_1/imports/new/lab3_2_1_tb.vhd" into library xil_defaultlib
 INFO: [VRFC 10-307] analyzing entity lab3_2_1_tb

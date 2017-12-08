@@ -1,8 +1,8 @@
 Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2017.2 (win64) Build 1909853 Thu Jun 15 18:39:09 MDT 2017
-| Date             : Wed Nov  8 12:07:59 2017
-| Host             : pc-b043a-16 running 64-bit Service Pack 1  (build 7601)
+| Date             : Fri Dec  8 02:27:38 2017
+| Host             : LAPTOP-07004HLV running 64-bit major release  (build 9200)
 | Command          : report_power -file lab4_1_1_power_routed.rpt -pb lab4_1_1_power_summary_routed.pb -rpx lab4_1_1_power_routed.rpx
 | Design           : lab4_1_1
 | Device           : xc7a100tcsg324-1
@@ -50,12 +50,12 @@ Table of Contents
 | On-Chip        | Power (W) | Used     | Available | Utilization (%) |
 +----------------+-----------+----------+-----------+-----------------+
 | Clocks         |    <0.001 |        8 |       --- |             --- |
-| Slice Logic    |    <0.001 |      112 |       --- |             --- |
-|   LUT as Logic |    <0.001 |       49 |     63400 |            0.08 |
-|   CARRY4       |    <0.001 |       12 |     15850 |            0.08 |
-|   Register     |    <0.001 |       33 |    126800 |            0.03 |
+| Slice Logic    |    <0.001 |       63 |       --- |             --- |
+|   LUT as Logic |    <0.001 |       30 |     63400 |            0.05 |
+|   CARRY4       |    <0.001 |        6 |     15850 |            0.04 |
+|   Register     |    <0.001 |       23 |    126800 |            0.02 |
 |   Others       |     0.000 |        4 |       --- |             --- |
-| Signals        |    <0.001 |       47 |       --- |             --- |
+| Signals        |    <0.001 |       38 |       --- |             --- |
 | MMCM           |     0.086 |        1 |         6 |           16.67 |
 | I/O            |    <0.001 |        5 |       210 |            2.38 |
 | Static Power   |     0.097 |          |           |                 |

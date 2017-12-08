@@ -66,25 +66,13 @@ begin
     process (m,load)
         begin
            case m is
-              when "000" => X <= x0;
-              when "001" => X <= x1;
-              when "010" => X <= x2;
-              when "011" => X <= x3;
-              when "100" => X <= x4;
-              when "101" => X <= (others => '0');
-              when "110" => X <= (others => '0');
-              when others => X <= (others => '0');
+              when "000" => X <= x0; C <= c0;
+              when "001" => X <= x1; C <= c1;
+              when "010" => X <= x2; C <= c2;
+              when "011" => X <= x3; C <= c3;
+              when "100" => X <= x4; C <= c4;
+              when others => X <= (others => '0'); C <= (others => '0');
            end case;
-           case m is
-              when "000" => C <= c0;
-              when "001" => C <= c1;
-              when "010" => C <= c2;
-              when "011" => C <= c3;
-              when "100" => C <= c4;
-              when "101" => C <= (others => '0');
-              when "110" => C <= (others => '0');
-              when others => C <= (others => '0');
-           end case; 
     end process;
     
     process(load,reset)

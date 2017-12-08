@@ -14,18 +14,18 @@ Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7a100t-csg324'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a100t-csg324'
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 3968 
+INFO: Helper process launched with PID 8632 
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 334.418 ; gain = 74.965
+Starting RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:04 . Memory (MB): peak = 368.371 ; gain = 81.145
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-638] synthesizing module 'lab4_1_1' [C:/Users/fpga/DSED_G1/P4/lab4_1_1/lab4_1_1.srcs/sources_1/new/lab4_1_1.vhd:42]
-INFO: [Synth 8-3491] module 'clk_wiz_0' declared at 'C:/Users/fpga/DSED_G1/P4/lab4_1_1/lab4_1_1.runs/synth_1/.Xil/Vivado-4464-pc-b043a-16/realtime/clk_wiz_0_stub.vhdl:5' bound to instance 'Cach' of component 'clk_wiz_0' [C:/Users/fpga/DSED_G1/P4/lab4_1_1/lab4_1_1.srcs/sources_1/new/lab4_1_1.vhd:57]
-INFO: [Synth 8-638] synthesizing module 'clk_wiz_0' [C:/Users/fpga/DSED_G1/P4/lab4_1_1/lab4_1_1.runs/synth_1/.Xil/Vivado-4464-pc-b043a-16/realtime/clk_wiz_0_stub.vhdl:15]
-WARNING: [Synth 8-614] signal 'rst' is read in the process but is not in the sensitivity list [C:/Users/fpga/DSED_G1/P4/lab4_1_1/lab4_1_1.srcs/sources_1/new/lab4_1_1.vhd:59]
-WARNING: [Synth 8-614] signal 'en' is read in the process but is not in the sensitivity list [C:/Users/fpga/DSED_G1/P4/lab4_1_1/lab4_1_1.srcs/sources_1/new/lab4_1_1.vhd:59]
-INFO: [Synth 8-256] done synthesizing module 'lab4_1_1' (1#1) [C:/Users/fpga/DSED_G1/P4/lab4_1_1/lab4_1_1.srcs/sources_1/new/lab4_1_1.vhd:42]
+INFO: [Synth 8-638] synthesizing module 'lab4_1_1' [C:/Users/Guille/Documents/Universidad/Sexto/1er Cuatri/DSED/Entrega/DSED/P4/lab4_1_1/lab4_1_1.srcs/sources_1/new/lab4_1_1.vhd:42]
+INFO: [Synth 8-3491] module 'clk_wiz_0' declared at 'C:/Users/Guille/Documents/Universidad/Sexto/1er Cuatri/DSED/Entrega/DSED/P4/lab4_1_1/lab4_1_1.runs/synth_1/.Xil/Vivado-7644-LAPTOP-07004HLV/realtime/clk_wiz_0_stub.vhdl:5' bound to instance 'Cach' of component 'clk_wiz_0' [C:/Users/Guille/Documents/Universidad/Sexto/1er Cuatri/DSED/Entrega/DSED/P4/lab4_1_1/lab4_1_1.srcs/sources_1/new/lab4_1_1.vhd:57]
+INFO: [Synth 8-638] synthesizing module 'clk_wiz_0' [C:/Users/Guille/Documents/Universidad/Sexto/1er Cuatri/DSED/Entrega/DSED/P4/lab4_1_1/lab4_1_1.runs/synth_1/.Xil/Vivado-7644-LAPTOP-07004HLV/realtime/clk_wiz_0_stub.vhdl:15]
+WARNING: [Synth 8-614] signal 'rst' is read in the process but is not in the sensitivity list [C:/Users/Guille/Documents/Universidad/Sexto/1er Cuatri/DSED/Entrega/DSED/P4/lab4_1_1/lab4_1_1.srcs/sources_1/new/lab4_1_1.vhd:59]
+WARNING: [Synth 8-614] signal 'en' is read in the process but is not in the sensitivity list [C:/Users/Guille/Documents/Universidad/Sexto/1er Cuatri/DSED/Entrega/DSED/P4/lab4_1_1/lab4_1_1.srcs/sources_1/new/lab4_1_1.vhd:59]
+INFO: [Synth 8-256] done synthesizing module 'lab4_1_1' (1#1) [C:/Users/Guille/Documents/Universidad/Sexto/1er Cuatri/DSED/Entrega/DSED/P4/lab4_1_1/lab4_1_1.srcs/sources_1/new/lab4_1_1.vhd:42]
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 374.309 ; gain = 114.855
+Finished RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 417.945 ; gain = 130.719
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -35,47 +35,47 @@ Report Check Netlist:
 |1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
 +------+------------------+-------+---------+-------+------------------+
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 374.309 ; gain = 114.855
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 417.945 ; gain = 130.719
 ---------------------------------------------------------------------------------
 INFO: [Device 21-403] Loading part xc7a100tcsg324-1
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
 Initializing timing engine
-Parsing XDC File [C:/Users/fpga/DSED_G1/P4/lab4_1_1/lab4_1_1.runs/synth_1/.Xil/Vivado-4464-pc-b043a-16/dcp3/clk_wiz_0_in_context.xdc] for cell 'Cach'
-Finished Parsing XDC File [C:/Users/fpga/DSED_G1/P4/lab4_1_1/lab4_1_1.runs/synth_1/.Xil/Vivado-4464-pc-b043a-16/dcp3/clk_wiz_0_in_context.xdc] for cell 'Cach'
-Parsing XDC File [C:/Users/fpga/DSED_G1/P4/lab4_1_1/lab4_1_1.srcs/constrs_1/imports/DSED_G1/Nexys4DDR_Master.xdc]
-Finished Parsing XDC File [C:/Users/fpga/DSED_G1/P4/lab4_1_1/lab4_1_1.srcs/constrs_1/imports/DSED_G1/Nexys4DDR_Master.xdc]
-INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [C:/Users/fpga/DSED_G1/P4/lab4_1_1/lab4_1_1.srcs/constrs_1/imports/DSED_G1/Nexys4DDR_Master.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/lab4_1_1_propImpl.xdc].
+Parsing XDC File [C:/Users/Guille/Documents/Universidad/Sexto/1er Cuatri/DSED/Entrega/DSED/P4/lab4_1_1/lab4_1_1.runs/synth_1/.Xil/Vivado-7644-LAPTOP-07004HLV/dcp3/clk_wiz_0_in_context.xdc] for cell 'Cach'
+Finished Parsing XDC File [C:/Users/Guille/Documents/Universidad/Sexto/1er Cuatri/DSED/Entrega/DSED/P4/lab4_1_1/lab4_1_1.runs/synth_1/.Xil/Vivado-7644-LAPTOP-07004HLV/dcp3/clk_wiz_0_in_context.xdc] for cell 'Cach'
+Parsing XDC File [C:/Users/Guille/Documents/Universidad/Sexto/1er Cuatri/DSED/Entrega/DSED/P4/lab4_1_1/lab4_1_1.srcs/constrs_1/imports/DSED_G1/Nexys4DDR_Master.xdc]
+Finished Parsing XDC File [C:/Users/Guille/Documents/Universidad/Sexto/1er Cuatri/DSED/Entrega/DSED/P4/lab4_1_1/lab4_1_1.srcs/constrs_1/imports/DSED_G1/Nexys4DDR_Master.xdc]
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [C:/Users/Guille/Documents/Universidad/Sexto/1er Cuatri/DSED/Entrega/DSED/P4/lab4_1_1/lab4_1_1.srcs/constrs_1/imports/DSED_G1/Nexys4DDR_Master.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/lab4_1_1_propImpl.xdc].
 Resolution: To avoid this warning, move constraints listed in [.Xil/lab4_1_1_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
 Completed Processing XDC Constraints
 
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.004 . Memory (MB): peak = 666.184 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.006 . Memory (MB): peak = 745.234 ; gain = 0.000
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:16 ; elapsed = 00:00:16 . Memory (MB): peak = 666.184 ; gain = 406.730
+Finished Constraint Validation : Time (s): cpu = 00:00:16 ; elapsed = 00:00:19 . Memory (MB): peak = 745.234 ; gain = 458.008
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7a100tcsg324-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:16 ; elapsed = 00:00:16 . Memory (MB): peak = 666.184 ; gain = 406.730
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:16 ; elapsed = 00:00:19 . Memory (MB): peak = 745.234 ; gain = 458.008
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
-Applied set_property IO_BUFFER_TYPE = NONE for clk. (constraint file  C:/Users/fpga/DSED_G1/P4/lab4_1_1/lab4_1_1.runs/synth_1/.Xil/Vivado-4464-pc-b043a-16/dcp3/clk_wiz_0_in_context.xdc, line 3).
-Applied set_property CLOCK_BUFFER_TYPE = NONE for clk. (constraint file  C:/Users/fpga/DSED_G1/P4/lab4_1_1/lab4_1_1.runs/synth_1/.Xil/Vivado-4464-pc-b043a-16/dcp3/clk_wiz_0_in_context.xdc, line 4).
+Applied set_property IO_BUFFER_TYPE = NONE for clk. (constraint file  {C:/Users/Guille/Documents/Universidad/Sexto/1er Cuatri/DSED/Entrega/DSED/P4/lab4_1_1/lab4_1_1.runs/synth_1/.Xil/Vivado-7644-LAPTOP-07004HLV/dcp3/clk_wiz_0_in_context.xdc}, line 3).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for clk. (constraint file  {C:/Users/Guille/Documents/Universidad/Sexto/1er Cuatri/DSED/Entrega/DSED/P4/lab4_1_1/lab4_1_1.runs/synth_1/.Xil/Vivado-7644-LAPTOP-07004HLV/dcp3/clk_wiz_0_in_context.xdc}, line 4).
 Applied set_property DONT_TOUCH = true for Cach. (constraint file  auto generated constraint, line ).
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:16 ; elapsed = 00:00:16 . Memory (MB): peak = 666.184 ; gain = 406.730
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:16 ; elapsed = 00:00:19 . Memory (MB): peak = 745.234 ; gain = 458.008
 ---------------------------------------------------------------------------------
-WARNING: [Synth 8-6014] Unused sequential element counter_reg was removed.  [C:/Users/fpga/DSED_G1/P4/lab4_1_1/lab4_1_1.srcs/sources_1/new/lab4_1_1.vhd:62]
+WARNING: [Synth 8-6014] Unused sequential element counter_reg was removed.  [C:/Users/Guille/Documents/Universidad/Sexto/1er Cuatri/DSED/Entrega/DSED/P4/lab4_1_1/lab4_1_1.srcs/sources_1/new/lab4_1_1.vhd:62]
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:16 ; elapsed = 00:00:17 . Memory (MB): peak = 666.184 ; gain = 406.730
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:16 ; elapsed = 00:00:19 . Memory (MB): peak = 745.234 ; gain = 458.008
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -115,9 +115,9 @@ Finished Part Resource Summary
 ---------------------------------------------------------------------------------
 Start Cross Boundary and Area Optimization
 ---------------------------------------------------------------------------------
-WARNING: [Synth 8-6014] Unused sequential element counter_reg was removed.  [C:/Users/fpga/DSED_G1/P4/lab4_1_1/lab4_1_1.srcs/sources_1/new/lab4_1_1.vhd:62]
+WARNING: [Synth 8-6014] Unused sequential element counter_reg was removed.  [C:/Users/Guille/Documents/Universidad/Sexto/1er Cuatri/DSED/Entrega/DSED/P4/lab4_1_1/lab4_1_1.srcs/sources_1/new/lab4_1_1.vhd:62]
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:17 ; elapsed = 00:00:17 . Memory (MB): peak = 666.184 ; gain = 406.730
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:16 ; elapsed = 00:00:19 . Memory (MB): peak = 745.234 ; gain = 458.008
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -131,13 +131,13 @@ Start Applying XDC Timing Constraints
 INFO: [Synth 8-5578] Moved timing constraint from pin 'Cach/clk_out1' to pin 'Cach/bbstub_clk_out1/O'
 INFO: [Synth 8-5819] Moved 1 constraints on hierarchical pins to their respective driving/loading pins
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:28 ; elapsed = 00:00:28 . Memory (MB): peak = 666.184 ; gain = 406.730
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:29 ; elapsed = 00:00:33 . Memory (MB): peak = 745.266 ; gain = 458.039
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:28 ; elapsed = 00:00:28 . Memory (MB): peak = 666.184 ; gain = 406.730
+Finished Timing Optimization : Time (s): cpu = 00:00:29 ; elapsed = 00:00:33 . Memory (MB): peak = 758.074 ; gain = 470.848
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -149,7 +149,7 @@ Report RTL Partitions:
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:28 ; elapsed = 00:00:29 . Memory (MB): peak = 666.184 ; gain = 406.730
+Finished Technology Mapping : Time (s): cpu = 00:00:29 ; elapsed = 00:00:33 . Memory (MB): peak = 767.102 ; gain = 479.875
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -173,7 +173,7 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:29 ; elapsed = 00:00:29 . Memory (MB): peak = 666.184 ; gain = 406.730
+Finished IO Insertion : Time (s): cpu = 00:00:30 ; elapsed = 00:00:34 . Memory (MB): peak = 767.102 ; gain = 479.875
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -186,7 +186,7 @@ Report Check Netlist:
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:29 ; elapsed = 00:00:29 . Memory (MB): peak = 666.184 ; gain = 406.730
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:30 ; elapsed = 00:00:34 . Memory (MB): peak = 767.102 ; gain = 479.875
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -198,25 +198,25 @@ Report RTL Partitions:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:29 ; elapsed = 00:00:29 . Memory (MB): peak = 666.184 ; gain = 406.730
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:30 ; elapsed = 00:00:34 . Memory (MB): peak = 767.102 ; gain = 479.875
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:29 ; elapsed = 00:00:29 . Memory (MB): peak = 666.184 ; gain = 406.730
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:30 ; elapsed = 00:00:34 . Memory (MB): peak = 767.102 ; gain = 479.875
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:29 ; elapsed = 00:00:29 . Memory (MB): peak = 666.184 ; gain = 406.730
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:30 ; elapsed = 00:00:34 . Memory (MB): peak = 767.102 ; gain = 479.875
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:29 ; elapsed = 00:00:29 . Memory (MB): peak = 666.184 ; gain = 406.730
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:30 ; elapsed = 00:00:34 . Memory (MB): peak = 767.102 ; gain = 479.875
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -234,28 +234,30 @@ Report Cell Usage:
 |      |Cell           |Count |
 +------+---------------+------+
 |1     |clk_wiz_0_bbox |     1|
-|2     |CARRY4         |    12|
-|3     |LUT2           |    62|
-|4     |LUT3           |     1|
-|5     |FDCE           |    33|
-|6     |IBUF           |     2|
-|7     |OBUF           |     2|
+|2     |CARRY4         |     6|
+|3     |LUT2           |     3|
+|4     |LUT4           |     1|
+|5     |LUT5           |     3|
+|6     |LUT6           |    23|
+|7     |FDCE           |    23|
+|8     |IBUF           |     2|
+|9     |OBUF           |     2|
 +------+---------------+------+
 
 Report Instance Areas: 
 +------+---------+-------+------+
 |      |Instance |Module |Cells |
 +------+---------+-------+------+
-|1     |top      |       |   114|
+|1     |top      |       |    65|
 +------+---------+-------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:29 ; elapsed = 00:00:29 . Memory (MB): peak = 666.184 ; gain = 406.730
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:30 ; elapsed = 00:00:34 . Memory (MB): peak = 767.102 ; gain = 479.875
 ---------------------------------------------------------------------------------
 Synthesis finished with 0 errors, 0 critical warnings and 2 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:17 ; elapsed = 00:00:22 . Memory (MB): peak = 666.184 ; gain = 114.855
-Synthesis Optimization Complete : Time (s): cpu = 00:00:29 ; elapsed = 00:00:29 . Memory (MB): peak = 666.184 ; gain = 406.730
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:18 ; elapsed = 00:00:26 . Memory (MB): peak = 767.102 ; gain = 152.586
+Synthesis Optimization Complete : Time (s): cpu = 00:00:30 ; elapsed = 00:00:35 . Memory (MB): peak = 767.102 ; gain = 479.875
 INFO: [Project 1-571] Translating synthesized netlist
-INFO: [Netlist 29-17] Analyzing 14 Unisim elements for replacement
+INFO: [Netlist 29-17] Analyzing 8 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
@@ -264,7 +266,7 @@ No Unisim elements were transformed.
 
 17 Infos, 4 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:30 ; elapsed = 00:00:32 . Memory (MB): peak = 666.184 ; gain = 414.441
-INFO: [Common 17-1381] The checkpoint 'C:/Users/fpga/DSED_G1/P4/lab4_1_1/lab4_1_1.runs/synth_1/lab4_1_1.dcp' has been generated.
-report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.018 . Memory (MB): peak = 666.184 ; gain = 0.000
-INFO: [Common 17-206] Exiting Vivado at Wed Oct 25 13:03:12 2017...
+synth_design: Time (s): cpu = 00:00:33 ; elapsed = 00:00:38 . Memory (MB): peak = 769.195 ; gain = 487.875
+INFO: [Common 17-1381] The checkpoint 'C:/Users/Guille/Documents/Universidad/Sexto/1er Cuatri/DSED/Entrega/DSED/P4/lab4_1_1/lab4_1_1.runs/synth_1/lab4_1_1.dcp' has been generated.
+report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.021 . Memory (MB): peak = 769.195 ; gain = 0.000
+INFO: [Common 17-206] Exiting Vivado at Fri Dec  8 02:25:53 2017...

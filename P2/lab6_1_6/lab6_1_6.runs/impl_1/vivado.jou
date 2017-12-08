@@ -2,11 +2,11 @@
 # Vivado v2017.2 (64-bit)
 # SW Build 1909853 on Thu Jun 15 18:39:09 MDT 2017
 # IP Build 1909766 on Thu Jun 15 19:58:00 MDT 2017
-# Start of session at: Wed Sep 27 12:44:44 2017
-# Process ID: 2852
-# Current directory: C:/Users/fpga/DSED_G1/P2/lab6_1_6/lab6_1_6.runs/impl_1
+# Start of session at: Fri Dec  8 01:52:46 2017
+# Process ID: 3028
+# Current directory: C:/Users/Guille/Documents/Universidad/Sexto/1er Cuatri/DSED/Entrega/DSED/P2/lab6_1_6/lab6_1_6.runs/impl_1
 # Command line: vivado.exe -log lab1_6_1.vdi -applog -product Vivado -messageDb vivado.pb -mode batch -source lab1_6_1.tcl -notrace
-# Log file: C:/Users/fpga/DSED_G1/P2/lab6_1_6/lab6_1_6.runs/impl_1/lab1_6_1.vdi
-# Journal file: C:/Users/fpga/DSED_G1/P2/lab6_1_6/lab6_1_6.runs/impl_1\vivado.jou
+# Log file: C:/Users/Guille/Documents/Universidad/Sexto/1er Cuatri/DSED/Entrega/DSED/P2/lab6_1_6/lab6_1_6.runs/impl_1/lab1_6_1.vdi
+# Journal file: C:/Users/Guille/Documents/Universidad/Sexto/1er Cuatri/DSED/Entrega/DSED/P2/lab6_1_6/lab6_1_6.runs/impl_1\vivado.jou
 #-----------------------------------------------------------
 source lab1_6_1.tcl -notrace

@@ -1,8 +1,8 @@
 Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 ------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2017.2 (win64) Build 1909853 Thu Jun 15 18:39:09 MDT 2017
-| Date         : Wed Sep 27 12:44:23 2017
-| Host         : pc-b043a-16 running 64-bit Service Pack 1  (build 7601)
+| Date         : Fri Dec  8 01:54:30 2017
+| Host         : LAPTOP-07004HLV running 64-bit major release  (build 9200)
 | Command      : report_drc -file lab1_6_1_drc_routed.rpt -pb lab1_6_1_drc_routed.pb -rpx lab1_6_1_drc_routed.rpx
 | Design       : lab1_6_1
 | Device       : xc7a100tcsg324-1

@@ -24,7 +24,7 @@ use IEEE.STD_LOGIC_1164.ALL;
 
 -- Uncomment the following library declaration if using
 -- arithmetic functions with Signed or Unsigned values
---use IEEE.NUMERIC_STD.ALL;
+use IEEE.NUMERIC_STD.ALL;
 
 -- Uncomment the following library declaration if instantiating
 -- any Xilinx leaf cells in this code.
@@ -40,7 +40,7 @@ end bcdto7segment_dataflow;
 
 architecture Behavioral of bcdto7segment_dataflow is
 
-    signal counter : integer := 1;
+    signal counter : unsigned(12 downto 0) := (others=>'0');
     signal an_s : STD_LOGIC_VECTOR (7 downto 0) := "11111101";
 begin
 
@@ -48,12 +48,12 @@ process(clk)
 begin
     if rising_edge(clk) then
         counter <= counter+1;
-        if counter = 5000 and an_s = "11111110" then
+        if counter = 4999 and an_s = "11111110" then
             an_s <= "11111101";
-            counter <= 0;
-        elsif counter = 5000 and an_s = "11111101" then
+            counter <= (others=>'0');
+        elsif counter = 4999 and an_s = "11111101" then
             an_s <= "11111110";
-            counter <= 0;
+            counter <= (others=>'0');
         end if;
      end if;
 end process;

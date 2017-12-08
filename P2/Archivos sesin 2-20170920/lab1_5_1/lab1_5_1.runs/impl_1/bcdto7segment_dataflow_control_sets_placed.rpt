@@ -1,8 +1,8 @@
 Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2017.2 (win64) Build 1909853 Thu Jun 15 18:39:09 MDT 2017
-| Date         : Wed Sep 27 11:36:24 2017
-| Host         : pc-b043a-16 running 64-bit Service Pack 1  (build 7601)
+| Date         : Fri Dec  8 01:37:57 2017
+| Host         : LAPTOP-07004HLV running 64-bit major release  (build 9200)
 | Command      : report_control_sets -verbose -file bcdto7segment_dataflow_control_sets_placed.rpt
 | Design       : bcdto7segment_dataflow
 | Device       : xc7a100t

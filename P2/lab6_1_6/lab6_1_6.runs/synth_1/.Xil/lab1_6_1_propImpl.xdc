@@ -1,4 +1,4 @@
-set_property SRC_FILE_INFO {cfile:C:/Users/fpga/DSED_G1/P2/lab6_1_6/lab6_1_6.srcs/constrs_1/imports/DSED_G1/Nexys4DDR_Master.xdc rfile:../../../lab6_1_6.srcs/constrs_1/imports/DSED_G1/Nexys4DDR_Master.xdc id:1} [current_design]
+set_property SRC_FILE_INFO {cfile:{C:/Users/Guille/Documents/Universidad/Sexto/1er Cuatri/DSED/Entrega/DSED/P2/lab6_1_6/lab6_1_6.srcs/constrs_1/imports/DSED_G1/Nexys4DDR_Master.xdc} rfile:../../../lab6_1_6.srcs/constrs_1/imports/DSED_G1/Nexys4DDR_Master.xdc id:1} [current_design]
 set_property src_info {type:XDC file:1 line:13 export:INPUT save:INPUT read:READ} [current_design]
 set_property -dict { PACKAGE_PIN J15   IOSTANDARD LVCMOS33 } [get_ports { v_i[0] }]; #IO_L24N_T3_RS0_15 Sch=sw[0]
 set_property src_info {type:XDC file:1 line:14 export:INPUT save:INPUT read:READ} [current_design]

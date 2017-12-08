@@ -43,12 +43,12 @@ architecture Behavioral of lab3_2_1_tb is
     End Component;
 
 	Signal clk 	: STD_LOGIC := '0';
-	Signal en : STD_LOGIC := '1';
-	Signal clear : STD_LOGIC := '0';
+	Signal en : STD_LOGIC := '0';
+	Signal clear : STD_LOGIC := '1';
 
 	Signal qtest : STD_LOGIC_VECTOR (7 downto 0) := "00000000";
     
-    constant half_period  : time := 4ns;
+    constant half_period  : time := 5ns;
     
     begin
     FF: lab3_4_1 port map(clk,en,clear,qtest);
@@ -56,11 +56,9 @@ architecture Behavioral of lab3_2_1_tb is
     
 	process
     begin
-        wait for 100 ns; en <= '0';
-        wait for 150 ns; en <= '1';
-        wait for 50 ns; clear <= '1';
-        wait for 4 ns; clear <= '0';
-        
+        wait for 20 ns; en <= '1';
+        wait for 20 ns; clear <= '0';
+        wait for 80 ns; en <= '0';
         wait for 100 ns;
     end process;
     

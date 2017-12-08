@@ -91,7 +91,7 @@ begin
                     sc2<=c2lp;
                     sc3<=c3lp;
                     sc4<=c4lp;
-                elsif(filter_select='0')then--highpass
+                elsif(filter_select='1')then--highpass
                     sc0<=c0hp;
                     sc1<=c1hp;
                     sc2<=c2hp;
