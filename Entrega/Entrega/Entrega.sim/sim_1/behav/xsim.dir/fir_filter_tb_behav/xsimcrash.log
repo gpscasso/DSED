@@ -1,4 +1,6 @@
-Unable to capture context for thread 5244 in process 7048, can not generate back trace
+Unable to capture context for thread 5988 in process 5980, can not generate back trace
+Unable to capture context for thread 8712 in process 5980, can not generate back trace
+Unable to capture context for thread 2524 in process 5980, can not generate back trace
 Exception at PC 0x00007FF9B706BB93
 Printing stacktrace...
 
