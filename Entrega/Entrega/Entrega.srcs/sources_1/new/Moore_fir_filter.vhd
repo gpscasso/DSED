@@ -42,9 +42,12 @@ entity Moore_fir_filter is
 end Moore_fir_filter;
 
 architecture Behavioral of Moore_fir_filter is
+
     type state_type is (S0,S1,S2,S3,S4,S5,S6);
     signal state, next_state : state_type;
     signal sm : STD_LOGIC_VECTOR(2 downto 0);
+    signal sprocessed : STD_LOGIC;
+    
 begin
     SYNC_PROC : process (new_sample,reset,clk)
     begin
@@ -54,7 +57,8 @@ begin
             processed_sample<='0';
         elsif (rising_edge(clk) and new_sample='1') then
             state <= next_state;
-            m<=sm;
+            m <= sm;
+            processed_sample <= sprocessed;
         end if;
         
     end process;
@@ -64,28 +68,28 @@ begin
         --load <=new_sample;
         case state is
              when S0 =>
-                 sm<="000";
-                 processed_sample<='0';
-             when S1 =>
                  sm<="001";
-                 processed_sample<='0';
-             when S2 =>
+                 sprocessed<='0';
+             when S1 =>
                  sm<="010";
-                 processed_sample<='0';
+                 sprocessed<='0';
+             when S2 =>
+                 sm<="011";
+                 sprocessed<='0';
              when S3 =>
-                 sm<="011";  
-                 processed_sample<='0';           
+                 sm<="100";  
+                 sprocessed<='0';           
              when S4 =>
-                 sm<="100";
-                 processed_sample<='0';
-             when S5 =>
                  sm<="101";
-                 processed_sample<='0';
-             when S6 =>
-                 processed_sample<='1';
+                 sprocessed<='0';
+             when S5 =>
                  sm<="110";
+                 sprocessed<='0';
+             when S6 =>
+                 sprocessed<='1';
+                 sm<="000";
              when others =>
-                 processed_sample<='0';
+                 sprocessed<='0';
                  sm<="000";
        end case;
         
@@ -116,8 +120,7 @@ begin
         end case;
     end process; 
     
-    m <=sm;
     load <=new_sample;
-    --processed_sample<=sprocessed;
+
 
 end Behavioral;

@@ -53,10 +53,18 @@ architecture Behavioral of moore_fir_filter_tb is
     signal sprocessed_sample:  STD_LOGIC;
     constant half_period1 : time := 41.666666666666 ns;
     constant half_period2 : time := 39.666666666666 ns;
+    
+    
 begin
     moore: Moore_fir_filter port map(sclk,snew_sample,sreset,sm,sload,sprocessed_sample);
-    sreset<='0' after 80 ns;
+    
     snew_sample<=not snew_sample after half_period2;
     sclk<=not sclk after half_period1;
+    
+    process
+    begin
+        wait for 10 ns; sreset <= '0';
+        wait for 1500 ns; sreset <= '1';
+    end process;
     
 end Behavioral;
