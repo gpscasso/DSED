@@ -58,5 +58,6 @@ begin
      sclk <= not sclk after half_period12;
      sSample_In_enable <= not sSample_In_enable after 3*half_period12;
      sSample_In <= sSample_In + 1 after 3*half_period12;
+     sfilter_select<='1' after 2500 ns;
      
 end Behavioral;
