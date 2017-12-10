@@ -46,9 +46,11 @@ architecture Behavioral of fir_filter_tb is
                 Sample_Out : out signed (sample_size-1 downto 0);
                 Sample_Out_ready : out STD_LOGIC);  
      end component;
-     signal sclk,sSample_In_enable,sSample_Out_ready,sreset: STD_LOGIC :='0';
+     
+     signal sclk,sSample_In_enable,sSample_Out_ready : STD_LOGIC :='0';
      signal sSample_In,sSample_Out: signed(sample_size-1 downto 0):="00000000";
      signal sfilter_select: STD_LOGIC:='0';
+     signal sreset : STD_LOGIC := '1';
      constant half_period12 : time := 41.666666666666 ns;
 
 begin
@@ -58,6 +60,12 @@ begin
      sclk <= not sclk after half_period12;
      sSample_In_enable <= not sSample_In_enable after 3*half_period12;
      sSample_In <= sSample_In + 1 after 3*half_period12;
-     sfilter_select<='1' after 2500 ns;
+     sfilter_select<= not sfilter_select after 10000 ns;
+     
+      process
+      begin
+          wait for 40 ns; sreset <= '0';
+          wait for 15000 ns; sreset <= '1';
+      end process;
      
 end Behavioral;
