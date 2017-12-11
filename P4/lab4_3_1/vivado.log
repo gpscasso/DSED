@@ -2,10 +2,10 @@
 # Vivado v2017.2 (64-bit)
 # SW Build 1909853 on Thu Jun 15 18:39:09 MDT 2017
 # IP Build 1909766 on Thu Jun 15 19:58:00 MDT 2017
-# Start of session at: Fri Dec  8 02:29:06 2017
-# Process ID: 13260
+# Start of session at: Mon Dec 11 16:43:31 2017
+# Process ID: 7944
 # Current directory: C:/Users/Guille/Documents/Universidad/Sexto/1er Cuatri/DSED/Entrega/DSED/P4/lab4_3_1
-# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent3792 C:\Users\Guille\Documents\Universidad\Sexto\1er Cuatri\DSED\Entrega\DSED\P4\lab4_3_1\lab4_3_1.xpr
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent9148 C:\Users\Guille\Documents\Universidad\Sexto\1er Cuatri\DSED\Entrega\DSED\P4\lab4_3_1\lab4_3_1.xpr
 # Log file: C:/Users/Guille/Documents/Universidad/Sexto/1er Cuatri/DSED/Entrega/DSED/P4/lab4_3_1/vivado.log
 # Journal file: C:/Users/Guille/Documents/Universidad/Sexto/1er Cuatri/DSED/Entrega/DSED/P4/lab4_3_1\vivado.jou
 #-----------------------------------------------------------
@@ -19,7 +19,7 @@ Finished scanning sources
 INFO: [IP_Flow 19-234] Refreshing IP repositories
 INFO: [IP_Flow 19-1704] No user IP repositories specified
 INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2017.2/data/ip'.
-open_project: Time (s): cpu = 00:00:17 ; elapsed = 00:00:10 . Memory (MB): peak = 792.172 ; gain = 77.363
+open_project: Time (s): cpu = 00:00:17 ; elapsed = 00:00:09 . Memory (MB): peak = 775.840 ; gain = 90.066
 update_compile_order -fileset sources_1
 exit
-INFO: [Common 17-206] Exiting Vivado at Fri Dec  8 02:31:25 2017...
+INFO: [Common 17-206] Exiting Vivado at Mon Dec 11 16:44:12 2017...

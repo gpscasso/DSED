@@ -2,14 +2,13 @@
 # Vivado v2017.2 (64-bit)
 # SW Build 1909853 on Thu Jun 15 18:39:09 MDT 2017
 # IP Build 1909766 on Thu Jun 15 19:58:00 MDT 2017
-# Start of session at: Fri Dec  8 01:43:52 2017
-# Process ID: 9780
+# Start of session at: Mon Dec 11 17:10:35 2017
+# Process ID: 10828
 # Current directory: C:/Users/Guille/Documents/Universidad/Sexto/1er Cuatri/DSED/Entrega/DSED/P2/Archivos sesin 2-20170920/lab1_6_1
-# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent6304 C:\Users\Guille\Documents\Universidad\Sexto\1er Cuatri\DSED\Entrega\DSED\P2\Archivos sesin 2-20170920\lab1_6_1\lab1_6_1.xpr
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent7268 C:\Users\Guille\Documents\Universidad\Sexto\1er Cuatri\DSED\Entrega\DSED\P2\Archivos sesin 2-20170920\lab1_6_1\lab1_6_1.xpr
 # Log file: C:/Users/Guille/Documents/Universidad/Sexto/1er Cuatri/DSED/Entrega/DSED/P2/Archivos sesin 2-20170920/lab1_6_1/vivado.log
 # Journal file: C:/Users/Guille/Documents/Universidad/Sexto/1er Cuatri/DSED/Entrega/DSED/P2/Archivos sesin 2-20170920/lab1_6_1\vivado.jou
 #-----------------------------------------------------------
 start_gui
 open_project {C:/Users/Guille/Documents/Universidad/Sexto/1er Cuatri/DSED/Entrega/DSED/P2/Archivos sesin 2-20170920/lab1_6_1/lab1_6_1.xpr}
-update_compile_order -fileset sources_1
 update_compile_order -fileset sources_1

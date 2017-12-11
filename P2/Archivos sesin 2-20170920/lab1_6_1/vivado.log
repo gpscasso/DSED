@@ -2,10 +2,10 @@
 # Vivado v2017.2 (64-bit)
 # SW Build 1909853 on Thu Jun 15 18:39:09 MDT 2017
 # IP Build 1909766 on Thu Jun 15 19:58:00 MDT 2017
-# Start of session at: Fri Dec  8 01:43:52 2017
-# Process ID: 9780
+# Start of session at: Mon Dec 11 17:10:35 2017
+# Process ID: 10828
 # Current directory: C:/Users/Guille/Documents/Universidad/Sexto/1er Cuatri/DSED/Entrega/DSED/P2/Archivos sesin 2-20170920/lab1_6_1
-# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent6304 C:\Users\Guille\Documents\Universidad\Sexto\1er Cuatri\DSED\Entrega\DSED\P2\Archivos sesin 2-20170920\lab1_6_1\lab1_6_1.xpr
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent7268 C:\Users\Guille\Documents\Universidad\Sexto\1er Cuatri\DSED\Entrega\DSED\P2\Archivos sesin 2-20170920\lab1_6_1\lab1_6_1.xpr
 # Log file: C:/Users/Guille/Documents/Universidad/Sexto/1er Cuatri/DSED/Entrega/DSED/P2/Archivos sesin 2-20170920/lab1_6_1/vivado.log
 # Journal file: C:/Users/Guille/Documents/Universidad/Sexto/1er Cuatri/DSED/Entrega/DSED/P2/Archivos sesin 2-20170920/lab1_6_1\vivado.jou
 #-----------------------------------------------------------
@@ -13,15 +13,13 @@ start_gui
 open_project {C:/Users/Guille/Documents/Universidad/Sexto/1er Cuatri/DSED/Entrega/DSED/P2/Archivos sesin 2-20170920/lab1_6_1/lab1_6_1.xpr}
 INFO: [ProjectBase 1-489] The host OS only allows 260 characters in a normal path. The project is stored in a path with more than 80 characters. If you experience issues with IP, Block Designs, or files not being found, please consider moving the project to a location with a shorter path. Alternately consider using the OS subst command to map part of the path to a drive letter.
 Current project path is 'C:/Users/Guille/Documents/Universidad/Sexto/1er Cuatri/DSED/Entrega/DSED/P2/Archivos sesin 2-20170920/lab1_6_1'
-INFO: [Project 1-313] Project file moved from 'C:/Users/fpga/DSED_G1/P2/Archivos sesin 2-20170920/lab1_6_1' since last save.
 Scanning sources...
 Finished scanning sources
-WARNING: [filemgmt 56-2] IPUserFilesDir: Could not find the directory 'C:/Users/Guille/Documents/Universidad/Sexto/1er Cuatri/DSED/Entrega/DSED/P2/Archivos sesin 2-20170920/lab1_6_1/lab1_6_1.ip_user_files', nor could it be found using path 'C:/Users/fpga/DSED_G1/P2/Archivos sesin 2-20170920/lab1_6_1/lab1_6_1.ip_user_files'.
+WARNING: [filemgmt 56-3] IPUserFilesDir: Could not find the directory 'C:/Users/Guille/Documents/Universidad/Sexto/1er Cuatri/DSED/Entrega/DSED/P2/Archivos sesin 2-20170920/lab1_6_1/lab1_6_1.ip_user_files'.
 INFO: [IP_Flow 19-234] Refreshing IP repositories
 INFO: [IP_Flow 19-1704] No user IP repositories specified
 INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2017.2/data/ip'.
-open_project: Time (s): cpu = 00:00:10 ; elapsed = 00:00:35 . Memory (MB): peak = 700.719 ; gain = 42.984
-update_compile_order -fileset sources_1
+open_project: Time (s): cpu = 00:00:12 ; elapsed = 00:00:07 . Memory (MB): peak = 761.121 ; gain = 84.586
 update_compile_order -fileset sources_1
 exit
-INFO: [Common 17-206] Exiting Vivado at Fri Dec  8 01:49:46 2017...
+INFO: [Common 17-206] Exiting Vivado at Mon Dec 11 17:13:01 2017...

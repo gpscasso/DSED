@@ -2,10 +2,10 @@
 # Vivado v2017.2 (64-bit)
 # SW Build 1909853 on Thu Jun 15 18:39:09 MDT 2017
 # IP Build 1909766 on Thu Jun 15 19:58:00 MDT 2017
-# Start of session at: Fri Dec  8 02:07:46 2017
-# Process ID: 3876
+# Start of session at: Mon Dec 11 16:13:35 2017
+# Process ID: 15532
 # Current directory: C:/Users/Guille/Documents/Universidad/Sexto/1er Cuatri/DSED/Entrega/DSED/P4/lab4_2_1
-# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent2872 C:\Users\Guille\Documents\Universidad\Sexto\1er Cuatri\DSED\Entrega\DSED\P4\lab4_2_1\lab4_2_1.xpr
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent15604 C:\Users\Guille\Documents\Universidad\Sexto\1er Cuatri\DSED\Entrega\DSED\P4\lab4_2_1\lab4_2_1.xpr
 # Log file: C:/Users/Guille/Documents/Universidad/Sexto/1er Cuatri/DSED/Entrega/DSED/P4/lab4_2_1/vivado.log
 # Journal file: C:/Users/Guille/Documents/Universidad/Sexto/1er Cuatri/DSED/Entrega/DSED/P4/lab4_2_1\vivado.jou
 #-----------------------------------------------------------
@@ -13,22 +13,11 @@ start_gui
 open_project {C:/Users/Guille/Documents/Universidad/Sexto/1er Cuatri/DSED/Entrega/DSED/P4/lab4_2_1/lab4_2_1.xpr}
 INFO: [ProjectBase 1-489] The host OS only allows 260 characters in a normal path. The project is stored in a path with more than 80 characters. If you experience issues with IP, Block Designs, or files not being found, please consider moving the project to a location with a shorter path. Alternately consider using the OS subst command to map part of the path to a drive letter.
 Current project path is 'C:/Users/Guille/Documents/Universidad/Sexto/1er Cuatri/DSED/Entrega/DSED/P4/lab4_2_1'
-INFO: [Project 1-313] Project file moved from 'C:/Users/fpga/DSED_G1/P4/lab4_2_1' since last save.
 Scanning sources...
 Finished scanning sources
 INFO: [IP_Flow 19-234] Refreshing IP repositories
 INFO: [IP_Flow 19-1704] No user IP repositories specified
 INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2017.2/data/ip'.
-open_project: Time (s): cpu = 00:00:16 ; elapsed = 00:00:10 . Memory (MB): peak = 779.852 ; gain = 94.082
-reset_run synth_1
-reset_run clk_wiz_0_synth_1
-launch_runs impl_1 -to_step write_bitstream -jobs 2
-[Fri Dec  8 02:16:05 2017] Launched clk_wiz_0_synth_1, synth_1...
-Run output will be captured here:
-clk_wiz_0_synth_1: C:/Users/Guille/Documents/Universidad/Sexto/1er Cuatri/DSED/Entrega/DSED/P4/lab4_2_1/lab4_2_1.runs/clk_wiz_0_synth_1/runme.log
-synth_1: C:/Users/Guille/Documents/Universidad/Sexto/1er Cuatri/DSED/Entrega/DSED/P4/lab4_2_1/lab4_2_1.runs/synth_1/runme.log
-[Fri Dec  8 02:16:05 2017] Launched impl_1...
-Run output will be captured here: C:/Users/Guille/Documents/Universidad/Sexto/1er Cuatri/DSED/Entrega/DSED/P4/lab4_2_1/lab4_2_1.runs/impl_1/runme.log
-open_hw
+open_project: Time (s): cpu = 00:00:17 ; elapsed = 00:00:11 . Memory (MB): peak = 777.305 ; gain = 99.797
 exit
-INFO: [Common 17-206] Exiting Vivado at Fri Dec  8 02:19:42 2017...
+INFO: [Common 17-206] Exiting Vivado at Mon Dec 11 16:22:07 2017...
