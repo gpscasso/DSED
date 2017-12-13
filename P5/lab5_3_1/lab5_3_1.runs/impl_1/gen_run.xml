@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <GenRun Id="impl_1" LaunchPart="xc7a100tcsg324-1" LaunchTime="1513009137">
-  <File Type="PWROPT-DRC" Name="lab5_3_1_drc_pwropted.rpt"/>
-  <File Type="OPT-METHODOLOGY-DRC" Name="lab5_3_1_methodology_drc_opted.rpt"/>
-  <File Type="INIT-TIMING" Name="lab5_3_1_timing_summary_init.rpt"/>
   <File Type="ROUTE-PWR-RPX" Name="lab5_3_1_power_routed.rpx"/>
   <File Type="PA-TCL" Name="lab5_3_1.tcl"/>
-  <File Type="OPT-HWDEF" Name="lab5_3_1.hwdef"/>
+  <File Type="INIT-TIMING" Name="lab5_3_1_timing_summary_init.rpt"/>
+  <File Type="OPT-METHODOLOGY-DRC" Name="lab5_3_1_methodology_drc_opted.rpt"/>
+  <File Type="PWROPT-DRC" Name="lab5_3_1_drc_pwropted.rpt"/>
   <File Type="RDI-RDI" Name="lab5_3_1.vdi"/>
   <File Type="OPT-DCP" Name="lab5_3_1_opt.dcp"/>
+  <File Type="OPT-HWDEF" Name="lab5_3_1.hwdef"/>
   <File Type="OPT-DRC" Name="lab5_3_1_drc_opted.rpt"/>
   <File Type="OPT-TIMING" Name="lab5_3_1_timing_summary_opted.rpt"/>
   <File Type="PWROPT-DCP" Name="lab5_3_1_pwropt.dcp"/>
@@ -31,14 +31,14 @@
   <File Type="ROUTE-BLACKBOX-DCP" Name="lab5_3_1_routed_bb.dcp"/>
   <File Type="ROUTE-DRC" Name="lab5_3_1_drc_routed.rpt"/>
   <File Type="ROUTE-DRC-PB" Name="lab5_3_1_drc_routed.pb"/>
-  <File Type="BG-BIN" Name="lab5_3_1.bin"/>
   <File Type="ROUTE-DRC-RPX" Name="lab5_3_1_drc_routed.rpx"/>
-  <File Type="BG-DRC" Name="lab5_3_1.drc"/>
+  <File Type="BG-BIN" Name="lab5_3_1.bin"/>
   <File Type="ROUTE-METHODOLOGY-DRC" Name="lab5_3_1_methodology_drc_routed.rpt"/>
-  <File Type="BITSTR-MSK" Name="lab5_3_1.msk"/>
+  <File Type="BG-DRC" Name="lab5_3_1.drc"/>
   <File Type="ROUTE-METHODOLOGY-DRC-RPX" Name="lab5_3_1_methodology_drc_routed.rpx"/>
-  <File Type="BG-BGN" Name="lab5_3_1.bgn"/>
+  <File Type="BITSTR-MSK" Name="lab5_3_1.msk"/>
   <File Type="ROUTE-METHODOLOGY-DRC-PB" Name="lab5_3_1_methodology_drc_routed.pb"/>
+  <File Type="BG-BGN" Name="lab5_3_1.bgn"/>
   <File Type="ROUTE-PWR" Name="lab5_3_1_power_routed.rpt"/>
   <File Type="ROUTE-PWR-SUM" Name="lab5_3_1_power_summary_routed.pb"/>
   <File Type="ROUTE-STATUS" Name="lab5_3_1_route_status.rpt"/>

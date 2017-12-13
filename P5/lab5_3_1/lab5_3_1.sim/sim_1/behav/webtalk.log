@@ -2,16 +2,13 @@
 # Webtalk v2017.2 (64-bit)
 # SW Build 1909853 on Thu Jun 15 18:39:09 MDT 2017
 # IP Build 1909766 on Thu Jun 15 19:58:00 MDT 2017
-# Start of session at: Mon Dec 11 17:24:09 2017
-# Process ID: 8224
+# Start of session at: Wed Dec 13 11:48:42 2017
+# Process ID: 13680
 # Current directory: C:/Users/Guille/Documents/Universidad/Sexto/1er Cuatri/DSED/Entrega/DSED/P5/lab5_3_1/lab5_3_1.sim/sim_1/behav
 # Command line: wbtcv.exe -mode batch -source C:/Users/Guille/Documents/Universidad/Sexto/1er Cuatri/DSED/Entrega/DSED/P5/lab5_3_1/lab5_3_1.sim/sim_1/behav/xsim.dir/lab5_3_1_tb_behav/webtalk/xsim_webtalk.tcl -notrace
 # Log file: C:/Users/Guille/Documents/Universidad/Sexto/1er Cuatri/DSED/Entrega/DSED/P5/lab5_3_1/lab5_3_1.sim/sim_1/behav/webtalk.log
 # Journal file: C:/Users/Guille/Documents/Universidad/Sexto/1er Cuatri/DSED/Entrega/DSED/P5/lab5_3_1/lab5_3_1.sim/sim_1/behav\webtalk.jou
 #-----------------------------------------------------------
 source C:/Users/Guille/Documents/Universidad/Sexto/1er -notrace
-invalid command name "%"
-    while executing
-"% Total    % Received % Xferd  Average Speed   Time    Time     Time  Current"
-    (file "C:/Users/Guille/Documents/Universidad/Sexto/1er" line 1)
-INFO: [Common 17-206] Exiting Webtalk at Mon Dec 11 17:24:09 2017...
+couldn't read file "C:/Users/Guille/Documents/Universidad/Sexto/1er": permission denied
+INFO: [Common 17-206] Exiting Webtalk at Wed Dec 13 11:48:42 2017...

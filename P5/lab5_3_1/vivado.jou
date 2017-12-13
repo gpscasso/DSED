@@ -2,10 +2,10 @@
 # Vivado v2017.2 (64-bit)
 # SW Build 1909853 on Thu Jun 15 18:39:09 MDT 2017
 # IP Build 1909766 on Thu Jun 15 19:58:00 MDT 2017
-# Start of session at: Mon Dec 11 17:13:17 2017
-# Process ID: 3980
+# Start of session at: Wed Dec 13 11:18:35 2017
+# Process ID: 10260
 # Current directory: C:/Users/Guille/Documents/Universidad/Sexto/1er Cuatri/DSED/Entrega/DSED/P5/lab5_3_1
-# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent15368 C:\Users\Guille\Documents\Universidad\Sexto\1er Cuatri\DSED\Entrega\DSED\P5\lab5_3_1\lab5_3_1.xpr
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent12764 C:\Users\Guille\Documents\Universidad\Sexto\1er Cuatri\DSED\Entrega\DSED\P5\lab5_3_1\lab5_3_1.xpr
 # Log file: C:/Users/Guille/Documents/Universidad/Sexto/1er Cuatri/DSED/Entrega/DSED/P5/lab5_3_1/vivado.log
 # Journal file: C:/Users/Guille/Documents/Universidad/Sexto/1er Cuatri/DSED/Entrega/DSED/P5/lab5_3_1\vivado.jou
 #-----------------------------------------------------------
@@ -14,8 +14,4 @@ open_project {C:/Users/Guille/Documents/Universidad/Sexto/1er Cuatri/DSED/Entreg
 update_compile_order -fileset sources_1
 launch_simulation
 source lab5_3_1_tb.tcl
-run 20000 us
-launch_runs impl_1 -to_step write_bitstream -jobs 2
-wait_on_run impl_1
-open_hw
 close_sim

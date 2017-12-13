@@ -43,64 +43,85 @@ end Moore_fir_filter;
 
 architecture Behavioral of Moore_fir_filter is
 
-    type state_type is (S0,S1,S2,S3,S4,S5,S6);
+    type state_type is (SR,S0,S1,S2,S3,S4,S5,S6);
     signal state, next_state : state_type;
     signal sm : STD_LOGIC_VECTOR(2 downto 0);
-    signal sprocessed : STD_LOGIC;
+    signal sprocessed, sload : STD_LOGIC;
     
 begin
-    SYNC_PROC : process (new_sample,reset,clk)
+    SYNC_PROC : process (reset,clk)
     begin
         if (reset = '1') then
-            state <= S0;
-            m<="000";
+            state <= SR;
+            m<="111";
             processed_sample<='0';
-        elsif (rising_edge(clk) and new_sample='1') then
+        elsif (rising_edge(clk)) then
             state <= next_state;
             m <= sm;
             processed_sample <= sprocessed;
+            
         end if;
         
     end process;
     
-    OUTPUT_DECODE : process (state)
+    OUTPUT_DECODE : process (state, new_sample)
     begin
-        --load <=new_sample;
         case state is
+             when SR =>
+                 sm<="000";
+                 sprocessed<='0';
+                 if(new_sample = '1') then
+                    sload <= '1';
+                 else
+                    sload <= '0';
+                 end if;
              when S0 =>
                  sm<="001";
                  sprocessed<='0';
+                 sload <= '1';
              when S1 =>
                  sm<="010";
                  sprocessed<='0';
+                 sload <= '1';
              when S2 =>
                  sm<="011";
                  sprocessed<='0';
+                 sload <= '1';
              when S3 =>
                  sm<="100";  
-                 sprocessed<='0';           
+                 sprocessed<='0'; 
+                 sload <= '1';        
              when S4 =>
                  sm<="101";
                  sprocessed<='0';
+                 sload <= '1';
              when S5 =>
                  sm<="110";
                  sprocessed<='0';
+                 sload <= '1';
              when S6 =>
-                 sprocessed<='1';
                  sm<="000";
+                 sprocessed<='1';
+                 sload <= '0';
              when others =>
                  sprocessed<='0';
                  sm<="000";
+                 sload <= '0';
        end case;
         
-           
     end process;
         
     
-    NEXT_STATE_DECODE : process (state)
+    NEXT_STATE_DECODE : process (state,new_sample)
     begin
        next_state<=S0;
        case state is
+            when SR =>
+                 if(new_sample = '1') then
+                    next_state <= S0;
+                 else
+                    next_state<=SR;
+                 end if;
             when S0 =>
                  next_state<=S1;
             when S1 =>
@@ -114,13 +135,11 @@ begin
             when S5 =>
                  next_state<=S6;
             when S6 =>
-                 next_state<=S0;
+                 next_state<=SR;
             when others =>
-                 next_state<=S0;                      
+                 next_state<=SR;                      
         end case;
     end process; 
-    
-    load <=new_sample;
-
+    load <= clk and sload;
 
 end Behavioral;

@@ -44,7 +44,8 @@ end fir_filter;
 
 architecture Behavioral of fir_filter is
     Component data_route_fir_filter
-    Port ( x0 : in signed (sample_size-1 downto 0);
+    Port ( clk : in STD_LOGIC;
+           x0 : in signed (sample_size-1 downto 0);
            x1 : in signed (sample_size-1 downto 0);
            x2 : in signed (sample_size-1 downto 0);
            x3 : in signed (sample_size-1 downto 0);
@@ -57,6 +58,7 @@ architecture Behavioral of fir_filter is
            reset: in STD_LOGIC;
            m : in STD_LOGIC_VECTOR (2 downto 0);
            load : in STD_LOGIC;
+           sample_ready : in STD_LOGIC;
            y : out signed (sample_size-1 downto 0));
     End component;
     
@@ -71,6 +73,8 @@ architecture Behavioral of fir_filter is
     signal sm: STD_LOGIC_VECTOR (2 downto 0);
     signal sload: std_logic:='0';
     signal sc0,sc1,sc2,sc3,sc4: signed(sample_size-1 downto 0);
+    signal sx0,sx1,sx2,sx3,sx4: signed(sample_size-1 downto 0) := (others=>'0');
+    signal sready : std_logic := '0';
     
     constant c0lp, c4lp: signed(sample_size-1 downto 0):="00000101";
     constant c1lp, c3lp: signed(sample_size-1 downto 0):="00111111";
@@ -83,8 +87,32 @@ architecture Behavioral of fir_filter is
     
 begin
         
-        process(clk,filter_select)
+        process(clk,Sample_In_enable,reset)
+        begin
+            if(reset = '1') then
+                sx0 <= (others=>'0');
+                sx1 <= (others=>'0');
+                sx2 <= (others=>'0');
+                sx3 <= (others=>'0');
+                sx4 <= (others=>'0');
+            elsif(rising_edge(clk) and Sample_In_enable='1') then
+                sx0 <= Sample_In;
+                sx1 <= sx0;
+                sx2 <= sx1;
+                sx3 <= sx2;
+                sx4 <= sx3;
+            end if;     
+         end process;  
+        
+        process(reset,clk,filter_select)
             begin
+            if(reset = '1') then
+                sc0<=(others=>'0');
+                sc1<=(others=>'0');
+                sc2<=(others=>'0');
+                sc3<=(others=>'0');
+                sc4<=(others=>'0');
+            elsif(rising_edge(clk)) then
                 if(filter_select='0')then--lowpass
                     sc0<=c0lp;
                     sc1<=c1lp;
@@ -97,16 +125,12 @@ begin
                     sc2<=c2hp;
                     sc3<=c3hp;
                     sc4<=c4hp;
-                else
-                    sc0<=(others=>'0');
-                    sc1<=(others=>'0');
-                    sc2<=(others=>'0');
-                    sc3<=(others=>'0');
-                    sc4<=(others=>'0');
                 end if;
+            end if;
          end process;
          
-         data_route: data_route_fir_filter port map(Sample_In,Sample_In,Sample_In,Sample_In,Sample_In,sc0,sc1,sc2,sc3,sc4,reset,sm,sload,Sample_Out);
-         FSMD: Moore_fir_filter port map(clk,Sample_In_enable,reset,sm,sload,Sample_Out_ready);
+         data_route: data_route_fir_filter port map(clk,sx0,sx1,sx2,sx3,sx4,sc0,sc1,sc2,sc3,sc4,reset,sm,sload,sready,Sample_Out);
+         FSMD: Moore_fir_filter port map(clk,Sample_In_enable,reset,sm,sload,sready);
+         Sample_Out_ready <= sready;
 
 end Behavioral;

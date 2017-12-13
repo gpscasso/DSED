@@ -37,7 +37,8 @@ use IEEE.NUMERIC_STD.ALL;
 --use UNISIM.VComponents.all;
 
 entity data_route_fir_filter is
-    Port ( x0 : in signed (sample_size-1 downto 0);
+    Port ( clk : in STD_LOGIC;
+           x0 : in signed (sample_size-1 downto 0);
            x1 : in signed (sample_size-1 downto 0);
            x2 : in signed (sample_size-1 downto 0);
            x3 : in signed (sample_size-1 downto 0);
@@ -50,6 +51,7 @@ entity data_route_fir_filter is
            reset: in STD_LOGIC;
            m : in STD_LOGIC_VECTOR (2 downto 0);
            load : in STD_LOGIC;
+           sample_ready : in STD_LOGIC;
            y : out signed (sample_size-1 downto 0));
 end data_route_fir_filter;
 
@@ -63,7 +65,7 @@ architecture Behavioral of data_route_fir_filter is
     
 begin
 
-    process (m,load)
+    process (clk,m,load)
         begin
            case m is
               when "000" => X <= x0; C <= c0;
@@ -88,7 +90,12 @@ begin
             end if;
     end process;
     
-    y<=r_s_reg(sample_size-1+sample_size downto sample_size);
+    process(clk)
+    begin
+        if(rising_edge(clk) and sample_ready = '1') then
+            y<=r_s_reg(sample_size-1+sample_size downto sample_size);
+        end if;
+    end process;
 
 
 end Behavioral;

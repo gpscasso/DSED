@@ -1,9 +1,8 @@
-Unable to capture context for thread 3924 in process 7060, can not generate back trace
-Unable to capture context for thread 6904 in process 7060, can not generate back trace
-Exception at PC 0x00007FF8EAF3BB93
+Unable to capture context for thread 3980 in process 5748, can not generate back trace
+Unable to capture context for thread 9856 in process 5748, can not generate back trace
+Exception at PC 0x00007FFAA0BABB93
 Printing stacktrace...
 
-Unable to capture context for thread 9064 in process 7060, can not generate back trace
-Exception at PC 0x00007FF8EAC41A52
-Attemped to write at address 0x00007FF91B06ABA4
+Exception at PC 0x00007FFAA08B1A52
+Attemped to write at address 0x00007FFAF0B1ABA4
 Another exception occurred while writing back trace, hence exiting

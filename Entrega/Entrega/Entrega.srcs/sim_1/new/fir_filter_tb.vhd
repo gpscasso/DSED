@@ -58,14 +58,35 @@ begin
      filtro: fir_filter port map(sclk,sreset,sSample_In,sSample_In_enable,sfilter_select,sSample_Out,sSample_Out_ready);
 
      sclk <= not sclk after half_period12;
-     sSample_In_enable <= not sSample_In_enable after 3*half_period12;
-     sSample_In <= sSample_In + 1 after 3*half_period12;
-     sfilter_select<= not sfilter_select after 10000 ns;
+     
+     
+     sfilter_select<= not sfilter_select after 50000 ns;
      
       process
       begin
           wait for 40 ns; sreset <= '0';
-          wait for 15000 ns; sreset <= '1';
+          wait for 60 ns; sSample_In_enable <= '1'; sSample_In <= "01010010";
+          wait for 80 ns; sSample_In_enable <= '0';
+          
+          wait for 1000ns; sSample_In_enable <= '1'; sSample_In <= "00011101";
+          wait for 80 ns; sSample_In_enable <= '0';
+          
+          wait for 1000ns; sSample_In_enable <= '1'; sSample_In <= "11001011";
+          wait for 80 ns; sSample_In_enable <= '0';
+          
+          wait for 1000ns; sSample_In_enable <= '1'; sSample_In <= "00101101";
+          wait for 80 ns; sSample_In_enable <= '0';
+          
+          wait for 1000ns; sSample_In_enable <= '1'; sSample_In <= "00001110";
+          wait for 80 ns; sSample_In_enable <= '0';
+          
+          wait for 1000ns; sSample_In_enable <= '1';  sSample_In <= "11001100";
+          wait for 80 ns; sSample_In_enable <= '0';
+          
+          wait for 1000ns; sSample_In_enable <= '1';  sSample_In <= "11100101";
+          wait for 80 ns; sSample_In_enable <= '0';
+          
+          wait for 400 ns; sreset <= '1';
       end process;
      
 end Behavioral;
