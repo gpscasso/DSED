@@ -45,8 +45,8 @@ architecture Behavioral of Moore_fir_filter is
 
     type state_type is (SR,S0,S1,S2,S3,S4,S5,S6);
     signal state, next_state : state_type;
-    signal sm : STD_LOGIC_VECTOR(2 downto 0);
-    signal sprocessed, sload : STD_LOGIC;
+    signal sm, m_reg : STD_LOGIC_VECTOR(2 downto 0);
+    signal sprocessed, sload, load_reg : STD_LOGIC;
     
 begin
     SYNC_PROC : process (reset,clk)
@@ -57,7 +57,8 @@ begin
             processed_sample<='0';
         elsif (rising_edge(clk)) then
             state <= next_state;
-            m <= sm;
+            m_reg <= sm;
+            load_reg <= sload;
             processed_sample <= sprocessed;
             
         end if;
@@ -67,12 +68,13 @@ begin
     OUTPUT_DECODE : process (state, new_sample)
     begin
         case state is
-             when SR =>
-                 sm<="000";
+             when SR =>             
                  sprocessed<='0';
                  if(new_sample = '1') then
+                    sm<="000";
                     sload <= '1';
                  else
+                    sm<="111";
                     sload <= '0';
                  end if;
              when S0 =>
@@ -100,12 +102,12 @@ begin
                  sprocessed<='0';
                  sload <= '1';
              when S6 =>
-                 sm<="000";
+                 sm<="111";
                  sprocessed<='1';
                  sload <= '0';
              when others =>
                  sprocessed<='0';
-                 sm<="000";
+                 sm<="111";
                  sload <= '0';
        end case;
         
@@ -140,6 +142,7 @@ begin
                  next_state<=SR;                      
         end case;
     end process; 
-    load <= clk and sload;
+    load <= load_reg;
+    m <= m_reg
 
 end Behavioral;

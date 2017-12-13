@@ -65,25 +65,25 @@ begin
       process
       begin
           wait for 40 ns; sreset <= '0';
-          wait for 60 ns; sSample_In_enable <= '1'; sSample_In <= "01010010";
+          wait for 60 ns; sSample_In_enable <= '1'; sSample_In <= "01010010"; -- 01010010
           wait for 80 ns; sSample_In_enable <= '0';
           
-          wait for 1000ns; sSample_In_enable <= '1'; sSample_In <= "00011101";
+          wait for 1000ns; sSample_In_enable <= '1'; sSample_In <= "00011101"; -- 00011101
           wait for 80 ns; sSample_In_enable <= '0';
           
-          wait for 1000ns; sSample_In_enable <= '1'; sSample_In <= "11001011";
+          wait for 1000ns; sSample_In_enable <= '1'; sSample_In <= "11001011"; -- 11001011
           wait for 80 ns; sSample_In_enable <= '0';
           
-          wait for 1000ns; sSample_In_enable <= '1'; sSample_In <= "00101101";
+          wait for 1000ns; sSample_In_enable <= '1'; sSample_In <= "00101101"; -- 00101101
           wait for 80 ns; sSample_In_enable <= '0';
           
-          wait for 1000ns; sSample_In_enable <= '1'; sSample_In <= "00001110";
+          wait for 1000ns; sSample_In_enable <= '1'; sSample_In <= "00001110"; -- 00001110
           wait for 80 ns; sSample_In_enable <= '0';
           
-          wait for 1000ns; sSample_In_enable <= '1';  sSample_In <= "11001100";
+          wait for 1000ns; sSample_In_enable <= '1';  sSample_In <= "11001100"; -- 11001100
           wait for 80 ns; sSample_In_enable <= '0';
           
-          wait for 1000ns; sSample_In_enable <= '1';  sSample_In <= "11100101";
+          wait for 1000ns; sSample_In_enable <= '1';  sSample_In <= "11100101"; -- 11100101
           wait for 80 ns; sSample_In_enable <= '0';
           
           wait for 400 ns; sreset <= '1';

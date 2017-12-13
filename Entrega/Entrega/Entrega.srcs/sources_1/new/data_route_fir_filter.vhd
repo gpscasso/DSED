@@ -65,7 +65,7 @@ architecture Behavioral of data_route_fir_filter is
     
 begin
 
-    process (clk,m,load)
+    process (m)
         begin
            case m is
               when "000" => X <= x0; C <= c0;
@@ -77,22 +77,22 @@ begin
            end case;
     end process;
     
-    process(load,reset)
+    process(reset,load,m)
         begin
-            if (reset='1') then
+            if (reset='1' or m="111") then
                 r_reg<=(others => '0');
                 r_r_reg<=(others => '0');
                 r_s_reg<=(others => '0');
-            elsif (rising_edge(load)) then
+            elsif ((load = '1')) then
                 r_reg<=X*C;
                 r_r_reg<=r_reg;
-                r_s_reg<=r_s_reg + r_r_reg;
-            end if;
+                r_s_reg<=r_s_reg + r_r_reg;         
+           end if;
     end process;
     
     process(clk)
     begin
-        if(rising_edge(clk) and sample_ready = '1') then
+        if(rising_edge(clk) and m = "110") then
             y<=r_s_reg(sample_size-1+sample_size downto sample_size);
         end if;
     end process;

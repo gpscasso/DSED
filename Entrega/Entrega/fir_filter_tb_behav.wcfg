@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="fir_filter_tb_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="fir_filter_tb" />
+            <top_module name="package_dsed" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="0fs"></ZoomStartTime>
+      <ZoomEndTime time="1056629696fs"></ZoomEndTime>
+      <Cursor1Time time="0fs"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="157"></NameColumnWidth>
+      <ValueColumnWidth column_width="62"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="18" />
+   <wvobject fp_name="/fir_filter_tb/sclk" type="logic">
+      <obj_property name="ElementShortName">sclk</obj_property>
+      <obj_property name="ObjectShortName">sclk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fir_filter_tb/sreset" type="logic">
+      <obj_property name="ElementShortName">sreset</obj_property>
+      <obj_property name="ObjectShortName">sreset</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fir_filter_tb/sSample_In_enable" type="logic">
+      <obj_property name="ElementShortName">sSample_In_enable</obj_property>
+      <obj_property name="ObjectShortName">sSample_In_enable</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fir_filter_tb/sSample_In" type="array">
+      <obj_property name="ElementShortName">sSample_In[7:0]</obj_property>
+      <obj_property name="ObjectShortName">sSample_In[7:0]</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fir_filter_tb/filtro/FSMD/state" type="other">
+      <obj_property name="ElementShortName">state</obj_property>
+      <obj_property name="ObjectShortName">state</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fir_filter_tb/filtro/data_route/m" type="array">
+      <obj_property name="ElementShortName">m[2:0]</obj_property>
+      <obj_property name="ObjectShortName">m[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fir_filter_tb/sSample_Out_ready" type="logic">
+      <obj_property name="ElementShortName">sSample_Out_ready</obj_property>
+      <obj_property name="ObjectShortName">sSample_Out_ready</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fir_filter_tb/filtro/data_route/sample_ready" type="logic">
+      <obj_property name="ElementShortName">sample_ready</obj_property>
+      <obj_property name="ObjectShortName">sample_ready</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fir_filter_tb/sSample_Out" type="array">
+      <obj_property name="ElementShortName">sSample_Out[7:0]</obj_property>
+      <obj_property name="ObjectShortName">sSample_Out[7:0]</obj_property>
+      <obj_property name="Radix">BINARYRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fir_filter_tb/filtro/FSMD/load" type="logic">
+      <obj_property name="ElementShortName">load</obj_property>
+      <obj_property name="ObjectShortName">load</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fir_filter_tb/filtro/data_route/r_reg" type="array">
+      <obj_property name="ElementShortName">r_reg[15:0]</obj_property>
+      <obj_property name="ObjectShortName">r_reg[15:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fir_filter_tb/filtro/data_route/r_r_reg" type="array">
+      <obj_property name="ElementShortName">r_r_reg[15:0]</obj_property>
+      <obj_property name="ObjectShortName">r_r_reg[15:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fir_filter_tb/filtro/data_route/r_s_reg" type="array">
+      <obj_property name="ElementShortName">r_s_reg[15:0]</obj_property>
+      <obj_property name="ObjectShortName">r_s_reg[15:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fir_filter_tb/filtro/data_route/x0" type="array">
+      <obj_property name="ElementShortName">x0[7:0]</obj_property>
+      <obj_property name="ObjectShortName">x0[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fir_filter_tb/filtro/data_route/x1" type="array">
+      <obj_property name="ElementShortName">x1[7:0]</obj_property>
+      <obj_property name="ObjectShortName">x1[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fir_filter_tb/filtro/data_route/x2" type="array">
+      <obj_property name="ElementShortName">x2[7:0]</obj_property>
+      <obj_property name="ObjectShortName">x2[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fir_filter_tb/filtro/data_route/x3" type="array">
+      <obj_property name="ElementShortName">x3[7:0]</obj_property>
+      <obj_property name="ObjectShortName">x3[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fir_filter_tb/filtro/data_route/x4" type="array">
+      <obj_property name="ElementShortName">x4[7:0]</obj_property>
+      <obj_property name="ObjectShortName">x4[7:0]</obj_property>
+   </wvobject>
+</wave_config>
