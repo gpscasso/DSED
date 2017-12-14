@@ -57,7 +57,7 @@ begin
             processed_sample<='0';
         elsif (rising_edge(clk)) then
             state <= next_state;
-            m_reg <= sm;
+            m <= sm;
             load_reg <= sload;
             processed_sample <= sprocessed;
             
@@ -143,6 +143,5 @@ begin
         end case;
     end process; 
     load <= load_reg;
-    m <= m_reg
 
 end Behavioral;

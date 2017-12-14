@@ -83,7 +83,7 @@ begin
                 r_reg<=(others => '0');
                 r_r_reg<=(others => '0');
                 r_s_reg<=(others => '0');
-            elsif ((load = '1')) then
+            elsif (load = '1') then
                 r_reg<=X*C;
                 r_r_reg<=r_reg;
                 r_s_reg<=r_s_reg + r_r_reg;         
