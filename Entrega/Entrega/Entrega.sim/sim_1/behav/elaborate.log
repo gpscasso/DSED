@@ -1,6 +1,6 @@
 Vivado Simulator 2017.2
 Copyright 1986-1999, 2001-2016 Xilinx, Inc. All Rights Reserved.
-Running: C:/Xilinx/Vivado/2017.2/bin/unwrapped/win64.o/xelab.exe -wto 934ce40a663746aa82833165225fafba --debug typical --relax --mt 2 -L xil_defaultlib -L secureip -L xpm --snapshot fir_filter_tb_behav xil_defaultlib.fir_filter_tb -log elaborate.log 
+Running: C:/Xilinx/Vivado/2017.2/bin/unwrapped/win64.o/xelab.exe -wto 934ce40a663746aa82833165225fafba --debug typical --relax --mt 2 -L xil_defaultlib -L secureip -L xpm --snapshot tb_avanzado_behav xil_defaultlib.tb_avanzado -log elaborate.log 
 Using 2 slave threads.
 Starting static elaboration
 Completed static elaboration
@@ -15,5 +15,5 @@ Compiling package xil_defaultlib.package_dsed
 Compiling architecture behavioral of entity xil_defaultlib.data_route_fir_filter [data_route_fir_filter_default]
 Compiling architecture behavioral of entity xil_defaultlib.Moore_fir_filter [moore_fir_filter_default]
 Compiling architecture behavioral of entity xil_defaultlib.fir_filter [fir_filter_default]
-Compiling architecture behavioral of entity xil_defaultlib.fir_filter_tb
-Built simulation snapshot fir_filter_tb_behav
+Compiling architecture behavior of entity xil_defaultlib.tb_avanzado
+Built simulation snapshot tb_avanzado_behav

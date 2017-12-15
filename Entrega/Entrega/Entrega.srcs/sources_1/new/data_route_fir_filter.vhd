@@ -83,17 +83,17 @@ begin
                 r_reg<=(others => '0');
                 r_r_reg<=(others => '0');
                 r_s_reg<=(others => '0');
-            elsif (load = '1') then
+            elsif ((load = '1')) then
                 r_reg<=X*C;
                 r_r_reg<=r_reg;
                 r_s_reg<=r_s_reg + r_r_reg;         
-           end if;
+           end if;                
     end process;
     
     process(clk)
     begin
         if(rising_edge(clk) and m = "110") then
-            y<=r_s_reg(sample_size-1+sample_size downto sample_size);
+            y<=r_s_reg((2*sample_size)-2 downto sample_size-1);
         end if;
     end process;
 

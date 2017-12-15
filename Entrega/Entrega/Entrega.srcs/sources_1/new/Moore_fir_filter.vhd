@@ -53,11 +53,11 @@ begin
     begin
         if (reset = '1') then
             state <= SR;
-            m<="111";
+            m_reg<="111";
             processed_sample<='0';
         elsif (rising_edge(clk)) then
             state <= next_state;
-            m <= sm;
+            m_reg <= sm;
             load_reg <= sload;
             processed_sample <= sprocessed;
             
@@ -143,5 +143,6 @@ begin
         end case;
     end process; 
     load <= load_reg;
+    m <= m_reg;
 
 end Behavioral;

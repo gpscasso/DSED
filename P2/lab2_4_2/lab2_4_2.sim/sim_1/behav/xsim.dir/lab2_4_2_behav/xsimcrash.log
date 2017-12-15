@@ -1,0 +1,8 @@
+Unable to capture context for thread 2000 in process 8344, can not generate back trace
+Unable to capture context for thread 13088 in process 8344, can not generate back trace
+Exception at PC 0x00007FFAA2BABB93
+Printing stacktrace...
+
+Exception at PC 0x00007FFAA28B1A52
+Attemped to write at address 0x00007FFAEEFFABA4
+Another exception occurred while writing back trace, hence exiting

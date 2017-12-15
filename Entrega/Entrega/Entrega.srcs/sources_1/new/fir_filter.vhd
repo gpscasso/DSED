@@ -83,8 +83,7 @@ architecture Behavioral of fir_filter is
     constant c0hp, c4hp: signed(sample_size-1 downto 0):="10000001";
     constant c1hp, c3hp: signed(sample_size-1 downto 0):="10011010";
     constant c2hp: signed(sample_size-1 downto 0):="01001101";
-
-    
+        
 begin
         
         process(clk,Sample_In_enable,reset)
