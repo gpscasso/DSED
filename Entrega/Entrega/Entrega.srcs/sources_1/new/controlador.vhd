@@ -25,7 +25,7 @@ use work.package_dsed.all;
 
 -- Uncomment the following library declaration if using
 -- arithmetic functions with Signed or Unsigned values
---use IEEE.NUMERIC_STD.ALL;
+use IEEE.NUMERIC_STD.ALL;
 
 -- Uncomment the following library declaration if instantiating
 -- any Xilinx leaf cells in this code.
@@ -34,12 +34,36 @@ use work.package_dsed.all;
 
 entity controlador is
     Port ( clk_100Mhz : in STD_LOGIC;
-           reset : in STD_LOGIC;
-           micro_clk : out STD_LOGIC;
-           micro_data : in STD_LOGIC;
-           micro_LR : out STD_LOGIC;
-           jack_sd : out STD_LOGIC;
-           jack_pwm : out STD_LOGIC);
+           reset : in STD_LOGIC; -- BTNU
+           clk_12Mhz: out STD_LOGIC;
+           -- buttons
+           BTNC : in STD_LOGIC; -- clear
+           BTNL : in STD_LOGIC; -- rec
+           BTNR : in STD_LOGIC; -- reproducir 
+           -- switchs
+     --      sw0 : in STD_LOGIC;
+     --      sw1 : in STD_LOGIC;
+           -- interfaz de audio (grabado)
+           record_enable : out STD_LOGIC;
+           sample_out : in STD_LOGIC_VECTOR(sample_size-1 downto 0);
+           sample_out_ready : in STD_LOGIC;
+           -- interfaz de audio (reproducción)
+           play_enable : out STD_LOGIC;
+           sample_in : out STD_LOGIC_VECTOR(sample_size-1 downto 0);
+           sample_request: in STD_LOGIC;
+           -- RAM
+           ena: out STD_LOGIC;
+           wea : out STD_LOGIC_VECTOR(0 downto 0);
+           addra : out STD_LOGIC_VECTOR(18 downto 0);
+           dina: out STD_LOGIC_VECTOR(sample_size-1 downto 0);
+           douta: in STD_LOGIC_VECTOR(sample_size-1 downto 0)
+           -- filtro FIR
+          -- sample_in_fir : out STD_LOGIC_VECTOR(sample_size-1 downto 0);
+          -- sample_in_enable_fir : out STD_LOGIC;
+          -- filter_select : out STD_LOGIC;
+          -- sample_out_fir: in STD_LOGIC_VECTOR(sample_size-1 downto 0);
+          -- sample_out_ready_fir : in STD_LOGIC
+           );
 end controlador;
 
 architecture Behavioral of controlador is
@@ -49,36 +73,67 @@ architecture Behavioral of controlador is
               reset : in STD_LOGIC;
               clk100 : in STD_LOGIC);
     End component;
-            
-    Component audio_interface
-        Port ( clk_12megas : in STD_LOGIC;
-               reset : in STD_LOGIC;
-               --Recording ports
-               --To/From the controller
-               record_enable: in STD_LOGIC;
-               sample_out: out STD_LOGIC_VECTOR (sample_size-1 downto 0);
-               sample_out_ready: out STD_LOGIC;
-               --To/From the microphone
-               micro_clk : out STD_LOGIC;
-               micro_data : in STD_LOGIC;
-               micro_LR : out STD_LOGIC;
-               --Playing ports
-               --To/From the controller
-               play_enable: in STD_LOGIC;
-               sample_in: in std_logic_vector(sample_size-1 downto 0);
-               sample_request: out std_logic;
-               --To/From the mini-jack
-               jack_sd : out STD_LOGIC;
-               jack_pwm : out STD_LOGIC);
-    end component;
+
+    signal pointer : STD_LOGIC_VECTOR(18 downto 0);
+    signal sample_RAM : STD_LOGIC_VECTOR(sample_size-1 downto 0);
     
-    signal clk12M : std_logic;
-    signal sample : std_logic_vector(sample_size-1 downto 0);
-    signal sready, srequest : std_logic;
-   
+    signal swea :  STD_LOGIC_VECTOR(0 downto 0);
+    signal saddra :  STD_LOGIC_VECTOR(18 downto 0);
+    signal sdina:  STD_LOGIC_VECTOR(sample_size-1 downto 0);
+    signal sdouta:  STD_LOGIC_VECTOR(sample_size-1 downto 0);
 
 begin
+    
+    recorded_sample: process(sample_out_ready,BTNL)
+    begin
+        if(BTNL = '1') then
+            record_enable <= '1';
+            if(sample_out_ready = '1') then
+                swea <= "1";
+                saddra <= pointer;
+                sdina <= sample_out;
+                pointer <= std_logic_vector(unsigned(pointer)+1);
+            else
+                swea <= "0";
+            end if;
+        else
+            record_enable <= '0';
+        end if;
+    end process;
+    
+    play_sample: process(clk_100Mhz,sample_request,BTNR)
+    begin
+        if(BTNR = '1') then
+            play_enable <= '1';
+            if(sample_request = '1') then
+                wea <= "0";
+                addra <= std_logic_vector(unsigned(pointer)-1);
+                sample_RAM <= douta;
+                pointer <= std_logic_vector(unsigned(pointer)-1);
+            end if;
+        else
+            play_enable <= '0';
+        end if;
+    end process;
+    
+    process_sample: process(sample_RAM)
+    begin
+        sample_in <= sample_RAM;
+    end process;
+    
+    clear_RAM: process(BTNC)
+    begin
+        if(rising_edge(BTNC)) then
+            wea <= "1";
+            dina <= (others=>'0');
+            for i in 0 to to_integer(unsigned(pointer)) loop
+                wea <="1";
+             --   addra <= std_logic_vector(to_unsigned(i,pointer'length));
+            end loop;
+        end if;
+    end process;
 
-    reloj: clk_wiz_0 port map(clk12M,reset,clk_100Mhz);
-    audio: audio_interface port map(clk12M,reset,'1',sample,sready,micro_clk,micro_data,micro_LR,'1',sample,srequest,jack_sd,jack_pwm);
+    reloj: clk_wiz_0 port map(clk_12Mhz,reset,clk_100Mhz);
+    
+    
 end Behavioral;

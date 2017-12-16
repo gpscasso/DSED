@@ -43,7 +43,7 @@ BEGIN
     sreset <= '0' after 40 ns;    
     
     read_process : PROCESS (sSample_In_enable)
-        FILE in_file : text OPEN read_mode IS "C:\Users\Guille\Documents\Universidad\Sexto\1er Cuatri\DSED\Entrega\DSED\Entrega\Entrega\Matlab\sample_in.dat";
+        FILE in_file : text OPEN read_mode IS "../../../Matlab/sample_in.dat";
         VARIABLE in_line : line;
         VARIABLE in_int : integer;
         VARIABLE in_read_ok : BOOLEAN;
@@ -65,13 +65,13 @@ BEGIN
         FILE out_file : text;
         VARIABLE out_line : line;
         VARIABLE out_int : integer;
-
+--C:\Users\Guille\Documents\Universidad\Sexto\1er Cuatri\DSED\Entrega\DSED\Entrega\Entrega\Matlab\sample_out_lp.dat
         BEGIN
             if(c='1') then
                 if(sfilter_select='0') then
-                    file_open(out_file,"C:\Users\Guille\Documents\Universidad\Sexto\1er Cuatri\DSED\Entrega\DSED\Entrega\Entrega\Matlab\sample_out_lp.dat",write_mode);
+                    file_open(out_file,"../../../Matlab/sample_out_lp.dat",write_mode);
                 else
-                    file_open(out_file,"C:\Users\Guille\Documents\Universidad\Sexto\1er Cuatri\DSED\Entrega\DSED\Entrega\Entrega\Matlab\sample_out_hp.dat",write_mode);
+                    file_open(out_file,"../../../Matlab/sample_out_hp.dat",write_mode);
                 end if;
             end if;
             c <= '0';
