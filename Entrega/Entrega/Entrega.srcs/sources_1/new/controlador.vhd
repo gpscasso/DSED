@@ -96,6 +96,7 @@ begin
                 splay_enable <= '0';
                 srecord_enable <= '0';
                 next_cuenta <= (others=>'0');
+                saddra <= (others=>'0');
                 
             when SC =>
                 sena <= '1';
@@ -159,7 +160,7 @@ begin
                     next_state <= SC;
                 end if;
             when SRR =>
-                if(cuenta_play = pointer) then
+                if( (unsigned(cuenta_play) = (unsigned(pointer)+1)) or (unsigned(pointer) = 0)) then
                     next_state <= Srep;
                 else
                     next_state <= SRR;
@@ -184,5 +185,7 @@ begin
     wea <= swea;
     addra <= saddra;
     dina <= sdina;
+    play_enable <= splay_enable;
+    sample_in <= ssample_in;
     
 end Behavioral;

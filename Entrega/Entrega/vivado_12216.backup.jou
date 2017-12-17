@@ -1,0 +1,46 @@
+#-----------------------------------------------------------
+# Vivado v2017.2 (64-bit)
+# SW Build 1909853 on Thu Jun 15 18:39:09 MDT 2017
+# IP Build 1909766 on Thu Jun 15 19:58:00 MDT 2017
+# Start of session at: Sun Dec 17 18:15:33 2017
+# Process ID: 12216
+# Current directory: C:/Users/Guille/Documents/Universidad/Sexto/1er Cuatri/DSED/Entrega/DSED/Entrega/Entrega
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent756 C:\Users\Guille\Documents\Universidad\Sexto\1er Cuatri\DSED\Entrega\DSED\Entrega\Entrega\Entrega.xpr
+# Log file: C:/Users/Guille/Documents/Universidad/Sexto/1er Cuatri/DSED/Entrega/DSED/Entrega/Entrega/vivado.log
+# Journal file: C:/Users/Guille/Documents/Universidad/Sexto/1er Cuatri/DSED/Entrega/DSED/Entrega/Entrega\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project {C:/Users/Guille/Documents/Universidad/Sexto/1er Cuatri/DSED/Entrega/DSED/Entrega/Entrega/Entrega.xpr}
+update_compile_order -fileset sources_1
+launch_simulation
+source audio_tb.tcl
+restart
+run 580000 us
+restart
+run 580000 us
+relaunch_sim
+run 580000 us
+relaunch_sim
+run 580000 us
+relaunch_sim
+run 580000 us
+restart
+relaunch_sim
+run 580000 us
+relaunch_sim
+run 580000 us
+restart
+run 580000 us
+# Disabling source management mode.  This is to allow the top design properties to be set without GUI intervention.
+set_property source_mgmt_mode None [current_project]
+set_property top pwm_tb [get_filesets sim_1]
+set_property top_lib xil_defaultlib [get_filesets sim_1]
+# Re-enabling previously disabled source management mode.
+set_property source_mgmt_mode All [current_project]
+update_compile_order -fileset sim_1
+launch_simulation
+source pwm_tb.tcl
+run 580000 us
+close_sim
+restart
+relaunch_sim

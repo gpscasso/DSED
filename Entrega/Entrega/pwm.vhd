@@ -54,15 +54,24 @@ begin
 SYNC_PROC : process(clk_12megas,reset)
     begin
         if (reset='1') then
+            sample_request_reg<='0';
             r_reg<=(others=>'0');
             buf_reg<='0';
-            sample_request_reg<='0';
-        elsif(rising_edge(clk_12megas) and en_2_cycles='1') then
-            r_reg<=r_next;
-            buf_reg<=buf_next;
-            sample_request_reg<=sample_request_next;         
+        elsif(rising_edge(clk_12megas)) then
+        
+            if(sample_request_reg = '1') then
+                sample_request_reg <= '0';
+            else
+                sample_request_reg<=sample_request_next;   
+            end if;
+            
+            if(en_2_cycles='1') then
+                r_reg<=r_next;
+                buf_reg<=buf_next;
+            end if;
         end if;
     end process;
+   
  
 OUTPUT_DECODE: process (r_next)
     begin

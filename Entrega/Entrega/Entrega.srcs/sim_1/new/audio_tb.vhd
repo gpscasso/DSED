@@ -71,7 +71,6 @@ architecture Behavioral of audio_tb is
 begin
     clk <= not clk after half_period;
     test: dsed_audio port map(clk,rst,L,C,R,SW0,SW1,smclk,mdata,LR,sd,pwm);
-    L <= not L after 500us;
     
     mdata_proc: process
     begin
@@ -82,10 +81,24 @@ begin
         mdata <= a xor b xor d;
     end process;
     
+     L_proc: process
+       begin
+           wait for 300 us; L <= '1';
+           wait for 500 us; L <= '0';
+           wait for 400 us;
+     end process;
+    
     C_proc: process
     begin
-        wait for 1100 us; C <= '1';
+        wait for 2100 us; C <= '1';
         wait for 100 ns; C <= '0';
+        wait;
+    end process;
+    
+    R_proc: process
+    begin
+        wait for 900 us; R <= '1';
+        wait for 100 ns; R <= '0';
         wait;
     end process;
 
