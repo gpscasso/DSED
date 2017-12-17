@@ -69,6 +69,8 @@ architecture Behavioral of controlador is
     signal saddra :  STD_LOGIC_VECTOR(18 downto 0);
     signal sdina:  STD_LOGIC_VECTOR(sample_size-1 downto 0);
 
+    signal splay_enable : STD_LOGIC;
+    signal ssample_in : STD_LOGIC_VECTOR(sample_size-1 downto 0);
 begin
     
     SYNC_PROC : process(reset,clk12M)
@@ -85,18 +87,23 @@ begin
     end process;
     
     
-    OUTPUT_DECODE: process(clk12M,state,sample_out_ready,BTNL)
+    OUTPUT_DECODE: process(clk12M,state,sample_out_ready,BTNL,sample_request)
     begin
         case state is
             when SRep =>
                 sena <= '0';
                 swea <= "0";
+                splay_enable <= '0';
+                srecord_enable <= '0';
+                next_cuenta <= (others=>'0');
+                
             when SC =>
                 sena <= '1';
                 swea <= "1";
                 saddra <= std_logic_vector(unsigned(pointer)-1);
                 sdina <= (others => '0');
                 next_pointer <= std_logic_vector(unsigned(pointer)-1);
+                
             when SL =>
                 if(BTNL = '1') then
                     srecord_enable <= '1';
@@ -113,6 +120,18 @@ begin
                     end if;
                 else
                     srecord_enable <= '0';
+                end if;
+                
+            when SRR =>
+                splay_enable <= '1';
+                if(sample_request = '1') then
+                    sena <= '1';
+                    saddra <= cuenta_play;
+                    ssample_in <= douta;
+                    next_cuenta <= std_logic_vector(unsigned(cuenta_play)+1);
+                else
+                    sena <= '0';
+                    next_cuenta <= cuenta_play;
                 end if;
             when others =>
                 sena <= '0';
@@ -134,7 +153,7 @@ begin
                     next_state <= SL;
                 end if;
             when SC =>
-                if(unsigned(pointer) = 1) then
+                if(unsigned(pointer) <= 1) then
                     next_state <= Srep;
                 else
                     next_state <= SC;
