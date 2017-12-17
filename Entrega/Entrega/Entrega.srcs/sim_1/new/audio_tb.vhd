@@ -73,14 +73,20 @@ begin
     test: dsed_audio port map(clk,rst,L,C,R,SW0,SW1,smclk,mdata,LR,sd,pwm);
     L <= not L after 500us;
     
-    process
+    mdata_proc: process
     begin
         wait for 100 ns; rst <= '0';
         a <= not a after 1300 ns;
         b <= not b after 2100 ns;
         d <= not d after 3700 ns;
         mdata <= a xor b xor d;
-    --    wait for 2000 us; rst <= '1';
+    end process;
+    
+    C_proc: process
+    begin
+        wait for 1100 us; C <= '1';
+        wait for 100 ns; C <= '0';
+        wait;
     end process;
 
 end Behavioral;

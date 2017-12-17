@@ -1,23 +1,3 @@
-----------------------------------------------------------------------------------
--- Company: 
--- Engineer: 
--- 
--- Create Date: 01.12.2017 16:15:01
--- Design Name: 
--- Module Name: controlador - Behavioral
--- Project Name: 
--- Target Devices: 
--- Tool Versions: 
--- Description: 
--- 
--- Dependencies: 
--- 
--- Revision:
--- Revision 0.01 - File Created
--- Additional Comments:
--- 
-----------------------------------------------------------------------------------
-
 
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
@@ -74,66 +54,116 @@ architecture Behavioral of controlador is
               clk100 : in STD_LOGIC);
     End component;
 
-    signal pointer : STD_LOGIC_VECTOR(18 downto 0);
-    signal sample_RAM : STD_LOGIC_VECTOR(sample_size-1 downto 0);
+    signal clk12M : std_logic;
     
+    type state_type is (Srep,SL,SC,SRR);
+    signal state, next_state : state_type;
+
+    signal pointer, cuenta_play : STD_LOGIC_VECTOR(18 downto 0) := (others=>'0');
+    signal next_pointer, next_cuenta : STD_LOGIC_VECTOR(18 downto 0) := (others=>'0');
+    
+    signal srecord_enable : STD_LOGIC;
+    
+    signal sena : STD_LOGIC;
     signal swea :  STD_LOGIC_VECTOR(0 downto 0);
     signal saddra :  STD_LOGIC_VECTOR(18 downto 0);
     signal sdina:  STD_LOGIC_VECTOR(sample_size-1 downto 0);
-    signal sdouta:  STD_LOGIC_VECTOR(sample_size-1 downto 0);
 
 begin
     
-    recorded_sample: process(sample_out_ready,BTNL)
+    SYNC_PROC : process(reset,clk12M)
     begin
-        if(BTNL = '1') then
-            record_enable <= '1';
-            if(sample_out_ready = '1') then
-                swea <= "1";
-                saddra <= pointer;
-                sdina <= sample_out;
-                pointer <= std_logic_vector(unsigned(pointer)+1);
-            else
+        if(reset='1') then
+            pointer <= (others=>'0');
+            cuenta_play <= (others=>'0');
+            state <= Srep;
+        elsif(rising_edge(clk12M)) then
+            pointer <= next_pointer;
+            cuenta_play <= next_cuenta;
+            state <= next_state;
+        end if;
+    end process;
+    
+    
+    OUTPUT_DECODE: process(clk12M,state,sample_out_ready,BTNL)
+    begin
+        case state is
+            when SRep =>
+                sena <= '0';
                 swea <= "0";
-            end if;
-        else
-            record_enable <= '0';
-        end if;
+            when SC =>
+                sena <= '1';
+                swea <= "1";
+                saddra <= std_logic_vector(unsigned(pointer)-1);
+                sdina <= (others => '0');
+                next_pointer <= std_logic_vector(unsigned(pointer)-1);
+            when SL =>
+                if(BTNL = '1') then
+                    srecord_enable <= '1';
+                    if(sample_out_ready = '1') then
+                        sena <= '1';
+                        swea <= "1";
+                        saddra <= pointer;
+                        sdina <= sample_out;
+                        next_pointer <= std_logic_vector(unsigned(pointer)+1);
+                    else
+                        sena <= '0';
+                        swea <= "0";
+                        next_pointer <= pointer;
+                    end if;
+                else
+                    srecord_enable <= '0';
+                end if;
+            when others =>
+                sena <= '0';
+        end case;
     end process;
+            
     
-    play_sample: process(clk_100Mhz,sample_request,BTNR)
+
+    NEXT_STATE_DECODE: process (state,BTNC,BTNR,BTNL,pointer,cuenta_play)
     begin
-        if(BTNR = '1') then
-            play_enable <= '1';
-            if(sample_request = '1') then
-                wea <= "0";
-                addra <= std_logic_vector(unsigned(pointer)-1);
-                sample_RAM <= douta;
-                pointer <= std_logic_vector(unsigned(pointer)-1);
-            end if;
-        else
-            play_enable <= '0';
-        end if;
-    end process;
-    
-    process_sample: process(sample_RAM)
-    begin
-        sample_in <= sample_RAM;
-    end process;
-    
-    clear_RAM: process(BTNC)
-    begin
-        if(rising_edge(BTNC)) then
-            wea <= "1";
-            dina <= (others=>'0');
-            for i in 0 to to_integer(unsigned(pointer)) loop
-                wea <="1";
-             --   addra <= std_logic_vector(to_unsigned(i,pointer'length));
-            end loop;
-        end if;
+        next_state <= Srep;
+        case state is
+            when Srep =>
+                if(BTNC = '1') then
+                    next_state <= SC;
+                elsif (BTNR = '1') then
+                    next_state <= SRR;
+                elsif (BTNL = '1') then
+                    next_state <= SL;
+                end if;
+            when SC =>
+                if(unsigned(pointer) = 1) then
+                    next_state <= Srep;
+                else
+                    next_state <= SC;
+                end if;
+            when SRR =>
+                if(cuenta_play = pointer) then
+                    next_state <= Srep;
+                else
+                    next_state <= SRR;
+                end if;
+            when SL =>
+                if(BTNL = '0' or unsigned(pointer) = 524287) then
+                    next_state <= Srep;
+                else
+                    next_state <= SL;
+                end if;
+            when others =>
+                next_state <= Srep;
+        end case;
+        
     end process;
 
-    reloj: clk_wiz_0 port map(clk_12Mhz,reset,clk_100Mhz);
+    reloj: clk_wiz_0 port map(clk12M,reset,clk_100Mhz);
     
+    clk_12Mhz <= clk12M;
+    record_enable <= srecord_enable;
+    ena <= sena;
+    wea <= swea;
+    addra <= saddra;
+    dina <= sdina;
     
 end Behavioral;
