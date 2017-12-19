@@ -1,0 +1,4 @@
+ERROR: Exception caught trying to open file C:\Users\Guille\Documents\Universidad\Sexto\1er Cuatri\DSED\Entrega\DSED\Entrega\Entrega\Entrega.runs\synth_1/.vivado.end.rst
+	Exception name: Error
+	Exception error code: 70
+	Exception message: Permiso denegado

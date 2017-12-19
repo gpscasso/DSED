@@ -1,7 +1,7 @@
 Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2017.2 (win64) Build 1909853 Thu Jun 15 18:39:09 MDT 2017
-| Date         : Tue Dec 19 13:08:26 2017
+| Date         : Tue Dec 19 17:18:11 2017
 | Host         : LAPTOP-07004HLV running 64-bit major release  (build 9200)
 | Command      : report_control_sets -verbose -file dsed_audio_control_sets_placed.rpt
 | Design       : dsed_audio
@@ -22,8 +22,8 @@ Table of Contents
 +----------------------------------------------------------+-------+
 |                          Status                          | Count |
 +----------------------------------------------------------+-------+
-| Number of unique control sets                            |    11 |
-| Unused register locations in slices containing registers |    35 |
+| Number of unique control sets                            |    12 |
+| Unused register locations in slices containing registers |    39 |
 +----------------------------------------------------------+-------+
 
 
@@ -33,11 +33,11 @@ Table of Contents
 +--------------+-----------------------+------------------------+-----------------+--------------+
 | Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
 +--------------+-----------------------+------------------------+-----------------+--------------+
-| No           | No                    | No                     |              14 |            8 |
-| No           | No                    | Yes                    |               9 |            5 |
+| No           | No                    | No                     |              14 |            9 |
+| No           | No                    | Yes                    |              10 |            7 |
 | No           | Yes                   | No                     |               0 |            0 |
 | Yes          | No                    | No                     |               0 |            0 |
-| Yes          | No                    | Yes                    |             110 |           46 |
+| Yes          | No                    | Yes                    |             129 |           54 |
 | Yes          | Yes                   | No                     |               0 |            0 |
 +--------------+-----------------------+------------------------+-----------------+--------------+
 
@@ -45,32 +45,32 @@ Table of Contents
 3. Detailed Control Set Information
 -----------------------------------
 
-+---------------------------+----------------------------------+------------------+------------------+----------------+
-|        Clock Signal       |           Enable Signal          | Set/Reset Signal | Slice Load Count | Bel Load Count |
-+---------------------------+----------------------------------+------------------+------------------+----------------+
-|  control/reloj/inst/clk12 | audio/FSMDMIC/dato1_0            | reset_IBUF       |                3 |              8 |
-|  control/reloj/inst/clk12 | audio/FSMDMIC/dato2_2            | reset_IBUF       |                3 |              8 |
-|  control/reloj/inst/clk12 | audio/FSMDMIC/sout_1             | reset_IBUF       |                3 |              8 |
-|  control/reloj/inst/clk12 | control/ssample_in[7]_i_1_n_0    | reset_IBUF       |                8 |              8 |
-|  control/reloj/inst/clk12 |                                  | reset_IBUF       |                5 |              9 |
-|  control/reloj/inst/clk12 | control/E[0]                     | reset_IBUF       |                5 |             10 |
-|  control/reloj/inst/clk12 | control/state_reg[0]_0[0]        | reset_IBUF       |                6 |             11 |
-|  control/reloj/inst/clk12 |                                  |                  |                8 |             14 |
-|  control/reloj/inst/clk12 | audio/FSMDMIC/pointer_reg[18][0] | reset_IBUF       |                5 |             19 |
-|  control/reloj/inst/clk12 | audio/FSMDMIC/saddra_reg[18][0]  | reset_IBUF       |                8 |             19 |
-|  control/reloj/inst/clk12 | control/cuenta_play[18]_i_1_n_0  | reset_IBUF       |                5 |             19 |
-+---------------------------+----------------------------------+------------------+------------------+----------------+
++---------------------------+-----------------------------------+------------------+------------------+----------------+
+|        Clock Signal       |           Enable Signal           | Set/Reset Signal | Slice Load Count | Bel Load Count |
++---------------------------+-----------------------------------+------------------+------------------+----------------+
+|  control/reloj/inst/clk12 | audio/FSMDMIC/dato2_1             | reset_IBUF       |                2 |              8 |
+|  control/reloj/inst/clk12 | audio/FSMDMIC/dato1_0             | reset_IBUF       |                3 |              8 |
+|  control/reloj/inst/clk12 | audio/FSMDMIC/E[0]                | reset_IBUF       |                2 |              8 |
+|  control/reloj/inst/clk12 | control/next_sample_in            | reset_IBUF       |                3 |              8 |
+|  control/reloj/inst/clk12 |                                   | reset_IBUF       |                7 |             10 |
+|  control/reloj/inst/clk12 | control/E[0]                      | reset_IBUF       |                4 |             10 |
+|  control/reloj/inst/clk12 | control/enable_4_cycles           | reset_IBUF       |                5 |             11 |
+|  control/reloj/inst/clk12 |                                   |                  |                9 |             14 |
+|  control/reloj/inst/clk12 | control/cuenta_play[18]_i_1_n_0   | reset_IBUF       |                6 |             19 |
+|  control/reloj/inst/clk12 | control/cuenta_play_r[18]_i_1_n_0 | reset_IBUF       |                9 |             19 |
+|  control/reloj/inst/clk12 | control/next_addra                | reset_IBUF       |               13 |             19 |
+|  control/reloj/inst/clk12 | control/pointer_reg[18]_0[0]      | reset_IBUF       |                7 |             19 |
++---------------------------+-----------------------------------+------------------+------------------+----------------+
 
 
 +--------+-----------------------+
 | Fanout | Number of ControlSets |
 +--------+-----------------------+
 | 8      |                     4 |
-| 9      |                     1 |
-| 10     |                     1 |
+| 10     |                     2 |
 | 11     |                     1 |
 | 14     |                     1 |
-| 16+    |                     3 |
+| 16+    |                     4 |
 +--------+-----------------------+
 
 

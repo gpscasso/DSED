@@ -25,7 +25,7 @@ use work.package_dsed.all;
 
 -- Uncomment the following library declaration if using
 -- arithmetic functions with Signed or Unsigned values
---use IEEE.NUMERIC_STD.ALL;
+use IEEE.NUMERIC_STD.ALL;
 
 -- Uncomment the following library declaration if instantiating
 -- any Xilinx leaf cells in this code.
@@ -62,8 +62,8 @@ architecture Behavioral of dsed_audio is
            BTNL : in STD_LOGIC; -- rec
            BTNR : in STD_LOGIC; -- reproducir 
            -- switchs
-     --      sw0 : in STD_LOGIC;
-     --      sw1 : in STD_LOGIC;
+           sw0 : in STD_LOGIC;
+           sw1 : in STD_LOGIC;
            -- interfaz de audio (grabado)
            record_enable : out STD_LOGIC;
            sample_out : in STD_LOGIC_VECTOR(sample_size-1 downto 0);
@@ -77,14 +77,24 @@ architecture Behavioral of dsed_audio is
            wea : out STD_LOGIC_VECTOR(0 downto 0);
            addra : out STD_LOGIC_VECTOR(18 downto 0);
            dina: out STD_LOGIC_VECTOR(sample_size-1 downto 0);
-           douta: in STD_LOGIC_VECTOR(sample_size-1 downto 0)
+           douta: in STD_LOGIC_VECTOR(sample_size-1 downto 0);
            -- filtro FIR
-          -- sample_in_fir : out STD_LOGIC_VECTOR(sample_size-1 downto 0);
-          -- sample_in_enable_fir : out STD_LOGIC;
-          -- filter_select : out STD_LOGIC;
-          -- sample_out_fir: in STD_LOGIC_VECTOR(sample_size-1 downto 0);
-          -- sample_out_ready_fir : in STD_LOGIC
+           sample_in_fir : out STD_LOGIC_VECTOR(sample_size-1 downto 0);
+           sample_in_enable_fir : out STD_LOGIC;
+           filter_select : out STD_LOGIC;
+           sample_out_fir: in STD_LOGIC_VECTOR(sample_size-1 downto 0);
+           sample_out_ready_fir : in STD_LOGIC
            );
+    end component;
+    
+    Component fir_filter
+    Port ( clk : in STD_LOGIC;
+        Reset : in STD_LOGIC;
+        Sample_In : in signed (sample_size-1 downto 0);
+        Sample_In_enable : in STD_LOGIC;
+        filter_select: in STD_LOGIC; --0 lowpass, 1 highpass
+        Sample_Out : out signed (sample_size-1 downto 0);
+        Sample_Out_ready : out STD_LOGIC);
     end component;
     
     Component blk_mem_gen_0
@@ -136,12 +146,18 @@ end component;
     signal sdina: std_logic_vector(sample_size-1 downto 0);
     signal sdouta: std_logic_vector(sample_size-1 downto 0);
     
+    signal ssample_in_fir, ssample_out_fir : signed(sample_size-1 downto 0);
+    signal ssample_in_enable_fir, ssample_out_ready_fir: std_logic;
+    signal sfilter_select: std_logic;
 
+    signal si,so : std_logic_vector(sample_size-1 downto 0);
 begin
-    
-    control: controlador port map(clk_100Mhz,reset,clk12,BTNC,BTNL,BTNR,srecord,sout,sout_ready,splay,sin,srequest,sena,swea,saddra,sdina,sdouta);
+
+    fir: fir_filter port map(clk12,reset,ssample_in_fir,ssample_in_enable_fir,sfilter_select,ssample_out_fir,ssample_out_ready_fir);
+    si <= std_logic_vector(ssample_in_fir);
+    so <= std_logic_vector(ssample_out_fir);
+    control: controlador port map(clk_100Mhz,reset,clk12,BTNC,BTNL,BTNR,sw0,sw1,srecord,sout,sout_ready,splay,sin,srequest,sena,swea,saddra,sdina,sdouta,si,ssample_in_enable_fir,sfilter_select,so,ssample_out_ready_fir);
     audio: audio_interface port map(clk12,reset,srecord,sout,sout_ready,micro_clk,micro_data,micro_LR,splay,sin,srequest,jack_sd,jack_pwm);
     ram: blk_mem_gen_0 port map(clk12,'1',swea,saddra,sdina,sdouta);
-    --aud: audio_interface port map(clk12,reset,
 
 end Behavioral;

@@ -1,7 +1,7 @@
 Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2017.2 (win64) Build 1909853 Thu Jun 15 18:39:09 MDT 2017
-| Date             : Tue Dec 19 13:09:20 2017
+| Date             : Tue Dec 19 17:19:17 2017
 | Host             : LAPTOP-07004HLV running 64-bit major release  (build 9200)
 | Command          : report_power -file dsed_audio_power_routed.rpt -pb dsed_audio_power_summary_routed.pb -rpx dsed_audio_power_routed.rpx
 | Design           : dsed_audio
@@ -50,16 +50,16 @@ Table of Contents
 | On-Chip        | Power (W) | Used     | Available | Utilization (%) |
 +----------------+-----------+----------+-----------+-----------------+
 | Clocks         |    <0.001 |        8 |       --- |             --- |
-| Slice Logic    |    <0.001 |      741 |       --- |             --- |
-|   LUT as Logic |    <0.001 |      375 |     63400 |            0.59 |
-|   CARRY4       |    <0.001 |       19 |     15850 |            0.12 |
-|   Register     |    <0.001 |      133 |    126800 |            0.10 |
-|   F7/F8 Muxes  |    <0.001 |        8 |     63400 |            0.01 |
-|   Others       |     0.000 |      155 |       --- |             --- |
-| Signals        |    <0.001 |      670 |       --- |             --- |
+| Slice Logic    |    <0.001 |      894 |       --- |             --- |
+|   LUT as Logic |    <0.001 |      507 |     63400 |            0.80 |
+|   CARRY4       |    <0.001 |       41 |     15850 |            0.26 |
+|   Register     |    <0.001 |      153 |    126800 |            0.12 |
+|   F7/F8 Muxes  |    <0.001 |        9 |     63400 |            0.01 |
+|   Others       |     0.000 |      157 |       --- |             --- |
+| Signals        |    <0.001 |      806 |       --- |             --- |
 | Block RAM      |     0.003 |      128 |       135 |           94.81 |
 | MMCM           |     0.121 |        1 |         6 |           16.67 |
-| I/O            |    <0.001 |       10 |       210 |            4.76 |
+| I/O            |    <0.001 |       12 |       210 |            5.71 |
 | Static Power   |     0.103 |          |           |                 |
 | Total          |     0.230 |          |           |                 |
 +----------------+-----------+----------+-----------+-----------------+

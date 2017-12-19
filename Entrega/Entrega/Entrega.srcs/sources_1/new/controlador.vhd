@@ -21,8 +21,8 @@ entity controlador is
            BTNL : in STD_LOGIC; -- rec
            BTNR : in STD_LOGIC; -- reproducir 
            -- switchs
-     --      sw0 : in STD_LOGIC;
-     --      sw1 : in STD_LOGIC;
+           sw0 : in STD_LOGIC;
+           sw1 : in STD_LOGIC;
            -- interfaz de audio (grabado)
            record_enable : out STD_LOGIC;
            sample_out : in STD_LOGIC_VECTOR(sample_size-1 downto 0);
@@ -36,13 +36,13 @@ entity controlador is
            wea : out STD_LOGIC_VECTOR(0 downto 0);
            addra : out STD_LOGIC_VECTOR(18 downto 0);
            dina: out STD_LOGIC_VECTOR(sample_size-1 downto 0);
-           douta: in STD_LOGIC_VECTOR(sample_size-1 downto 0)
+           douta: in STD_LOGIC_VECTOR(sample_size-1 downto 0);
            -- filtro FIR
-          -- sample_in_fir : out STD_LOGIC_VECTOR(sample_size-1 downto 0);
-          -- sample_in_enable_fir : out STD_LOGIC;
-          -- filter_select : out STD_LOGIC;
-          -- sample_out_fir: in STD_LOGIC_VECTOR(sample_size-1 downto 0);
-          -- sample_out_ready_fir : in STD_LOGIC
+           sample_in_fir : out STD_LOGIC_VECTOR(sample_size-1 downto 0);
+           sample_in_enable_fir : out STD_LOGIC;
+           filter_select : out STD_LOGIC;
+           sample_out_fir: in STD_LOGIC_VECTOR(sample_size-1 downto 0);
+           sample_out_ready_fir : in STD_LOGIC
            );
 end controlador;
 
@@ -56,11 +56,11 @@ architecture Behavioral of controlador is
 
     signal clk12M : std_logic;
     
-    type state_type is (Srep,SL,SC,SRR);
+    type state_type is (Srep,SL,SC,SRR,Snormal,Sfir);
     signal state, next_state : state_type;
 
-    signal pointer, cuenta_play : STD_LOGIC_VECTOR(18 downto 0) := (others=>'0');
-    signal next_pointer, next_cuenta : STD_LOGIC_VECTOR(18 downto 0) := (others=>'0');
+    signal pointer, cuenta_play, cuenta_play_r : STD_LOGIC_VECTOR(18 downto 0) := (others=>'0');
+    signal next_pointer, next_cuenta, next_cuenta_r : STD_LOGIC_VECTOR(18 downto 0) := (others=>'0');
     
     signal srecord_enable : STD_LOGIC;
     
@@ -78,12 +78,15 @@ begin
         if(reset='1') then
             pointer <= (others=>'0');
             cuenta_play <= (others=>'0');
+            cuenta_play_r <= (others=>'0');
             ssample_in <= (others=>'0');
             saddra <= (others=>'0');
             state <= Srep;
+            
         elsif(rising_edge(clk12M)) then
             pointer <= next_pointer;
             cuenta_play <= next_cuenta;
+            cuenta_play_r <= next_cuenta_r;
             state <= next_state;
             ssample_in <= next_sample_in;
             saddra <= next_addra;
@@ -91,7 +94,7 @@ begin
     end process;
     
     
-    OUTPUT_DECODE: process(clk12M,state,sample_out_ready,BTNL,sample_request, pointer, sample_out, cuenta_play, douta, ssample_in,saddra)
+    OUTPUT_DECODE: process(clk12M,state,sample_out_ready,BTNL,sample_request, pointer, sample_out, cuenta_play, douta, ssample_in,saddra,cuenta_play_r,SW0)
     begin
     srecord_enable <= '0';
     splay_enable <= '0';
@@ -102,6 +105,8 @@ begin
     sdina <= (others => '0');
     next_pointer <= pointer;
     next_cuenta <= cuenta_play;
+    next_cuenta_r <= cuenta_play_r;
+    
             case state is
             when SRep =>
                 sena <= '0';
@@ -110,6 +115,7 @@ begin
                 srecord_enable <= '0';
                 next_cuenta <= (others=>'0');
                 next_addra <= (others=>'0');
+                next_sample_in <= (others=>'0');
                 
             when SC =>
                 sena <= '1';
@@ -135,18 +141,27 @@ begin
                 else
                     srecord_enable <= '0';
                 end if;
-                
+            
             when SRR =>
+                next_cuenta_r <= std_logic_vector(unsigned(pointer)-3);
+                if(SW0 = '1') then
+                    next_addra <= std_logic_vector(unsigned(pointer)-2);
+                end if;
+                
+            when Snormal =>
                 splay_enable <= '1';
                 if(sample_request = '1') then
                     sena <= '1';
-                    next_addra <= cuenta_play;
                     next_sample_in <= douta;
-                    next_cuenta <= std_logic_vector(unsigned(cuenta_play)+1);
-                else
-                    sena <= '0';
-                    next_cuenta <= cuenta_play;
+                    if(SW0='0') then
+                        next_addra <= cuenta_play;
+                        next_cuenta <= std_logic_vector(unsigned(cuenta_play)+1);
+                    else
+                        next_addra <= cuenta_play_r;
+                        next_cuenta_r <= std_logic_vector(unsigned(cuenta_play_r)-1);
+                    end if;
                 end if;
+                
             when others =>
                 sena <= '0';
         end case;
@@ -154,7 +169,7 @@ begin
             
     
 
-    NEXT_STATE_DECODE: process (state,BTNC,BTNR,BTNL,pointer,cuenta_play)
+    NEXT_STATE_DECODE: process (state,BTNC,BTNR,BTNL,pointer,cuenta_play,SW0,SW1,cuenta_play_r)
     begin
         next_state <= Srep;
         case state is
@@ -166,18 +181,43 @@ begin
                 elsif (BTNL = '1') then
                     next_state <= SL;
                 end if;
+                
             when SC =>
                 if(unsigned(pointer) <= 1) then
                     next_state <= Srep;
                 else
                     next_state <= SC;
                 end if;
+                
             when SRR =>
-                if( (unsigned(cuenta_play) = (unsigned(pointer)+1)) or (unsigned(pointer) = 0)) then
-                    next_state <= Srep;
+                if(SW1 = '0') then
+                   next_state <= Snormal;
+                else
+                   next_state <= Sfir;
+                end if;             
+                   
+            when Snormal =>
+                if(SW0 = '0') then
+                    if((unsigned(cuenta_play) = (unsigned(pointer)+1)) or (unsigned(pointer) = 0)) then
+                        next_state <= Srep;
+                    else
+                        next_state <= Snormal;
+                    end if;
+                else
+                    if((unsigned(cuenta_play_r)+3 = 0) or (unsigned(pointer) = 0)) then
+                        next_state <= Srep;
+                    else
+                        next_state <= Snormal;
+                    end if;
+                end if;
+                
+            when Sfir =>
+                if((unsigned(cuenta_play) = (unsigned(pointer)+1)) or (unsigned(pointer) = 0)) then
+                    next_state <= Snormal;
                 else
                     next_state <= SRR;
                 end if;
+                
             when SL =>
                 if(BTNL = '0' or unsigned(pointer) = 524287) then
                     next_state <= Srep;

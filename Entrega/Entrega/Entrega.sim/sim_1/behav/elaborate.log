@@ -17,6 +17,9 @@ Compiling package xil_defaultlib.package_dsed
 Compiling package ieee.numeric_std
 Compiling package vl.vl_types
 Compiling module xil_defaultlib.glbl
+Compiling architecture behavioral of entity xil_defaultlib.data_route_fir_filter [data_route_fir_filter_default]
+Compiling architecture behavioral of entity xil_defaultlib.Moore_fir_filter [moore_fir_filter_default]
+Compiling architecture behavioral of entity xil_defaultlib.fir_filter [fir_filter_default]
 Compiling module unisims_ver.IBUF
 Compiling module unisims_ver.MMCME2_ADV(CLKFBOUT_MULT_F=49.87...
 Compiling module unisims_ver.BUFG
