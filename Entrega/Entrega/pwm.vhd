@@ -73,7 +73,7 @@ SYNC_PROC : process(clk_12megas,reset)
     end process;
    
  
-OUTPUT_DECODE: process (r_next)
+OUTPUT_DECODE: process (r_next, r_reg, sample_in)
     begin
         if(r_next=299)then
             sample_request_next <= '1';            
@@ -81,7 +81,7 @@ OUTPUT_DECODE: process (r_next)
             sample_request_next <= '0';
         end if;
         
-        if(r_reg<unsigned(sample_in) or sample_in="0000000") then
+        if(r_reg<unsigned('0'&sample_in) or sample_in="0000000") then
              buf_next <= '1';
         else
              buf_next <= '0';

@@ -66,11 +66,11 @@ architecture Behavioral of controlador is
     
     signal sena : STD_LOGIC;
     signal swea :  STD_LOGIC_VECTOR(0 downto 0);
-    signal saddra :  STD_LOGIC_VECTOR(18 downto 0);
+    signal saddra,next_addra :  STD_LOGIC_VECTOR(18 downto 0);
     signal sdina:  STD_LOGIC_VECTOR(sample_size-1 downto 0);
 
     signal splay_enable : STD_LOGIC;
-    signal ssample_in : STD_LOGIC_VECTOR(sample_size-1 downto 0);
+    signal ssample_in,next_sample_in : STD_LOGIC_VECTOR(sample_size-1 downto 0);
 begin
     
     SYNC_PROC : process(reset,clk12M)
@@ -78,30 +78,43 @@ begin
         if(reset='1') then
             pointer <= (others=>'0');
             cuenta_play <= (others=>'0');
+            ssample_in <= (others=>'0');
+            saddra <= (others=>'0');
             state <= Srep;
         elsif(rising_edge(clk12M)) then
             pointer <= next_pointer;
             cuenta_play <= next_cuenta;
             state <= next_state;
+            ssample_in <= next_sample_in;
+            saddra <= next_addra;
         end if;
     end process;
     
     
-    OUTPUT_DECODE: process(clk12M,state,sample_out_ready,BTNL,sample_request)
+    OUTPUT_DECODE: process(clk12M,state,sample_out_ready,BTNL,sample_request, pointer, sample_out, cuenta_play, douta, ssample_in,saddra)
     begin
-        case state is
+    srecord_enable <= '0';
+    splay_enable <= '0';
+    next_sample_in <= ssample_in;
+    sena <= '0';
+    swea <= "0";
+    next_addra <= saddra;
+    sdina <= (others => '0');
+    next_pointer <= pointer;
+    next_cuenta <= cuenta_play;
+            case state is
             when SRep =>
                 sena <= '0';
                 swea <= "0";
                 splay_enable <= '0';
                 srecord_enable <= '0';
                 next_cuenta <= (others=>'0');
-                saddra <= (others=>'0');
+                next_addra <= (others=>'0');
                 
             when SC =>
                 sena <= '1';
                 swea <= "1";
-                saddra <= std_logic_vector(unsigned(pointer)-1);
+                next_addra <= std_logic_vector(unsigned(pointer)-1);
                 sdina <= (others => '0');
                 next_pointer <= std_logic_vector(unsigned(pointer)-1);
                 
@@ -111,7 +124,7 @@ begin
                     if(sample_out_ready = '1') then
                         sena <= '1';
                         swea <= "1";
-                        saddra <= pointer;
+                        next_addra <= pointer;
                         sdina <= sample_out;
                         next_pointer <= std_logic_vector(unsigned(pointer)+1);
                     else
@@ -127,8 +140,8 @@ begin
                 splay_enable <= '1';
                 if(sample_request = '1') then
                     sena <= '1';
-                    saddra <= cuenta_play;
-                    ssample_in <= douta;
+                    next_addra <= cuenta_play;
+                    next_sample_in <= douta;
                     next_cuenta <= std_logic_vector(unsigned(cuenta_play)+1);
                 else
                     sena <= '0';

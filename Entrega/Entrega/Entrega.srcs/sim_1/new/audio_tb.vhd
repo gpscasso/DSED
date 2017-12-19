@@ -85,19 +85,23 @@ begin
        begin
            wait for 300 us; L <= '1';
            wait for 500 us; L <= '0';
-           wait for 400 us;
+           wait for 900 us; L <= '1';
+           wait for 500 us; L <= '0';
+           wait;
      end process;
     
     C_proc: process
     begin
-        wait for 2100 us; C <= '1';
+        wait for 900 us; C <= '1';
         wait for 100 ns; C <= '0';
         wait;
     end process;
     
     R_proc: process
     begin
-        wait for 900 us; R <= '1';
+        wait for 1100 us; R <= '1';
+        wait for 100 ns; R <= '0';
+        wait for 1200 us; R <= '1';
         wait for 100 ns; R <= '0';
         wait;
     end process;

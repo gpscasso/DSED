@@ -51,7 +51,7 @@ architecture Behavioral of FSMD_microphone is
     
     signal next_cuenta, cuenta_reg : STD_LOGIC_VECTOR(8 downto 0) := (others=>'0');
     
-    signal sout : STD_LOGIC_VECTOR(sample_size-1 downto 0);
+    signal sout, sout_next : STD_LOGIC_VECTOR(sample_size-1 downto 0);
     signal sready : STD_LOGIC;
 
 begin
@@ -64,25 +64,30 @@ begin
         primer_ciclo <= '0';
         dato1 <= (others=>'0');
         dato2 <= (others=>'0');
-    elsif rising_edge(clk_12megas) and enable_4_cycles = '1' then
+        sout  <= (others=>'0');
+    elsif rising_edge(clk_12megas)  then
+        if (enable_4_cycles = '1') then
         state <= next_state;
         cuenta_reg <= next_cuenta;
         primer_ciclo <= next_primer_ciclo;
         dato1 <= next_dato1;
         dato2 <= next_dato2;
+        sout <= sout_next;
+        end if;
     end if;
     
 end process;
 
-OUTPUT_DECODE : process (state,micro_data,cuenta_reg,primer_ciclo,enable_4_cycles)
+OUTPUT_DECODE : process (state,micro_data,cuenta_reg,primer_ciclo,enable_4_cycles, dato1, dato2, sout)
 begin
     sready <= '0';
     next_dato1 <= dato1;
     next_dato2 <= dato2;
     next_cuenta <= cuenta_reg;
-    if(primer_ciclo = '0' and unsigned(cuenta_reg)=0) then
-        sout <= (others=>'0');
-    end if;
+    sout_next <= sout;
+--    if(primer_ciclo = '0' and unsigned(cuenta_reg)=0) then
+--        sout <= (others=>'0');
+--    end if;
     next_primer_ciclo <= primer_ciclo;
     
     case (state) is
@@ -102,7 +107,7 @@ begin
              end if;
              
              if(primer_ciclo = '1' and unsigned(cuenta_reg)=106) then
-                sout <= dato2;
+                sout_next <= dato2;
                 next_dato2 <= (others=>'0');
                 sready <= enable_4_cycles;
              else
@@ -122,7 +127,7 @@ begin
              end if;
              
              if(unsigned(cuenta_reg)=256) then
-                sout <= dato1;
+                sout_next <= dato1;
                 next_dato1 <= (others=>'0');
                 sready <= enable_4_cycles;
              else

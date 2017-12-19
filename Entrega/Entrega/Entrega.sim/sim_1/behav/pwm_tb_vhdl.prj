@@ -1,7 +1,0 @@
-# compile vhdl design source files
-vhdl xil_defaultlib  "../../../Entrega.srcs/sources_1/new/package_dsed.vhd"
-vhdl xil_defaultlib  "../../../pwm.vhd"
-vhdl xil_defaultlib  "../../../Entrega.srcs/sim_1/new/pwm_tb.vhd"
-
-# Do not sort compile order
-nosort
