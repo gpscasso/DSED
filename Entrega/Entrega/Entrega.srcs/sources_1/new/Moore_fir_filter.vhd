@@ -46,7 +46,7 @@ architecture Behavioral of Moore_fir_filter is
     type state_type is (SR,S0,S1,S2,S3,S4,S5,S6);
     signal state, next_state : state_type;
     signal sm, m_reg : STD_LOGIC_VECTOR(2 downto 0);
-    signal sprocessed, sload, load_reg : STD_LOGIC;
+    signal sload, load_reg, out_ready,  next_out_ready, next_next_out_ready: STD_LOGIC;
     
 begin
     SYNC_PROC : process (reset,clk)
@@ -54,12 +54,17 @@ begin
         if (reset = '1') then
             state <= SR;
             m_reg<="111";
-            processed_sample<='0';
+            out_ready<='0';
+            next_out_ready <= '0';
         elsif (rising_edge(clk)) then
             state <= next_state;
             m_reg <= sm;
             load_reg <= sload;
-            processed_sample <= sprocessed;
+            out_ready <= next_out_ready;
+            next_out_ready<=next_next_out_ready;
+--            if(processed_sample_reg = '1') then
+--                processed_sample_reg <= '0';
+--            end if;
             
         end if;
         
@@ -67,9 +72,9 @@ begin
     
     OUTPUT_DECODE : process (state, new_sample)
     begin
+        next_next_out_ready <= '0';
         case state is
-             when SR =>             
-                 sprocessed<='0';
+             when SR =>                       
                  if(new_sample = '1') then
                     sm<="000";
                     sload <= '1';
@@ -77,36 +82,31 @@ begin
                     sm<="111";
                     sload <= '0';
                  end if;
+
+             
              when S0 =>
                  sm<="001";
-                 sprocessed<='0';
                  sload <= '1';
              when S1 =>
                  sm<="010";
-                 sprocessed<='0';
                  sload <= '1';
              when S2 =>
                  sm<="011";
-                 sprocessed<='0';
                  sload <= '1';
              when S3 =>
                  sm<="100";  
-                 sprocessed<='0'; 
                  sload <= '1';        
              when S4 =>
                  sm<="101";
-                 sprocessed<='0';
                  sload <= '1';
              when S5 =>
                  sm<="110";
-                 sprocessed<='0';
                  sload <= '1';
              when S6 =>
                  sm<="111";
-                 sprocessed<='1';
                  sload <= '0';
+                 next_next_out_ready<='1';
              when others =>
-                 sprocessed<='0';
                  sm<="111";
                  sload <= '0';
        end case;
@@ -144,5 +144,6 @@ begin
     end process; 
     load <= load_reg;
     m <= m_reg;
+    processed_sample <= out_ready;
 
 end Behavioral;

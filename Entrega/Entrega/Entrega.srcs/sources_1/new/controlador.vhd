@@ -77,6 +77,8 @@ architecture Behavioral of controlador is
     
     signal first, next_first : STD_LOGIC;
     
+    signal sample_from_fir, next_sample_from_fir : STD_LOGIC_VECTOR(sample_size-1 downto 0);
+    
     
 begin
     
@@ -92,6 +94,8 @@ begin
             ssample_in_enable_fir <= '0';
             first <= '1';
             state <= Srep;
+            sample_from_fir <= (others=>'0');
+
             
         elsif(rising_edge(clk12M)) then
             pointer <= next_pointer;
@@ -103,11 +107,12 @@ begin
             ssample_in_fir <= next_sample_in_fir;
             ssample_in_enable_fir <= next_sample_in_enable_fir;
             first <= next_first;
+            sample_from_fir <= next_sample_from_fir;
         end if;
     end process;
     
     
-    OUTPUT_DECODE: process(clk12M,state,sample_out_ready,BTNL,sample_request, pointer, sample_out, cuenta_play, douta, ssample_in,saddra,cuenta_play_r,SW0,ssample_in_fir,ssample_in_enable_fir,first,sample_out_fir,SW1)
+    OUTPUT_DECODE: process(clk12M,state,sample_out_ready,BTNL,sample_request, pointer, sample_out, cuenta_play, douta, ssample_in,saddra,cuenta_play_r,SW0,ssample_in_fir,ssample_in_enable_fir,first,sample_out_fir,SW1,sample_from_fir)
     begin
     srecord_enable <= '0';
     splay_enable <= '0';
@@ -120,7 +125,7 @@ begin
     next_cuenta <= cuenta_play;
     next_cuenta_r <= cuenta_play_r;
     next_sample_in_fir <= ssample_in_fir;
-    next_sample_in_enable_fir <= ssample_in_enable_fir;
+    next_sample_in_enable_fir <= '0';
     next_first <= first;
     
             case state is
@@ -133,6 +138,7 @@ begin
                 next_addra <= (others=>'0');
                 next_sample_in <= (others=>'0');
                 next_sample_in_fir <= (others=>'0');
+                next_first <= '1';
                 
             when SC =>
                 sena <= '1';
@@ -194,7 +200,7 @@ begin
            when Sfir2 =>
                splay_enable <= '1';
                if(sample_request = '1') then
-                   next_sample_in <= sample_out_fir;
+                   next_sample_in <= sample_from_fir;
                    next_first <= '1';
                end if;
                
@@ -235,9 +241,10 @@ begin
             
     
 
-    NEXT_STATE_DECODE: process (state,BTNC,BTNR,BTNL,pointer,cuenta_play,SW0,SW1,cuenta_play_r,sample_out_ready_fir,first)
+    NEXT_STATE_DECODE: process (state,BTNC,BTNR,BTNL,pointer,cuenta_play,SW0,SW1,cuenta_play_r,sample_out_ready_fir,first,sample_out_fir,sample_from_fir)
     begin
         next_state <= Srep;
+        next_sample_from_fir <= sample_from_fir;
         case state is
             when Srep =>
                 if(BTNC = '1') then
@@ -281,6 +288,7 @@ begin
                 if((unsigned(cuenta_play) = (unsigned(pointer)+1)) or (unsigned(pointer) = 0)) then
                     next_state <= Srep;
                 elsif(sample_out_ready_fir = '1') then
+                    next_sample_from_fir <= sample_out_fir;
                     next_state <= Sfir2;
                 else
                     next_state <= Sfir1;

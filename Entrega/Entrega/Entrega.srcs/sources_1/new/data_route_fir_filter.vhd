@@ -57,15 +57,16 @@ end data_route_fir_filter;
 
 architecture Behavioral of data_route_fir_filter is
 
-    signal r_reg: signed (sample_size-1+sample_size downto 0):=(others => '0');
-    signal r_r_reg : signed (sample_size-1+sample_size downto 0):=(others => '0');
-    signal r_s_reg: signed (sample_size-1+sample_size downto 0):=(others => '0');
+    signal r_reg, r_next: signed (sample_size-1+sample_size downto 0):=(others => '0');
+    signal r_r_reg, rr_next : signed (sample_size-1+sample_size downto 0):=(others => '0');
+    signal r_s_reg, rs_next: signed (sample_size-1+sample_size downto 0):=(others => '0');
     signal X : signed (sample_size-1 downto 0):=(others => '0');
     signal C : signed (sample_size-1 downto 0):=(others => '0');
+    signal sy, next_y : signed (sample_size-1 downto 0);
     
 begin
 
-    process (m)
+    process (m,x0,x1,x2,x3,x4,c0,c1,c2,c3,c4)
         begin
            case m is
               when "000" => X <= x0; C <= c0;
@@ -77,25 +78,46 @@ begin
            end case;
     end process;
     
-    process(reset,load,m)
-        begin
-            if (reset='1' or m="111") then
-                r_reg<=(others => '0');
-                r_r_reg<=(others => '0');
-                r_s_reg<=(others => '0');
-            elsif ((load = '1')) then
-                r_reg<=X*C;
-                r_r_reg<=r_reg;
-                r_s_reg<=r_s_reg + r_r_reg;         
-           end if;                
-    end process;
-    
-    process(clk)
-    begin
-        if(rising_edge(clk) and m = "110") then
-            y<=r_s_reg((2*sample_size)-2 downto sample_size-1);
+    process(reset,m,clk,r_next,rr_next,rs_next,next_y)
+         begin
+             if(reset='1')then
+                 r_reg<=(others => '0');
+                 r_r_reg<=(others => '0');
+                 r_s_reg<=(others => '0');
+                 sy <= (others => '0');
+             elsif (rising_edge(clk)) then
+                 r_reg<=r_next;
+                 r_r_reg<=rr_next;
+                 r_s_reg<=rs_next; 
+                 if(m ="111") then
+                     r_reg<=(others => '0');
+                     r_r_reg<=(others => '0');
+                     r_s_reg<=(others => '0');
+                 end if;  
+                 sy <= next_y;      
+            end if;                
+     end process;
+     
+     process(load,X,C,r_reg,r_s_reg,r_r_reg)
+     begin
+         r_next <= r_reg;
+         rr_next <= r_r_reg;
+         rs_next <= r_s_reg;   
+         if(load='1') then
+            r_next <= X*C;
+            rr_next <= r_reg;
+            rs_next <= r_s_reg + r_r_reg;
         end if;
     end process;
-
-
+     
+    
+    process(m,r_s_reg,sy)
+    begin
+        next_y <= sy;
+        if(m = "111") then
+            next_y <= r_s_reg((2*sample_size)-2 downto sample_size-1);
+        end if;
+    end process;
+    
+    y <= sy;
 end Behavioral;
