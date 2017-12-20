@@ -147,13 +147,15 @@ end component;
     signal sdouta: std_logic_vector(sample_size-1 downto 0);
     
     signal ssample_out_fir : signed(sample_size-1 downto 0);
-    signal ssample_in_fir : std_logic_vector(sample_size-1 downto 0);
+    signal ssample_in_fir,ssample_in_firoff : std_logic_vector(sample_size-1 downto 0);
     signal ssample_in_enable_fir, ssample_out_ready_fir: std_logic;
     signal sfilter_select: std_logic;
 
 begin
 
-    fir: fir_filter port map(clk12,reset,signed(ssample_in_fir),ssample_in_enable_fir,sfilter_select,ssample_out_fir,ssample_out_ready_fir);
+    fir: fir_filter port map(clk12,reset,signed(ssample_in_firoff),ssample_in_enable_fir,sfilter_select,ssample_out_fir,ssample_out_ready_fir);
+
+    ssample_in_firoff<=std_logic_vector(unsigned(ssample_in_fir)+x"80");
 
     control: controlador port map(clk_100Mhz,reset,clk12,BTNC,BTNL,BTNR,sw0,sw1,srecord,sout,sout_ready,splay,sin,srequest,sena,swea,saddra,sdina,sdouta,ssample_in_fir,ssample_in_enable_fir,sfilter_select,std_logic_vector(ssample_out_fir),ssample_out_ready_fir);
     audio: audio_interface port map(clk12,reset,srecord,sout,sout_ready,micro_clk,micro_data,micro_LR,splay,sin,srequest,jack_sd,jack_pwm);

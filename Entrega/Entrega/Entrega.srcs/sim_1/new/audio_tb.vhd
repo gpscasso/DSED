@@ -60,7 +60,7 @@ architecture Behavioral of audio_tb is
     constant half_period : time := 5 ns;
     
     signal rst : std_logic := '1';
-    signal C, R, SW0, SW1: std_logic := '0';
+    signal C, R, SW0, SW1: std_logic := '0';   
     signal L : std_logic := '0';
     
     signal mdata: std_logic := '1';
@@ -70,6 +70,10 @@ architecture Behavioral of audio_tb is
 
 begin
     clk <= not clk after half_period;
+--    SW0<='0';SW1<='0';--normal
+--    SW0<='1';SW1<='0';--reves
+    SW0<='0';SW1<='1';--lp
+--    SW0<='1';SW1<='1';--hp
     test: dsed_audio port map(clk,rst,L,C,R,SW0,SW1,smclk,mdata,LR,sd,pwm);
     
     mdata_proc: process
@@ -81,12 +85,12 @@ begin
         mdata <= a xor b xor d;
     end process;
      
-     SW0_proc: process
-        begin
-            wait for 2250 us; SW1 <= '1'; 
-            wait for 700 us; SW1 <= '0';
-            wait;
-        end process;
+--     SW0_proc: process
+--        begin
+--            wait for 2250 us; SW1 <= '1'; 
+--            wait for 700 us; SW1 <= '0';
+--            wait;
+--        end process;
      
      L_proc: process
        begin

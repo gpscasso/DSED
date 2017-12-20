@@ -1,0 +1,45 @@
+Unable to capture context for thread 4280 in process 10548, can not generate back trace
+Unable to capture context for thread 9920 in process 10548, can not generate back trace
+Exception at PC 0x00007FFE857BBB93
+Printing stacktrace...
+
+[0]  [0x00007FFE857BBB93]
+[1]  [0x00007FFE857BBB93]
+[2]  [0x00007FFE857BB4A1]
+[3]  [0x00007FFE857BB3EF]
+[4]  [0x00007FFE857A19FE]
+[5]  [0x00007FFE857A0ED1]
+[6]  [0x00007FFE857A0D76]
+[7]  [0x00007FFE857479F6]
+[8]  [0x00007FFE85737AFB]
+[9]  [0x00007FFE8585E90A]
+[10]  [0x00007FFE85879F87]
+[11]  [0x00007FFE8587A05F]
+[12] (BaseThreadInitThunk+0x14) [0x00007FFEF99E2774]
+[13] (RtlUserThreadStart+0x21) [0x00007FFEF9F80D51]
+Done
+Exception at PC 0x00007FFE854C1A52
+Attemped to write at address 0x00007FFED30AABA4
+Printing stacktrace...
+
+[0]  [0x00007FFE854C1A52]
+[1]  [0x00007FFE854C1A52]
+[2]  [0x00007FFE854C1AD4]
+[3]  [0x00007FFE85603FF7]
+[4]  [0x00007FFE854E9128]
+[5]  [0x00007FFE8579DFB9]
+[6]  [0x00007FFE8596EF23]
+[7]  [0x00007FFE8587B06B]
+[8]  [0x00007FFE858708AF]
+[9]  [0x00007FFE85870A32]
+[10] (RtlDeactivateActivationContextUnsafeFast+0x1af) [0x00007FFEF9F3485F]
+[11] (LdrShutdownProcess+0x12c) [0x00007FFEF9F5D43C]
+[12] (RtlExitUserProcess+0xb4) [0x00007FFEF9F5D2F4]
+[13] (FatalExit+0xa) [0x00007FFEF99EC0DA]
+[14] (exit+0x75) [0x00007FFEF9CDA045]
+[15] (initterm_e+0x21d) [0x00007FFEF9CDA68D]
+[16]  [0x00000000004014CD]
+[17]  [0x000000000040151B]
+[18] (BaseThreadInitThunk+0x14) [0x00007FFEF99E2774]
+[19] (RtlUserThreadStart+0x21) [0x00007FFEF9F80D51]
+Done
