@@ -56,7 +56,7 @@ architecture Behavioral of controlador is
 
     signal clk12M : std_logic;
     
-    type state_type is (Srep,SL,SC,SRR,Snormal,Sfir);
+    type state_type is (Srep,SL,SC,SRR,Snormal,Sfir1,Sfir2);
     signal state, next_state : state_type;
 
     signal pointer, cuenta_play, cuenta_play_r : STD_LOGIC_VECTOR(18 downto 0) := (others=>'0');
@@ -71,6 +71,13 @@ architecture Behavioral of controlador is
 
     signal splay_enable : STD_LOGIC;
     signal ssample_in,next_sample_in : STD_LOGIC_VECTOR(sample_size-1 downto 0);
+    
+    signal next_sample_in_fir, ssample_in_fir : STD_LOGIC_VECTOR(sample_size-1 downto 0);
+    signal ssample_in_enable_fir, next_sample_in_enable_fir : STD_LOGIC;
+    
+    signal first, next_first : STD_LOGIC;
+    
+    
 begin
     
     SYNC_PROC : process(reset,clk12M)
@@ -81,6 +88,9 @@ begin
             cuenta_play_r <= (others=>'0');
             ssample_in <= (others=>'0');
             saddra <= (others=>'0');
+            ssample_in_fir <= (others=>'0');
+            ssample_in_enable_fir <= '0';
+            first <= '1';
             state <= Srep;
             
         elsif(rising_edge(clk12M)) then
@@ -90,11 +100,14 @@ begin
             state <= next_state;
             ssample_in <= next_sample_in;
             saddra <= next_addra;
+            ssample_in_fir <= next_sample_in_fir;
+            ssample_in_enable_fir <= next_sample_in_enable_fir;
+            first <= next_first;
         end if;
     end process;
     
     
-    OUTPUT_DECODE: process(clk12M,state,sample_out_ready,BTNL,sample_request, pointer, sample_out, cuenta_play, douta, ssample_in,saddra,cuenta_play_r,SW0)
+    OUTPUT_DECODE: process(clk12M,state,sample_out_ready,BTNL,sample_request, pointer, sample_out, cuenta_play, douta, ssample_in,saddra,cuenta_play_r,SW0,ssample_in_fir,ssample_in_enable_fir,first,sample_out_fir,SW1)
     begin
     srecord_enable <= '0';
     splay_enable <= '0';
@@ -106,6 +119,9 @@ begin
     next_pointer <= pointer;
     next_cuenta <= cuenta_play;
     next_cuenta_r <= cuenta_play_r;
+    next_sample_in_fir <= ssample_in_fir;
+    next_sample_in_enable_fir <= ssample_in_enable_fir;
+    next_first <= first;
     
             case state is
             when SRep =>
@@ -116,6 +132,7 @@ begin
                 next_cuenta <= (others=>'0');
                 next_addra <= (others=>'0');
                 next_sample_in <= (others=>'0');
+                next_sample_in_fir <= (others=>'0');
                 
             when SC =>
                 sena <= '1';
@@ -144,7 +161,7 @@ begin
             
             when SRR =>
                 next_cuenta_r <= std_logic_vector(unsigned(pointer)-3);
-                if(SW0 = '1') then
+                if(SW0 = '1' and SW1='0') then
                     next_addra <= std_logic_vector(unsigned(pointer)-2);
                 end if;
                 
@@ -162,6 +179,55 @@ begin
                     end if;
                 end if;
                 
+            when Sfir1 =>
+                if(first = '1') then
+                    sena <= '1';   
+                    next_sample_in_fir <= douta;
+                    next_sample_in_enable_fir <= '1';
+                    next_addra <= cuenta_play;
+                    next_cuenta <= std_logic_vector(unsigned(cuenta_play)+1);
+                    next_first <= '0';
+                else
+                    next_sample_in_enable_fir <= '0';
+                end if;
+               
+           when Sfir2 =>
+               splay_enable <= '1';
+               if(sample_request = '1') then
+                   next_sample_in <= sample_out_fir;
+                   next_first <= '1';
+               end if;
+               
+--                  lo que tengo que hacer es:
+--                  1. meto la primera muestra de la ram en el filtro fir (sample_in_fir), activo sample_in_enable_fir
+--                        ena <= '1';
+--                        sample_in_fir <= douta;
+--                        sample_in_enable_fir <= '1';
+--                        saddra <= cuenta_play;
+--                        next_cuenta <= std_logic_vector(unsigned(cuenta_play)+1);
+                    
+                    
+--                        hago un cambio de estado cuando sample_out_ready_fir = '1'
+
+                    
+--                  2. cuando esté procesada (sample_out_ready_fir) activo el play_enable
+--                  3. cuando haya un sample_request, meto en next_sample_in lo que ha salido del filtro, es decir, sample_out_fir
+--                  en este estado hago lo siguiente:
+--                        play_enable = '1';
+--                            if(sample_request = '1') then
+--                                next_sample_in <= sample_out_fir;
+--                            end if;
+
+
+--                  4. una vez se ha metido la salida del filtro en la IA, meto la siguiente muestra de la ram en el filtro fir y activo sample_in_enable_fir
+--                        vuelvo al estado de antes donde activo (la condición sería que 
+--                  5. cuando esté procesada (sample_out_ready_fir) activo el play_enable
+--                  6. cuando haya un sample_request, meto en next_sample_in lo que ha salido del filtro, es decir, sample_out_fir
+
+--                    En resumen, el primer estado se encarga de pasar la muestra de la ram al filtro, cuando esta señal sea procesada
+--                    se cambia de estado y este estado se encarga de mandarla a la interfaz de audio.
+--                    Se vuelve al estado inicial cuando first = 1
+            
             when others =>
                 sena <= '0';
         end case;
@@ -169,7 +235,7 @@ begin
             
     
 
-    NEXT_STATE_DECODE: process (state,BTNC,BTNR,BTNL,pointer,cuenta_play,SW0,SW1,cuenta_play_r)
+    NEXT_STATE_DECODE: process (state,BTNC,BTNR,BTNL,pointer,cuenta_play,SW0,SW1,cuenta_play_r,sample_out_ready_fir,first)
     begin
         next_state <= Srep;
         case state is
@@ -193,7 +259,7 @@ begin
                 if(SW1 = '0') then
                    next_state <= Snormal;
                 else
-                   next_state <= Sfir;
+                   next_state <= Sfir1;
                 end if;             
                    
             when Snormal =>
@@ -211,13 +277,22 @@ begin
                     end if;
                 end if;
                 
-            when Sfir =>
+            when Sfir1 =>
                 if((unsigned(cuenta_play) = (unsigned(pointer)+1)) or (unsigned(pointer) = 0)) then
-                    next_state <= Snormal;
+                    next_state <= Srep;
+                elsif(sample_out_ready_fir = '1') then
+                    next_state <= Sfir2;
                 else
-                    next_state <= SRR;
+                    next_state <= Sfir1;
                 end if;
                 
+            when Sfir2 =>
+                if(first = '1') then
+                    next_state <= Sfir1;
+                else
+                    next_state <= Sfir2;
+                end if;
+
             when SL =>
                 if(BTNL = '0' or unsigned(pointer) = 524287) then
                     next_state <= Srep;
@@ -240,5 +315,9 @@ begin
     dina <= sdina;
     play_enable <= splay_enable;
     sample_in <= ssample_in;
+    sample_in_fir <= ssample_in_fir;
+    sample_in_enable_fir <= ssample_in_enable_fir;
+    filter_select <= SW0;
+    
     
 end Behavioral;

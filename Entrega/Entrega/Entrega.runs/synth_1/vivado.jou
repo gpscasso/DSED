@@ -2,8 +2,8 @@
 # Vivado v2017.2 (64-bit)
 # SW Build 1909853 on Thu Jun 15 18:39:09 MDT 2017
 # IP Build 1909766 on Thu Jun 15 19:58:00 MDT 2017
-# Start of session at: Tue Dec 19 17:14:51 2017
-# Process ID: 12720
+# Start of session at: Wed Dec 20 02:44:20 2017
+# Process ID: 9652
 # Current directory: C:/Users/Guille/Documents/Universidad/Sexto/1er Cuatri/DSED/Entrega/DSED/Entrega/Entrega/Entrega.runs/synth_1
 # Command line: vivado.exe -log dsed_audio.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source dsed_audio.tcl
 # Log file: C:/Users/Guille/Documents/Universidad/Sexto/1er Cuatri/DSED/Entrega/DSED/Entrega/Entrega/Entrega.runs/synth_1/dsed_audio.vds

@@ -81,12 +81,12 @@ begin
         mdata <= a xor b xor d;
     end process;
      
---     SW0_proc: process
---        begin
---            wait for 2250 us; SW0 <= '1';
---            wait for 700 us; SW0 <= '0';
---            wait;
---        end process;
+     SW0_proc: process
+        begin
+            wait for 2250 us; SW1 <= '1'; 
+            wait for 700 us; SW1 <= '0';
+            wait;
+        end process;
      
      L_proc: process
        begin

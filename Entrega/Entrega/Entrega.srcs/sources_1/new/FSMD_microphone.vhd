@@ -78,16 +78,13 @@ begin
     
 end process;
 
-OUTPUT_DECODE : process (state,micro_data,cuenta_reg,primer_ciclo,enable_4_cycles, dato1, dato2, sout)
+OUTPUT_DECODE : process (state,micro_data,cuenta_reg,primer_ciclo,enable_4_cycles, dato1, dato2, sout,next_primer_ciclo,next_cuenta)
 begin
     sready <= '0';
     next_dato1 <= dato1;
     next_dato2 <= dato2;
-    next_cuenta <= cuenta_reg;
     sout_next <= sout;
---    if(primer_ciclo = '0' and unsigned(cuenta_reg)=0) then
---        sout <= (others=>'0');
---    end if;
+    next_cuenta <= cuenta_reg;
     next_primer_ciclo <= primer_ciclo;
     
     case (state) is
@@ -106,7 +103,7 @@ begin
                 next_dato1 <= std_logic_vector(unsigned(dato1)+1);
              end if;
              
-             if(primer_ciclo = '1' and unsigned(cuenta_reg)=106) then
+             if(next_primer_ciclo = '1' and unsigned(next_cuenta)=106) then
                 sout_next <= dato2;
                 next_dato2 <= (others=>'0');
                 sready <= enable_4_cycles;
@@ -126,7 +123,7 @@ begin
                  next_dato2 <= std_logic_vector(unsigned(dato2)+1);
              end if;
              
-             if(unsigned(cuenta_reg)=256) then
+             if(unsigned(next_cuenta)=256) then
                 sout_next <= dato1;
                 next_dato1 <= (others=>'0');
                 sready <= enable_4_cycles;
@@ -139,27 +136,27 @@ end process;
 
 
 
-NEXT_STATE_DECODE : process (state,next_cuenta)
+NEXT_STATE_DECODE : process (state,cuenta_reg)
 begin
     next_state <= S0;
     
     case (state) is
         when S0 =>
-            if (unsigned(next_cuenta) = 256) then
+            if (unsigned(cuenta_reg) = 254) then
                 next_state <= S2;
-            elsif(unsigned(next_cuenta) = 106) then
+            elsif(unsigned(cuenta_reg) = 104) then
                 next_state <= S1;
             end if;
             
         when S1 =>
-            if (unsigned(next_cuenta) = 150) then
+            if (unsigned(cuenta_reg) = 148) then
                 next_state <= S0;
             else
                 next_state <= S1;
             end if; 
                            
         when S2 =>
-            if (unsigned(next_cuenta) = 0) then
+            if (unsigned(cuenta_reg) = 299) then
                 next_state <= S0;
             else
                 next_state <= S2;

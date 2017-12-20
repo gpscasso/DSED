@@ -12,15 +12,15 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="1644907405334fs"></ZoomStartTime>
-      <ZoomEndTime time="2979907405335fs"></ZoomEndTime>
-      <Cursor1Time time="3009040488000fs"></Cursor1Time>
+      <ZoomStartTime time="529185583500fs"></ZoomStartTime>
+      <ZoomEndTime time="3704235583501fs"></ZoomEndTime>
+      <Cursor1Time time="2808228333000fs"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
-      <NameColumnWidth column_width="149"></NameColumnWidth>
+      <NameColumnWidth column_width="145"></NameColumnWidth>
       <ValueColumnWidth column_width="58"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="18" />
+   <WVObjectSize size="20" />
    <wvobject fp_name="/audio_tb/clk" type="logic">
       <obj_property name="ElementShortName">clk</obj_property>
       <obj_property name="ObjectShortName">clk</obj_property>
@@ -37,18 +37,14 @@
       <obj_property name="ElementShortName">BTNR</obj_property>
       <obj_property name="ObjectShortName">BTNR</obj_property>
    </wvobject>
-   <wvobject fp_name="/audio_tb/test/control/record_enable" type="logic">
-      <obj_property name="ElementShortName">record_enable</obj_property>
-      <obj_property name="ObjectShortName">record_enable</obj_property>
+   <wvobject fp_name="/audio_tb/test/control/sw1" type="logic">
+      <obj_property name="ElementShortName">sw1</obj_property>
+      <obj_property name="ObjectShortName">sw1</obj_property>
    </wvobject>
    <wvobject fp_name="/audio_tb/test/control/sample_out" type="array">
       <obj_property name="ElementShortName">sample_out[7:0]</obj_property>
       <obj_property name="ObjectShortName">sample_out[7:0]</obj_property>
       <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
-   </wvobject>
-   <wvobject fp_name="/audio_tb/test/control/sample_out_ready" type="logic">
-      <obj_property name="ElementShortName">sample_out_ready</obj_property>
-      <obj_property name="ObjectShortName">sample_out_ready</obj_property>
    </wvobject>
    <wvobject fp_name="/audio_tb/test/control/play_enable" type="logic">
       <obj_property name="ElementShortName">play_enable</obj_property>
@@ -67,11 +63,6 @@
       <obj_property name="ElementShortName">ena</obj_property>
       <obj_property name="ObjectShortName">ena</obj_property>
    </wvobject>
-   <wvobject fp_name="/audio_tb/test/control/wea" type="array">
-      <obj_property name="ElementShortName">wea[0:0]</obj_property>
-      <obj_property name="ObjectShortName">wea[0:0]</obj_property>
-      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
-   </wvobject>
    <wvobject fp_name="/audio_tb/test/control/addra" type="array">
       <obj_property name="ElementShortName">addra[18:0]</obj_property>
       <obj_property name="ObjectShortName">addra[18:0]</obj_property>
@@ -87,18 +78,35 @@
       <obj_property name="ObjectShortName">douta[7:0]</obj_property>
       <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
    </wvobject>
+   <wvobject fp_name="/audio_tb/test/control/ssample_in_fir" type="array">
+      <obj_property name="ElementShortName">ssample_in_fir[7:0]</obj_property>
+      <obj_property name="ObjectShortName">ssample_in_fir[7:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/audio_tb/test/control/sample_in_fir" type="array">
+      <obj_property name="ElementShortName">sample_in_fir[7:0]</obj_property>
+      <obj_property name="ObjectShortName">sample_in_fir[7:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/audio_tb/test/control/sample_in_enable_fir" type="logic">
+      <obj_property name="ElementShortName">sample_in_enable_fir</obj_property>
+      <obj_property name="ObjectShortName">sample_in_enable_fir</obj_property>
+   </wvobject>
+   <wvobject fp_name="/audio_tb/test/control/filter_select" type="logic">
+      <obj_property name="ElementShortName">filter_select</obj_property>
+      <obj_property name="ObjectShortName">filter_select</obj_property>
+   </wvobject>
+   <wvobject fp_name="/audio_tb/test/control/sample_out_fir" type="array">
+      <obj_property name="ElementShortName">sample_out_fir[7:0]</obj_property>
+      <obj_property name="ObjectShortName">sample_out_fir[7:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/audio_tb/test/control/sample_out_ready_fir" type="logic">
+      <obj_property name="ElementShortName">sample_out_ready_fir</obj_property>
+      <obj_property name="ObjectShortName">sample_out_ready_fir</obj_property>
+   </wvobject>
    <wvobject fp_name="/audio_tb/test/control/state" type="other">
       <obj_property name="ElementShortName">state</obj_property>
       <obj_property name="ObjectShortName">state</obj_property>
-   </wvobject>
-   <wvobject fp_name="/audio_tb/test/control/pointer" type="array">
-      <obj_property name="ElementShortName">pointer[18:0]</obj_property>
-      <obj_property name="ObjectShortName">pointer[18:0]</obj_property>
-      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
-   </wvobject>
-   <wvobject fp_name="/audio_tb/test/control/cuenta_play" type="array">
-      <obj_property name="ElementShortName">cuenta_play[18:0]</obj_property>
-      <obj_property name="ObjectShortName">cuenta_play[18:0]</obj_property>
-      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
    </wvobject>
 </wave_config>
