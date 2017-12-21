@@ -51,7 +51,6 @@ entity data_route_fir_filter is
            reset: in STD_LOGIC;
            m : in STD_LOGIC_VECTOR (2 downto 0);
            load : in STD_LOGIC;
-           sample_ready : in STD_LOGIC;
            y : out signed (sample_size-1 downto 0));
 end data_route_fir_filter;
 

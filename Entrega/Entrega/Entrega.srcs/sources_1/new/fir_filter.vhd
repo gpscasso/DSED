@@ -58,7 +58,6 @@ architecture Behavioral of fir_filter is
            reset: in STD_LOGIC;
            m : in STD_LOGIC_VECTOR (2 downto 0);
            load : in STD_LOGIC;
-           sample_ready : in STD_LOGIC;
            y : out signed (sample_size-1 downto 0));
     End component;
     
@@ -128,8 +127,7 @@ begin
             end if;
          end process;
          
-         data_route: data_route_fir_filter port map(clk,sx0,sx1,sx2,sx3,sx4,sc0,sc1,sc2,sc3,sc4,reset,sm,sload,sready,Sample_Out);
-         FSMD: Moore_fir_filter port map(clk,Sample_In_enable,reset,sm,sload,sready);
-         Sample_Out_ready <= sready;
+         data_route: data_route_fir_filter port map(clk,sx0,sx1,sx2,sx3,sx4,sc0,sc1,sc2,sc3,sc4,reset,sm,sload,Sample_Out);
+         FSMD: Moore_fir_filter port map(clk,Sample_In_enable,reset,sm,sload,Sample_Out_ready);
 
 end Behavioral;

@@ -14,30 +14,29 @@ Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7a100t-csg324'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a100t-csg324'
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 4596 
+INFO: Helper process launched with PID 4152 
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 371.539 ; gain = 83.617
+Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 371.199 ; gain = 83.191
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-638] synthesizing module 'dsed_audio' [C:/Users/Guille/Documents/Universidad/Sexto/1er Cuatri/DSED/Entrega/DSED/Entrega/Entrega/Entrega.srcs/sources_1/new/dsed_audio.vhd:55]
-INFO: [Synth 8-3491] module 'fir_filter' declared at 'C:/Users/Guille/Documents/Universidad/Sexto/1er Cuatri/DSED/Entrega/DSED/Entrega/Entrega/Entrega.srcs/sources_1/new/fir_filter.vhd:35' bound to instance 'fir' of component 'fir_filter' [C:/Users/Guille/Documents/Universidad/Sexto/1er Cuatri/DSED/Entrega/DSED/Entrega/Entrega/Entrega.srcs/sources_1/new/dsed_audio.vhd:157]
+INFO: [Synth 8-3491] module 'fir_filter' declared at 'C:/Users/Guille/Documents/Universidad/Sexto/1er Cuatri/DSED/Entrega/DSED/Entrega/Entrega/Entrega.srcs/sources_1/new/fir_filter.vhd:35' bound to instance 'fir' of component 'fir_filter' [C:/Users/Guille/Documents/Universidad/Sexto/1er Cuatri/DSED/Entrega/DSED/Entrega/Entrega/Entrega.srcs/sources_1/new/dsed_audio.vhd:158]
 INFO: [Synth 8-638] synthesizing module 'fir_filter' [C:/Users/Guille/Documents/Universidad/Sexto/1er Cuatri/DSED/Entrega/DSED/Entrega/Entrega/Entrega.srcs/sources_1/new/fir_filter.vhd:45]
-INFO: [Synth 8-3491] module 'data_route_fir_filter' declared at 'C:/Users/Guille/Documents/Universidad/Sexto/1er Cuatri/DSED/Entrega/DSED/Entrega/Entrega/Entrega.srcs/sources_1/new/data_route_fir_filter.vhd:39' bound to instance 'data_route' of component 'data_route_fir_filter' [C:/Users/Guille/Documents/Universidad/Sexto/1er Cuatri/DSED/Entrega/DSED/Entrega/Entrega/Entrega.srcs/sources_1/new/fir_filter.vhd:131]
-INFO: [Synth 8-638] synthesizing module 'data_route_fir_filter' [C:/Users/Guille/Documents/Universidad/Sexto/1er Cuatri/DSED/Entrega/DSED/Entrega/Entrega/Entrega.srcs/sources_1/new/data_route_fir_filter.vhd:58]
-INFO: [Synth 8-256] done synthesizing module 'data_route_fir_filter' (1#1) [C:/Users/Guille/Documents/Universidad/Sexto/1er Cuatri/DSED/Entrega/DSED/Entrega/Entrega/Entrega.srcs/sources_1/new/data_route_fir_filter.vhd:58]
-INFO: [Synth 8-3491] module 'Moore_fir_filter' declared at 'C:/Users/Guille/Documents/Universidad/Sexto/1er Cuatri/DSED/Entrega/DSED/Entrega/Entrega/Entrega.srcs/sources_1/new/Moore_fir_filter.vhd:35' bound to instance 'FSMD' of component 'Moore_fir_filter' [C:/Users/Guille/Documents/Universidad/Sexto/1er Cuatri/DSED/Entrega/DSED/Entrega/Entrega/Entrega.srcs/sources_1/new/fir_filter.vhd:132]
+INFO: [Synth 8-3491] module 'data_route_fir_filter' declared at 'C:/Users/Guille/Documents/Universidad/Sexto/1er Cuatri/DSED/Entrega/DSED/Entrega/Entrega/Entrega.srcs/sources_1/new/data_route_fir_filter.vhd:39' bound to instance 'data_route' of component 'data_route_fir_filter' [C:/Users/Guille/Documents/Universidad/Sexto/1er Cuatri/DSED/Entrega/DSED/Entrega/Entrega/Entrega.srcs/sources_1/new/fir_filter.vhd:130]
+INFO: [Synth 8-638] synthesizing module 'data_route_fir_filter' [C:/Users/Guille/Documents/Universidad/Sexto/1er Cuatri/DSED/Entrega/DSED/Entrega/Entrega/Entrega.srcs/sources_1/new/data_route_fir_filter.vhd:57]
+INFO: [Synth 8-256] done synthesizing module 'data_route_fir_filter' (1#1) [C:/Users/Guille/Documents/Universidad/Sexto/1er Cuatri/DSED/Entrega/DSED/Entrega/Entrega/Entrega.srcs/sources_1/new/data_route_fir_filter.vhd:57]
+INFO: [Synth 8-3491] module 'Moore_fir_filter' declared at 'C:/Users/Guille/Documents/Universidad/Sexto/1er Cuatri/DSED/Entrega/DSED/Entrega/Entrega/Entrega.srcs/sources_1/new/Moore_fir_filter.vhd:35' bound to instance 'FSMD' of component 'Moore_fir_filter' [C:/Users/Guille/Documents/Universidad/Sexto/1er Cuatri/DSED/Entrega/DSED/Entrega/Entrega/Entrega.srcs/sources_1/new/fir_filter.vhd:131]
 INFO: [Synth 8-638] synthesizing module 'Moore_fir_filter' [C:/Users/Guille/Documents/Universidad/Sexto/1er Cuatri/DSED/Entrega/DSED/Entrega/Entrega/Entrega.srcs/sources_1/new/Moore_fir_filter.vhd:44]
 INFO: [Synth 8-226] default block is never used [C:/Users/Guille/Documents/Universidad/Sexto/1er Cuatri/DSED/Entrega/DSED/Entrega/Entrega/Entrega.srcs/sources_1/new/Moore_fir_filter.vhd:76]
 INFO: [Synth 8-226] default block is never used [C:/Users/Guille/Documents/Universidad/Sexto/1er Cuatri/DSED/Entrega/DSED/Entrega/Entrega/Entrega.srcs/sources_1/new/Moore_fir_filter.vhd:120]
 INFO: [Synth 8-256] done synthesizing module 'Moore_fir_filter' (2#1) [C:/Users/Guille/Documents/Universidad/Sexto/1er Cuatri/DSED/Entrega/DSED/Entrega/Entrega/Entrega.srcs/sources_1/new/Moore_fir_filter.vhd:44]
 INFO: [Synth 8-256] done synthesizing module 'fir_filter' (3#1) [C:/Users/Guille/Documents/Universidad/Sexto/1er Cuatri/DSED/Entrega/DSED/Entrega/Entrega/Entrega.srcs/sources_1/new/fir_filter.vhd:45]
-INFO: [Synth 8-3491] module 'controlador' declared at 'C:/Users/Guille/Documents/Universidad/Sexto/1er Cuatri/DSED/Entrega/DSED/Entrega/Entrega/Entrega.srcs/sources_1/new/controlador.vhd:15' bound to instance 'control' of component 'controlador' [C:/Users/Guille/Documents/Universidad/Sexto/1er Cuatri/DSED/Entrega/DSED/Entrega/Entrega/Entrega.srcs/sources_1/new/dsed_audio.vhd:161]
+INFO: [Synth 8-3491] module 'controlador' declared at 'C:/Users/Guille/Documents/Universidad/Sexto/1er Cuatri/DSED/Entrega/DSED/Entrega/Entrega/Entrega.srcs/sources_1/new/controlador.vhd:15' bound to instance 'control' of component 'controlador' [C:/Users/Guille/Documents/Universidad/Sexto/1er Cuatri/DSED/Entrega/DSED/Entrega/Entrega/Entrega.srcs/sources_1/new/dsed_audio.vhd:163]
 INFO: [Synth 8-638] synthesizing module 'controlador' [C:/Users/Guille/Documents/Universidad/Sexto/1er Cuatri/DSED/Entrega/DSED/Entrega/Entrega/Entrega.srcs/sources_1/new/controlador.vhd:49]
-WARNING: [Synth 8-614] signal 'sample_from_fir' is read in the process but is not in the sensitivity list [C:/Users/Guille/Documents/Universidad/Sexto/1er Cuatri/DSED/Entrega/DSED/Entrega/Entrega/Entrega.srcs/sources_1/new/controlador.vhd:115]
-INFO: [Synth 8-3491] module 'clk_wiz_0' declared at 'C:/Users/Guille/Documents/Universidad/Sexto/1er Cuatri/DSED/Entrega/DSED/Entrega/Entrega/Entrega.runs/synth_1/.Xil/Vivado-12720-LAPTOP-07004HLV/realtime/clk_wiz_0_stub.v:5' bound to instance 'reloj' of component 'clk_wiz_0' [C:/Users/Guille/Documents/Universidad/Sexto/1er Cuatri/DSED/Entrega/DSED/Entrega/Entrega/Entrega.srcs/sources_1/new/controlador.vhd:316]
-INFO: [Synth 8-638] synthesizing module 'clk_wiz_0' [C:/Users/Guille/Documents/Universidad/Sexto/1er Cuatri/DSED/Entrega/DSED/Entrega/Entrega/Entrega.runs/synth_1/.Xil/Vivado-12720-LAPTOP-07004HLV/realtime/clk_wiz_0_stub.v:5]
-INFO: [Synth 8-256] done synthesizing module 'clk_wiz_0' (4#1) [C:/Users/Guille/Documents/Universidad/Sexto/1er Cuatri/DSED/Entrega/DSED/Entrega/Entrega/Entrega.runs/synth_1/.Xil/Vivado-12720-LAPTOP-07004HLV/realtime/clk_wiz_0_stub.v:5]
+INFO: [Synth 8-3491] module 'clk_wiz_0' declared at 'C:/Users/Guille/Documents/Universidad/Sexto/1er Cuatri/DSED/Entrega/DSED/Entrega/Entrega/Entrega.runs/synth_1/.Xil/Vivado-3748-LAPTOP-07004HLV/realtime/clk_wiz_0_stub.v:5' bound to instance 'reloj' of component 'clk_wiz_0' [C:/Users/Guille/Documents/Universidad/Sexto/1er Cuatri/DSED/Entrega/DSED/Entrega/Entrega/Entrega.srcs/sources_1/new/controlador.vhd:317]
+INFO: [Synth 8-638] synthesizing module 'clk_wiz_0' [C:/Users/Guille/Documents/Universidad/Sexto/1er Cuatri/DSED/Entrega/DSED/Entrega/Entrega/Entrega.runs/synth_1/.Xil/Vivado-3748-LAPTOP-07004HLV/realtime/clk_wiz_0_stub.v:5]
+INFO: [Synth 8-256] done synthesizing module 'clk_wiz_0' (4#1) [C:/Users/Guille/Documents/Universidad/Sexto/1er Cuatri/DSED/Entrega/DSED/Entrega/Entrega/Entrega.runs/synth_1/.Xil/Vivado-3748-LAPTOP-07004HLV/realtime/clk_wiz_0_stub.v:5]
 INFO: [Synth 8-256] done synthesizing module 'controlador' (5#1) [C:/Users/Guille/Documents/Universidad/Sexto/1er Cuatri/DSED/Entrega/DSED/Entrega/Entrega/Entrega.srcs/sources_1/new/controlador.vhd:49]
-INFO: [Synth 8-3491] module 'audio_interface' declared at 'C:/Users/Guille/Documents/Universidad/Sexto/1er Cuatri/DSED/Entrega/DSED/Entrega/Entrega/Entrega.srcs/sources_1/new/audio_interface.vhd:35' bound to instance 'audio' of component 'audio_interface' [C:/Users/Guille/Documents/Universidad/Sexto/1er Cuatri/DSED/Entrega/DSED/Entrega/Entrega/Entrega.srcs/sources_1/new/dsed_audio.vhd:162]
+INFO: [Synth 8-3491] module 'audio_interface' declared at 'C:/Users/Guille/Documents/Universidad/Sexto/1er Cuatri/DSED/Entrega/DSED/Entrega/Entrega/Entrega.srcs/sources_1/new/audio_interface.vhd:35' bound to instance 'audio' of component 'audio_interface' [C:/Users/Guille/Documents/Universidad/Sexto/1er Cuatri/DSED/Entrega/DSED/Entrega/Entrega/Entrega.srcs/sources_1/new/dsed_audio.vhd:164]
 INFO: [Synth 8-638] synthesizing module 'audio_interface' [C:/Users/Guille/Documents/Universidad/Sexto/1er Cuatri/DSED/Entrega/DSED/Entrega/Entrega/Entrega.srcs/sources_1/new/audio_interface.vhd:57]
 INFO: [Synth 8-3491] module 'en_4_cycles' declared at 'C:/Users/Guille/Documents/Universidad/Sexto/1er Cuatri/DSED/Entrega/DSED/Entrega/Entrega/Entrega.srcs/sources_1/new/en_4_cycles.vhd:34' bound to instance 'EN4C' of component 'en_4_cycles' [C:/Users/Guille/Documents/Universidad/Sexto/1er Cuatri/DSED/Entrega/DSED/Entrega/Entrega/Entrega.srcs/sources_1/new/audio_interface.vhd:87]
 INFO: [Synth 8-638] synthesizing module 'en_4_cycles' [C:/Users/Guille/Documents/Universidad/Sexto/1er Cuatri/DSED/Entrega/DSED/Entrega/Entrega/Entrega.srcs/sources_1/new/en_4_cycles.vhd:42]
@@ -49,13 +48,12 @@ INFO: [Synth 8-3491] module 'pwm' declared at 'C:/Users/Guille/Documents/Univers
 INFO: [Synth 8-638] synthesizing module 'pwm' [C:/Users/Guille/Documents/Universidad/Sexto/1er Cuatri/DSED/Entrega/DSED/Entrega/Entrega/pwm.vhd:44]
 INFO: [Synth 8-256] done synthesizing module 'pwm' (8#1) [C:/Users/Guille/Documents/Universidad/Sexto/1er Cuatri/DSED/Entrega/DSED/Entrega/Entrega/pwm.vhd:44]
 INFO: [Synth 8-256] done synthesizing module 'audio_interface' (9#1) [C:/Users/Guille/Documents/Universidad/Sexto/1er Cuatri/DSED/Entrega/DSED/Entrega/Entrega/Entrega.srcs/sources_1/new/audio_interface.vhd:57]
-INFO: [Synth 8-3491] module 'blk_mem_gen_0' declared at 'C:/Users/Guille/Documents/Universidad/Sexto/1er Cuatri/DSED/Entrega/DSED/Entrega/Entrega/Entrega.runs/synth_1/.Xil/Vivado-12720-LAPTOP-07004HLV/realtime/blk_mem_gen_0_stub.v:6' bound to instance 'ram' of component 'blk_mem_gen_0' [C:/Users/Guille/Documents/Universidad/Sexto/1er Cuatri/DSED/Entrega/DSED/Entrega/Entrega/Entrega.srcs/sources_1/new/dsed_audio.vhd:163]
-INFO: [Synth 8-638] synthesizing module 'blk_mem_gen_0' [C:/Users/Guille/Documents/Universidad/Sexto/1er Cuatri/DSED/Entrega/DSED/Entrega/Entrega/Entrega.runs/synth_1/.Xil/Vivado-12720-LAPTOP-07004HLV/realtime/blk_mem_gen_0_stub.v:6]
-INFO: [Synth 8-256] done synthesizing module 'blk_mem_gen_0' (10#1) [C:/Users/Guille/Documents/Universidad/Sexto/1er Cuatri/DSED/Entrega/DSED/Entrega/Entrega/Entrega.runs/synth_1/.Xil/Vivado-12720-LAPTOP-07004HLV/realtime/blk_mem_gen_0_stub.v:6]
+INFO: [Synth 8-3491] module 'blk_mem_gen_0' declared at 'C:/Users/Guille/Documents/Universidad/Sexto/1er Cuatri/DSED/Entrega/DSED/Entrega/Entrega/Entrega.runs/synth_1/.Xil/Vivado-3748-LAPTOP-07004HLV/realtime/blk_mem_gen_0_stub.v:6' bound to instance 'ram' of component 'blk_mem_gen_0' [C:/Users/Guille/Documents/Universidad/Sexto/1er Cuatri/DSED/Entrega/DSED/Entrega/Entrega/Entrega.srcs/sources_1/new/dsed_audio.vhd:165]
+INFO: [Synth 8-638] synthesizing module 'blk_mem_gen_0' [C:/Users/Guille/Documents/Universidad/Sexto/1er Cuatri/DSED/Entrega/DSED/Entrega/Entrega/Entrega.runs/synth_1/.Xil/Vivado-3748-LAPTOP-07004HLV/realtime/blk_mem_gen_0_stub.v:6]
+INFO: [Synth 8-256] done synthesizing module 'blk_mem_gen_0' (10#1) [C:/Users/Guille/Documents/Universidad/Sexto/1er Cuatri/DSED/Entrega/DSED/Entrega/Entrega/Entrega.runs/synth_1/.Xil/Vivado-3748-LAPTOP-07004HLV/realtime/blk_mem_gen_0_stub.v:6]
 INFO: [Synth 8-256] done synthesizing module 'dsed_audio' (11#1) [C:/Users/Guille/Documents/Universidad/Sexto/1er Cuatri/DSED/Entrega/DSED/Entrega/Entrega/Entrega.srcs/sources_1/new/dsed_audio.vhd:55]
-WARNING: [Synth 8-3331] design data_route_fir_filter has unconnected port sample_ready
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 421.469 ; gain = 133.547
+Finished RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 420.859 ; gain = 132.852
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -65,17 +63,17 @@ Report Check Netlist:
 |1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
 +------+------------------+-------+---------+-------+------------------+
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 421.469 ; gain = 133.547
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 420.859 ; gain = 132.852
 ---------------------------------------------------------------------------------
 INFO: [Device 21-403] Loading part xc7a100tcsg324-1
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
 Initializing timing engine
-Parsing XDC File [C:/Users/Guille/Documents/Universidad/Sexto/1er Cuatri/DSED/Entrega/DSED/Entrega/Entrega/Entrega.runs/synth_1/.Xil/Vivado-12720-LAPTOP-07004HLV/dcp5/clk_wiz_0_in_context.xdc] for cell 'control/reloj'
-Finished Parsing XDC File [C:/Users/Guille/Documents/Universidad/Sexto/1er Cuatri/DSED/Entrega/DSED/Entrega/Entrega/Entrega.runs/synth_1/.Xil/Vivado-12720-LAPTOP-07004HLV/dcp5/clk_wiz_0_in_context.xdc] for cell 'control/reloj'
-Parsing XDC File [C:/Users/Guille/Documents/Universidad/Sexto/1er Cuatri/DSED/Entrega/DSED/Entrega/Entrega/Entrega.runs/synth_1/.Xil/Vivado-12720-LAPTOP-07004HLV/dcp7/blk_mem_gen_0_in_context.xdc] for cell 'ram'
-Finished Parsing XDC File [C:/Users/Guille/Documents/Universidad/Sexto/1er Cuatri/DSED/Entrega/DSED/Entrega/Entrega/Entrega.runs/synth_1/.Xil/Vivado-12720-LAPTOP-07004HLV/dcp7/blk_mem_gen_0_in_context.xdc] for cell 'ram'
+Parsing XDC File [C:/Users/Guille/Documents/Universidad/Sexto/1er Cuatri/DSED/Entrega/DSED/Entrega/Entrega/Entrega.runs/synth_1/.Xil/Vivado-3748-LAPTOP-07004HLV/dcp5/clk_wiz_0_in_context.xdc] for cell 'control/reloj'
+Finished Parsing XDC File [C:/Users/Guille/Documents/Universidad/Sexto/1er Cuatri/DSED/Entrega/DSED/Entrega/Entrega/Entrega.runs/synth_1/.Xil/Vivado-3748-LAPTOP-07004HLV/dcp5/clk_wiz_0_in_context.xdc] for cell 'control/reloj'
+Parsing XDC File [C:/Users/Guille/Documents/Universidad/Sexto/1er Cuatri/DSED/Entrega/DSED/Entrega/Entrega/Entrega.runs/synth_1/.Xil/Vivado-3748-LAPTOP-07004HLV/dcp7/blk_mem_gen_0_in_context.xdc] for cell 'ram'
+Finished Parsing XDC File [C:/Users/Guille/Documents/Universidad/Sexto/1er Cuatri/DSED/Entrega/DSED/Entrega/Entrega/Entrega.runs/synth_1/.Xil/Vivado-3748-LAPTOP-07004HLV/dcp7/blk_mem_gen_0_in_context.xdc] for cell 'ram'
 Parsing XDC File [C:/Users/Guille/Documents/Universidad/Sexto/1er Cuatri/DSED/Entrega/DSED/Nexys4DDR_Master.xdc]
 Finished Parsing XDC File [C:/Users/Guille/Documents/Universidad/Sexto/1er Cuatri/DSED/Entrega/DSED/Nexys4DDR_Master.xdc]
 INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [C:/Users/Guille/Documents/Universidad/Sexto/1er Cuatri/DSED/Entrega/DSED/Nexys4DDR_Master.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/dsed_audio_propImpl.xdc].
@@ -85,35 +83,35 @@ Completed Processing XDC Constraints
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.006 . Memory (MB): peak = 761.008 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.007 . Memory (MB): peak = 762.246 ; gain = 0.000
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:15 ; elapsed = 00:00:17 . Memory (MB): peak = 761.008 ; gain = 473.086
+Finished Constraint Validation : Time (s): cpu = 00:00:16 ; elapsed = 00:00:20 . Memory (MB): peak = 762.246 ; gain = 474.238
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7a100tcsg324-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:15 ; elapsed = 00:00:17 . Memory (MB): peak = 761.008 ; gain = 473.086
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:16 ; elapsed = 00:00:20 . Memory (MB): peak = 762.246 ; gain = 474.238
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
-Applied set_property IO_BUFFER_TYPE = NONE for clk_100Mhz. (constraint file  {C:/Users/Guille/Documents/Universidad/Sexto/1er Cuatri/DSED/Entrega/DSED/Entrega/Entrega/Entrega.runs/synth_1/.Xil/Vivado-12720-LAPTOP-07004HLV/dcp5/clk_wiz_0_in_context.xdc}, line 3).
-Applied set_property CLOCK_BUFFER_TYPE = NONE for clk_100Mhz. (constraint file  {C:/Users/Guille/Documents/Universidad/Sexto/1er Cuatri/DSED/Entrega/DSED/Entrega/Entrega/Entrega.runs/synth_1/.Xil/Vivado-12720-LAPTOP-07004HLV/dcp5/clk_wiz_0_in_context.xdc}, line 4).
+Applied set_property IO_BUFFER_TYPE = NONE for clk_100Mhz. (constraint file  {C:/Users/Guille/Documents/Universidad/Sexto/1er Cuatri/DSED/Entrega/DSED/Entrega/Entrega/Entrega.runs/synth_1/.Xil/Vivado-3748-LAPTOP-07004HLV/dcp5/clk_wiz_0_in_context.xdc}, line 3).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for clk_100Mhz. (constraint file  {C:/Users/Guille/Documents/Universidad/Sexto/1er Cuatri/DSED/Entrega/DSED/Entrega/Entrega/Entrega.runs/synth_1/.Xil/Vivado-3748-LAPTOP-07004HLV/dcp5/clk_wiz_0_in_context.xdc}, line 4).
 Applied set_property DONT_TOUCH = true for control/reloj. (constraint file  auto generated constraint, line ).
 Applied set_property DONT_TOUCH = true for ram. (constraint file  auto generated constraint, line ).
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:15 ; elapsed = 00:00:17 . Memory (MB): peak = 761.008 ; gain = 473.086
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:16 ; elapsed = 00:00:20 . Memory (MB): peak = 762.246 ; gain = 474.238
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-5544] ROM "next_y" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
 INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'Moore_fir_filter'
 WARNING: [Synth 8-6014] Unused sequential element state_reg was removed.  [C:/Users/Guille/Documents/Universidad/Sexto/1er Cuatri/DSED/Entrega/DSED/Entrega/Entrega/Entrega.srcs/sources_1/new/Moore_fir_filter.vhd:55]
 INFO: [Synth 8-5544] ROM "next_next_out_ready" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
-INFO: [Synth 8-4471] merging register 'sc3_reg[7:0]' into 'sc1_reg[7:0]' [C:/Users/Guille/Documents/Universidad/Sexto/1er Cuatri/DSED/Entrega/DSED/Entrega/Entrega/Entrega.srcs/sources_1/new/fir_filter.vhd:112]
-INFO: [Synth 8-4471] merging register 'sc4_reg[7:0]' into 'sc0_reg[7:0]' [C:/Users/Guille/Documents/Universidad/Sexto/1er Cuatri/DSED/Entrega/DSED/Entrega/Entrega/Entrega.srcs/sources_1/new/fir_filter.vhd:113]
-WARNING: [Synth 8-6014] Unused sequential element sc3_reg was removed.  [C:/Users/Guille/Documents/Universidad/Sexto/1er Cuatri/DSED/Entrega/DSED/Entrega/Entrega/Entrega.srcs/sources_1/new/fir_filter.vhd:112]
-WARNING: [Synth 8-6014] Unused sequential element sc4_reg was removed.  [C:/Users/Guille/Documents/Universidad/Sexto/1er Cuatri/DSED/Entrega/DSED/Entrega/Entrega/Entrega.srcs/sources_1/new/fir_filter.vhd:113]
+INFO: [Synth 8-4471] merging register 'sc3_reg[7:0]' into 'sc1_reg[7:0]' [C:/Users/Guille/Documents/Universidad/Sexto/1er Cuatri/DSED/Entrega/DSED/Entrega/Entrega/Entrega.srcs/sources_1/new/fir_filter.vhd:111]
+INFO: [Synth 8-4471] merging register 'sc4_reg[7:0]' into 'sc0_reg[7:0]' [C:/Users/Guille/Documents/Universidad/Sexto/1er Cuatri/DSED/Entrega/DSED/Entrega/Entrega/Entrega.srcs/sources_1/new/fir_filter.vhd:112]
+WARNING: [Synth 8-6014] Unused sequential element sc3_reg was removed.  [C:/Users/Guille/Documents/Universidad/Sexto/1er Cuatri/DSED/Entrega/DSED/Entrega/Entrega/Entrega.srcs/sources_1/new/fir_filter.vhd:111]
+WARNING: [Synth 8-6014] Unused sequential element sc4_reg was removed.  [C:/Users/Guille/Documents/Universidad/Sexto/1er Cuatri/DSED/Entrega/DSED/Entrega/Entrega/Entrega.srcs/sources_1/new/fir_filter.vhd:112]
 INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'controlador'
 WARNING: [Synth 8-6014] Unused sequential element state_reg was removed.  [C:/Users/Guille/Documents/Universidad/Sexto/1er Cuatri/DSED/Entrega/DSED/Entrega/Entrega/Entrega.srcs/sources_1/new/controlador.vhd:96]
 INFO: [Synth 8-5544] ROM "splay_enable" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
@@ -160,7 +158,7 @@ WARNING: [Synth 8-6014] Unused sequential element state_reg was removed.  [C:/Us
 INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'sequential' in module 'controlador'
 WARNING: [Synth 8-6014] Unused sequential element state_reg was removed.  [C:/Users/Guille/Documents/Universidad/Sexto/1er Cuatri/DSED/Entrega/DSED/Entrega/Entrega/Entrega.srcs/sources_1/new/controlador.vhd:96]
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:16 ; elapsed = 00:00:17 . Memory (MB): peak = 761.008 ; gain = 473.086
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:17 ; elapsed = 00:00:21 . Memory (MB): peak = 762.246 ; gain = 474.238
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -339,7 +337,7 @@ WARNING: [Synth 8-3332] Sequential element (fir/data_route/r_r_reg_reg[15]) is u
 WARNING: [Synth 8-3332] Sequential element (fir/data_route/r_s_reg_reg[15]) is unused and will be removed from module dsed_audio.
 WARNING: [Synth 8-3332] Sequential element (fir/sc2_reg[7]) is unused and will be removed from module dsed_audio.
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:18 ; elapsed = 00:00:20 . Memory (MB): peak = 761.008 ; gain = 473.086
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:19 ; elapsed = 00:00:24 . Memory (MB): peak = 762.246 ; gain = 474.238
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -353,13 +351,13 @@ Start Applying XDC Timing Constraints
 INFO: [Synth 8-5578] Moved timing constraint from pin 'control/reloj/clk12' to pin 'control/reloj/bbstub_clk12/O'
 INFO: [Synth 8-5819] Moved 1 constraints on hierarchical pins to their respective driving/loading pins
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:29 ; elapsed = 00:00:32 . Memory (MB): peak = 761.008 ; gain = 473.086
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:32 ; elapsed = 00:00:38 . Memory (MB): peak = 762.246 ; gain = 474.238
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:31 ; elapsed = 00:00:33 . Memory (MB): peak = 775.668 ; gain = 487.746
+Finished Timing Optimization : Time (s): cpu = 00:00:33 ; elapsed = 00:00:39 . Memory (MB): peak = 778.445 ; gain = 490.438
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -627,7 +625,7 @@ INFO: [Synth 8-3886] merging instance 'fir/data_route/r_reg_reg[13]_bret__2' (FD
 INFO: [Synth 8-3886] merging instance 'fir/data_route/r_reg_reg[13]_bret__1' (FDCE) to 'fir/data_route/r_reg_reg[14]_bret__1'
 INFO: [Synth 8-3886] merging instance 'fir/data_route/r_reg_reg[13]_bret__0' (FDCE) to 'fir/data_route/r_reg_reg[14]_bret__0'
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:32 ; elapsed = 00:00:34 . Memory (MB): peak = 788.621 ; gain = 500.699
+Finished Technology Mapping : Time (s): cpu = 00:00:35 ; elapsed = 00:00:41 . Memory (MB): peak = 791.180 ; gain = 503.172
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -652,7 +650,7 @@ INFO: [Synth 8-5365] Flop control/ssample_in_fir_reg[7] is being inverted and re
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:33 ; elapsed = 00:00:35 . Memory (MB): peak = 788.621 ; gain = 500.699
+Finished IO Insertion : Time (s): cpu = 00:00:36 ; elapsed = 00:00:42 . Memory (MB): peak = 791.180 ; gain = 503.172
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -665,7 +663,7 @@ Report Check Netlist:
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:33 ; elapsed = 00:00:35 . Memory (MB): peak = 788.621 ; gain = 500.699
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:36 ; elapsed = 00:00:42 . Memory (MB): peak = 791.180 ; gain = 503.172
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -677,25 +675,25 @@ Report RTL Partitions:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:33 ; elapsed = 00:00:35 . Memory (MB): peak = 788.621 ; gain = 500.699
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:36 ; elapsed = 00:00:42 . Memory (MB): peak = 791.180 ; gain = 503.172
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:33 ; elapsed = 00:00:35 . Memory (MB): peak = 788.621 ; gain = 500.699
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:36 ; elapsed = 00:00:42 . Memory (MB): peak = 791.180 ; gain = 503.172
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:33 ; elapsed = 00:00:35 . Memory (MB): peak = 788.621 ; gain = 500.699
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:36 ; elapsed = 00:00:42 . Memory (MB): peak = 791.180 ; gain = 503.172
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:33 ; elapsed = 00:00:35 . Memory (MB): peak = 788.621 ; gain = 500.699
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:36 ; elapsed = 00:00:42 . Memory (MB): peak = 791.180 ; gain = 503.172
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -716,7 +714,7 @@ Report Cell Usage:
 |1     |blk_mem_gen_0 |     1|
 |2     |clk_wiz_0     |     1|
 |3     |CARRY4        |    55|
-|4     |LUT1          |   118|
+|4     |LUT1          |   119|
 |5     |LUT2          |    38|
 |6     |LUT3          |    74|
 |7     |LUT4          |   152|
@@ -734,22 +732,22 @@ Report Instance Areas:
 +------+----------------------+----------------------+------+
 |      |Instance              |Module                |Cells |
 +------+----------------------+----------------------+------+
-|1     |top                   |                      |   971|
+|1     |top                   |                      |   972|
 |2     |  audio               |audio_interface       |   144|
 |3     |    EN4C              |en_4_cycles           |    10|
 |4     |    FSMDMIC           |FSMD_microphone       |    99|
 |5     |    GeneradorDePulsos |pwm                   |    35|
 |6     |  control             |controlador           |   476|
-|7     |  fir                 |fir_filter            |   332|
+|7     |  fir                 |fir_filter            |   333|
 |8     |    FSMD              |Moore_fir_filter      |   145|
-|9     |    data_route        |data_route_fir_filter |   143|
+|9     |    data_route        |data_route_fir_filter |   144|
 +------+----------------------+----------------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:33 ; elapsed = 00:00:35 . Memory (MB): peak = 788.621 ; gain = 500.699
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:36 ; elapsed = 00:00:42 . Memory (MB): peak = 791.180 ; gain = 503.172
 ---------------------------------------------------------------------------------
 Synthesis finished with 0 errors, 0 critical warnings and 77 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:21 ; elapsed = 00:00:28 . Memory (MB): peak = 788.621 ; gain = 161.160
-Synthesis Optimization Complete : Time (s): cpu = 00:00:33 ; elapsed = 00:00:35 . Memory (MB): peak = 788.621 ; gain = 500.699
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:24 ; elapsed = 00:00:32 . Memory (MB): peak = 791.180 ; gain = 161.785
+Synthesis Optimization Complete : Time (s): cpu = 00:00:36 ; elapsed = 00:00:43 . Memory (MB): peak = 791.180 ; gain = 503.172
 INFO: [Project 1-571] Translating synthesized netlist
 INFO: [Netlist 29-17] Analyzing 64 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
@@ -759,24 +757,9 @@ INFO: [Project 1-111] Unisim Transformation Summary:
   A total of 2 instances were transformed.
   (MUXCY,XORCY) => CARRY4: 2 instances
 
-152 Infos, 79 Warnings, 0 Critical Warnings and 0 Errors encountered.
+152 Infos, 77 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:35 ; elapsed = 00:00:39 . Memory (MB): peak = 788.688 ; gain = 507.461
+synth_design: Time (s): cpu = 00:00:38 ; elapsed = 00:00:47 . Memory (MB): peak = 795.445 ; gain = 514.129
 INFO: [Common 17-1381] The checkpoint 'C:/Users/Guille/Documents/Universidad/Sexto/1er Cuatri/DSED/Entrega/DSED/Entrega/Entrega/Entrega.runs/synth_1/dsed_audio.dcp' has been generated.
-report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.019 . Memory (MB): peak = 788.688 ; gain = 0.000
-INFO: [Common 17-206] Exiting Vivado at Wed Dec 20 16:03:29 2017...
-
-*** Running vivado
-    with args -log dsed_audio.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source dsed_audio.tcl
-
-
-****** Vivado v2017.2 (64-bit)
-  **** SW Build 1909853 on Thu Jun 15 18:39:09 MDT 2017
-  **** IP Build 1909766 on Thu Jun 15 19:58:00 MDT 2017
-    ** Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
-
-source dsed_audio.tcl -notrace
-Command: synth_design -top dsed_audio -part xc7a100tcsg324-1 -retiming
-Starting synth_design
-Attempting to get a license for feature 'Synthesis' and/or device 'xc7a100t-csg324'
-INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a100t-csg324'
+report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.033 . Memory (MB): peak = 795.445 ; gain = 0.000
+INFO: [Common 17-206] Exiting Vivado at Thu Dec 21 11:42:35 2017...

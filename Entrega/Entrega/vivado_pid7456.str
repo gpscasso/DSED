@@ -615,3 +615,4 @@ selectButton(PAResourceCommand.PACommandNames_SIMULATION_RELAUNCH, "simulation_r
 // TclEventType: PACKAGER_UNLOAD_CORE
 // TclEventType: LAUNCH_SIM
 // Tcl Message: INFO: [USF-XSim-69] 'compile' step finished in '3' seconds INFO: [Vivado 12-4795] Using compiled simulation libraries for IPs INFO: [USF-XSim-3] XSim::Elaborate design INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'C:/Users/Guille/Documents/Universidad/Sexto/1er Cuatri/DSED/Entrega/DSED/Entrega/Entrega/Entrega.sim/sim_1/behav' 
+// Tcl Message: Vivado Simulator 2017.2 Copyright 1986-1999, 2001-2016 Xilinx, Inc. All Rights Reserved. Running: C:/Xilinx/Vivado/2017.2/bin/unwrapped/win64.o/xelab.exe -wto 934ce40a663746aa82833165225fafba --debug typical --relax --mt 2 -L xil_defaultlib -L blk_mem_gen_v8_3_6 -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot audio_tb_behav xil_defaultlib.audio_tb xil_defaultlib.glbl -log elaborate.log  Using 2 slave threads. Starting static elaboration 

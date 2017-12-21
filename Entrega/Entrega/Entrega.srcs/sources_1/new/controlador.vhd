@@ -186,6 +186,7 @@ begin
                 end if;
                 
             when Sfir1 =>
+                splay_enable <= '1';
                 if(first = '1') then
                     sena <= '1';   
                     next_sample_in_fir <= douta;
