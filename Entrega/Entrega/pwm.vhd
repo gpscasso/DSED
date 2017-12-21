@@ -36,7 +36,7 @@ entity pwm is
     Port ( clk_12megas : in STD_LOGIC;
            reset : in STD_LOGIC;
            en_2_cycles : in STD_LOGIC;
-           sample_in : in STD_LOGIC_VECTOR (sample_size-1 downto 0);
+           sample_in : in STD_LOGIC_VECTOR (volumen_size-1 downto 0);
            sample_request : out STD_LOGIC;
            pwm_pulse : out STD_LOGIC);
 end pwm;
@@ -81,7 +81,7 @@ OUTPUT_DECODE: process (r_next, r_reg, sample_in)
             sample_request_next <= '0';
         end if;
         
-        if(r_reg<unsigned('0'&sample_in) or sample_in="0000000") then
+        if(r_reg<unsigned('0'&sample_in) or unsigned(sample_in)=0) then
              buf_next <= '1';
         else
              buf_next <= '0';

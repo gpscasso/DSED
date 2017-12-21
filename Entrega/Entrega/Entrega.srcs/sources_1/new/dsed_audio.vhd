@@ -22,11 +22,9 @@
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 use work.package_dsed.all;
-
 -- Uncomment the following library declaration if using
 -- arithmetic functions with Signed or Unsigned values
 use IEEE.NUMERIC_STD.ALL;
-
 -- Uncomment the following library declaration if instantiating
 -- any Xilinx leaf cells in this code.
 --library UNISIM;
@@ -123,7 +121,7 @@ architecture Behavioral of dsed_audio is
            --Playing ports
            --To/From the controller
            play_enable: in STD_LOGIC;
-           sample_in: in std_logic_vector(sample_size-1 downto 0);
+           sample_in: in std_logic_vector(volumen_size-1 downto 0);
            sample_request: out std_logic;
            --To/From the mini-jack
            jack_sd : out STD_LOGIC;
@@ -152,16 +150,44 @@ end component;
     signal ssample_in_enable_fir, ssample_out_ready_fir: std_logic;
     signal sfilter_select: std_logic;
     
-
+    signal svolumen, factor_vector, s_volumen_in : std_logic_vector(volumen_size-1 downto 0);
+    signal slevel : std_logic_vector(4 downto 0):= "01010"; -- Tiene 5 bits porque va de 0 a 21
+    signal factor : real range 0.0 to 8.0;
+ 
 begin
-
+    factor <= 0.0       when slevel = "00000" else
+           0.0358023407 when slevel = "00001" else
+           0.0792955269 when slevel = "00010" else
+           0.13213166   when slevel = "00011" else
+           0.196317737  when slevel = "00100" else
+           0.274291885  when slevel = "00101" else
+           0.369015975  when slevel = "00110" else
+           0.48408813   when slevel = "00111" else
+           0.623879399  when slevel = "01000" else
+           0.793699796  when slevel = "01001" else
+           1.0          when slevel = "01010" else
+           1.25061638   when slevel = "01011" else
+           1.55506869   when slevel = "01100" else
+           1.92492162   when slevel = "01101" else
+           2.37422416   when slevel = "01110" else
+           2.9200432    when slevel = "01111" else
+           3.58311182   when slevel = "10000" else
+           4.38861691   when slevel = "10001" else
+           5.36715579   when slevel = "10010" else
+           6.55589857   when slevel = "10011" else
+           8.0          when slevel = "10100";
+           
+           factor_vector <= std_logic_vector(to_signed(integer(factor*2048.0),11));
+           
     fir: fir_filter  port map(clk12,reset,signed(ssample_in_firoff),ssample_in_enable_fir,sfilter_select,ssample_out_fir,ssample_out_ready_fir);
 
     ssample_in_firoff <= not(ssample_in_fir(sample_size-1))&ssample_in_fir(sample_size-2 downto 0);
     ssample_out_firoff <= STD_LOGIC_VECTOR(not(ssample_out_fir(sample_size-1))&ssample_out_fir(sample_size-2 downto 0));
     
+    s_volumen_in <= std_logic_vector(unsigned(factor_vector)*unsigned("000"&sin));
+    
     control: controlador port map(clk_100Mhz,reset,clk12,BTNC,BTNL,BTNR,sw0,sw1,srecord,sout,sout_ready,splay,sin,srequest,sena,swea,saddra,sdina,sdouta,ssample_in_fir,ssample_in_enable_fir,sfilter_select,ssample_out_firoff,ssample_out_ready_fir);
-    audio: audio_interface port map(clk12,reset,srecord,sout,sout_ready,micro_clk,micro_data,micro_LR,splay,sin,srequest,jack_sd,jack_pwm);
+    audio: audio_interface port map(clk12,reset,srecord,sout,sout_ready,micro_clk,micro_data,micro_LR,splay,s_volumen_in,srequest,jack_sd,jack_pwm);
     ram: blk_mem_gen_0 port map(clk12,'1',swea,saddra,sdina,sdouta);
 
 end Behavioral;

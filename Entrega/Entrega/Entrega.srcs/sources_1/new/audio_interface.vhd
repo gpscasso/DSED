@@ -47,7 +47,7 @@ entity audio_interface is
            --Playing ports
            --To/From the controller
            play_enable: in STD_LOGIC;
-           sample_in: in std_logic_vector(sample_size-1 downto 0);
+           sample_in: in std_logic_vector(volumen_size-1 downto 0);
            sample_request: out std_logic;
            --To/From the mini-jack
            jack_sd : out STD_LOGIC;
@@ -75,7 +75,7 @@ architecture Behavioral of audio_interface is
            Port ( clk_12megas : in STD_LOGIC;
                   reset : in STD_LOGIC;
                   en_2_cycles : in STD_LOGIC;
-                  sample_in : in STD_LOGIC_VECTOR (sample_size-1 downto 0);
+                  sample_in : in STD_LOGIC_VECTOR (volumen_size-1 downto 0);
                   sample_request : out STD_LOGIC;
                   pwm_pulse : out STD_LOGIC);
     End component;
