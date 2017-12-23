@@ -150,41 +150,71 @@ end component;
     signal ssample_in_enable_fir, ssample_out_ready_fir: std_logic;
     signal sfilter_select: std_logic;
     
-    signal svolumen, factor_vector, s_volumen_in : std_logic_vector(volumen_size-1 downto 0);
+    signal svolumen, factor_vector, ssample_out_firvol : std_logic_vector(volumen_size-1 downto 0);
     signal slevel : std_logic_vector(4 downto 0):= "01010"; -- Tiene 5 bits porque va de 0 a 21
-    signal factor : real range 0.0 to 8.0;
- 
+    signal s_volumen_in : std_logic_vector(22 downto 0); 
+        --signal factor : real range 0.0 to 8.0;
+    signal factor : std_logic_vector(10 downto 0);
 begin
-    factor <= 0.0       when slevel = "00000" else
-           0.0358023407 when slevel = "00001" else
-           0.0792955269 when slevel = "00010" else
-           0.13213166   when slevel = "00011" else
-           0.196317737  when slevel = "00100" else
-           0.274291885  when slevel = "00101" else
-           0.369015975  when slevel = "00110" else
-           0.48408813   when slevel = "00111" else
-           0.623879399  when slevel = "01000" else
-           0.793699796  when slevel = "01001" else
-           1.0          when slevel = "01010" else
-           1.25061638   when slevel = "01011" else
-           1.55506869   when slevel = "01100" else
-           1.92492162   when slevel = "01101" else
-           2.37422416   when slevel = "01110" else
-           2.9200432    when slevel = "01111" else
-           3.58311182   when slevel = "10000" else
-           4.38861691   when slevel = "10001" else
-           5.36715579   when slevel = "10010" else
-           6.55589857   when slevel = "10011" else
-           8.0          when slevel = "10100";
+--    factor <= 0.0       when slevel = "00000" else
+--           0.0358023407 when slevel = "00001" else
+--           0.0792955269 when slevel = "00010" else
+--           0.13213166   when slevel = "00011" else
+--           0.196317737  when slevel = "00100" else
+--           0.274291885  when slevel = "00101" else
+--           0.369015975  when slevel = "00110" else
+--           0.48408813   when slevel = "00111" else
+--           0.623879399  when slevel = "01000" else
+--           0.793699796  when slevel = "01001" else
+--           1.0          when slevel = "01010" else
+--           1.25061638   when slevel = "01011" else
+--           1.55506869   when slevel = "01100" else
+--           1.92492162   when slevel = "01101" else
+--           2.37422416   when slevel = "01110" else
+--           2.9200432    when slevel = "01111" else
+--           3.58311182   when slevel = "10000" else
+--           4.38861691   when slevel = "10001" else
+--           5.36715579   when slevel = "10010" else
+--           6.55589857   when slevel = "10011" else
+--           8.0          when slevel = "10100";
            
-           factor_vector <= std_logic_vector(to_signed(integer(factor*2048.0),11));
-           
+--           factor_vector <= std_logic_vector(to_signed(integer(factor*2048.0),11));
+    -- <5,7> format --- S NNNN . NNNNNNN           
+    factor <=    "00000000000"   when slevel = "00000" else
+                 "00000000101"   when slevel = "00001" else
+                 "00000001010"   when slevel = "00010" else
+                 "00000010001"   when slevel = "00011" else
+                 "00000011001"   when slevel = "00100" else
+                 "00000100011"   when slevel = "00101" else
+                 "00000101111"   when slevel = "00110" else
+                 "00000111110"   when slevel = "00111" else
+                 "00001010000"   when slevel = "01000" else
+                 "00001100110"   when slevel = "01001" else
+                 "00010000000"   when slevel = "01010" else
+                 "00010100000"   when slevel = "01011" else
+                 "00011000111"   when slevel = "01100" else
+                 "00011110110"   when slevel = "01101" else
+                 "00100110000"   when slevel = "01110" else
+                 "00101110110"   when slevel = "01111" else
+                 "00111001011"   when slevel = "10000" else
+                 "01000110010"   when slevel = "10001" else
+                 "01010101111"   when slevel = "10010" else
+                 "01101000111"   when slevel = "10011" else
+                 "10000000000"   when slevel = "10100";
+                  
+                  --factor_vector <= std_logic_vector(to_signed(integer(factor*2048.0),11));
+                  
     fir: fir_filter  port map(clk12,reset,signed(ssample_in_firoff),ssample_in_enable_fir,sfilter_select,ssample_out_fir,ssample_out_ready_fir);
 
     ssample_in_firoff <= not(ssample_in_fir(sample_size-1))&ssample_in_fir(sample_size-2 downto 0);
+    --revise because this will change for the final output, source is not <1,7> anymore
     ssample_out_firoff <= STD_LOGIC_VECTOR(not(ssample_out_fir(sample_size-1))&ssample_out_fir(sample_size-2 downto 0));
     
-    s_volumen_in <= std_logic_vector(unsigned(factor_vector)*unsigned("000"&sin));
+   -- s_volumen_in <= std_logic_vector(unsigned(factor_vector)*unsigned("000"&sin));
+   
+    ssample_out_firvol <=(ssample_out_fir(sample_size-1)&STD_LOGIC_VECTOR((unsigned("0000"&ssample_out_fir)*unsigned(factor))/"000010000000000000000000"));
+    
+   
     
     control: controlador port map(clk_100Mhz,reset,clk12,BTNC,BTNL,BTNR,sw0,sw1,srecord,sout,sout_ready,splay,sin,srequest,sena,swea,saddra,sdina,sdouta,ssample_in_fir,ssample_in_enable_fir,sfilter_select,ssample_out_firoff,ssample_out_ready_fir);
     audio: audio_interface port map(clk12,reset,srecord,sout,sout_ready,micro_clk,micro_data,micro_LR,splay,s_volumen_in,srequest,jack_sd,jack_pwm);
