@@ -79,8 +79,8 @@ architecture Behavioral of fir_filter is
     constant c1lp, c3lp: signed(sample_size-1 downto 0):="00111111";
     constant c2lp: signed(sample_size-1 downto 0):="00111001";
     
-    constant c0hp, c4hp: signed(sample_size-1 downto 0):="10000001";
-    constant c1hp, c3hp: signed(sample_size-1 downto 0):="10011010";
+    constant c0hp, c4hp: signed(sample_size-1 downto 0):="11111110";
+    constant c1hp, c3hp: signed(sample_size-1 downto 0):="11100110";
     constant c2hp: signed(sample_size-1 downto 0):="01001101";
         
 begin
