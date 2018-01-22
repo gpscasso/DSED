@@ -1,0 +1,9 @@
+Unable to capture context for thread 4884 in process 11844, can not generate back trace
+Unable to capture context for thread 13992 in process 11844, can not generate back trace
+Exception at PC 0x00007FF91B28BB93
+Printing stacktrace...
+
+Unable to capture context for thread 5088 in process 11844, can not generate back trace
+Exception at PC 0x00007FF91AF91A52
+Attemped to write at address 0x00007FF91DC5ABA4
+Another exception occurred while writing back trace, hence exiting
